@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/Look.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/Look.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,8 @@
       <updated>1662455429382</updated>
       <workItem from="1662456404828" duration="94000" />
       <workItem from="1662462055504" duration="746000" />
-      <workItem from="1662531581088" duration="3811000" />
+      <workItem from="1662531581088" duration="3860000" />
+      <workItem from="1662542896811" duration="2221000" />
     </task>
     <servers />
   </component>
