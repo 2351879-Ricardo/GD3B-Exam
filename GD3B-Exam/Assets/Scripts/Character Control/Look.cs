@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class Look : MonoBehaviour
 {
     [SerializeField] private Transform camAnchor;
-    [SerializeField] private float topBound, bottomBound;
+    [SerializeField] private float rotationSpeed,topBound, bottomBound;
 
     private Vector3 _inVec;
+
+    private float _lookX, _lookY;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,28 +19,17 @@ public class Look : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
+        var currentRot = camAnchor.localRotation.eulerAngles;
+
+        _lookX = Mathf.Clamp(_lookX + _inVec.x * (rotationSpeed*0.1f), topBound, bottomBound);
+        _lookY += _inVec.y * (rotationSpeed*0.1f);
+
+        var lookVec = new Vector3(_lookX*-1, _lookY, 0f);
         
-    }
-
-    private void FixedUpdate()
-    {
-        var currentRot = camAnchor.rotation.eulerAngles;
-
-        var lookVec = currentRot - _inVec;
-        var angle = lookVec.x;
-
-        if (angle > 180 && angle < topBound)
-        {
-            lookVec.x = topBound;
-        }
-        else if (angle < 180 && angle > bottomBound)
-        {
-            lookVec.x = bottomBound;
-        }
-        
-        camAnchor.rotation = Quaternion.Euler(lookVec);
+        camAnchor.localRotation = Quaternion.Euler(lookVec);
     }
 
     private void OnLook(InputValue input)

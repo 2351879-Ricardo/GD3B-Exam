@@ -671,6 +671,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camAnchor: {fileID: 1377283329}
+  rotationSpeed: 10
+  topBound: -45
+  bottomBound: 45
 --- !u!114 &883197644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveVec: {x: 0, y: 0, z: 0}
   camAnchor: {fileID: 1377283329}
-  moveSpeed: 10
+  moveSpeed: 1
 --- !u!114 &883197645
 MonoBehaviour:
   m_ObjectHideFlags: 0
