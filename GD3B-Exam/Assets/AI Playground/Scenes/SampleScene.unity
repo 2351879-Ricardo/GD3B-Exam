@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c5821aea81996fe44956eaf8ce459522, type: 2}
     - target: {fileID: 1066910053003865102, guid: 315102d4aa63f4d4695f377e8fb7ca09, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8274873701517981592, guid: 315102d4aa63f4d4695f377e8fb7ca09, type: 3}
       propertyPath: m_IsActive
@@ -581,9 +581,9 @@ MonoBehaviour:
   overallFitness: 0
   distanceMultipler: 1.4
   avgSpeedMultiplier: 0.4
-  sensorMultiplier: 0.2
+  sensorMultiplier: 0.3
   LAYERS: 1
-  NEURONS: 10
+  NEURONS: 5
 --- !u!114 &1642044458
 MonoBehaviour:
   m_ObjectHideFlags: 0
