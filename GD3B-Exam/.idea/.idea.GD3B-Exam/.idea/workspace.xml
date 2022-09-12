@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ab275a5f-2b4a-4fc4-a139-a6e280dbed6b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/BezierCurve.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/BezierCurve.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/BezierFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/BezierFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Weapons/Weapons.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapons/Weapons.fbx.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +79,7 @@
       <workItem from="1662640389229" duration="4268000" />
       <workItem from="1662704273075" duration="5725000" />
       <workItem from="1662713889330" duration="945000" />
+      <workItem from="1662895107996" duration="2049000" />
     </task>
     <servers />
   </component>
