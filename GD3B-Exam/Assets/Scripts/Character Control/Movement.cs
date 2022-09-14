@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
 
+
 public class Movement : MonoBehaviour
 {
     [SerializeField] private Vector3 moveVec;
@@ -26,6 +27,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        #region MoveAround
         var camFwd = camAnchor.forward;
         var camRt = camAnchor.right;
 
@@ -35,6 +37,7 @@ public class Movement : MonoBehaviour
         var dir = (camFwd * moveVec.z + camRt * moveVec.x);
         
         _rb.velocity = dir * moveSpeed;
+        #endregion
     }
 
     private void OnMove(InputValue value)

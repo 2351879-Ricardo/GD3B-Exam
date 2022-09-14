@@ -22,19 +22,19 @@ public class Look : MonoBehaviour
 
     private void Update()
     {
-        var currentRot = camAnchor.localRotation.eulerAngles;
-
+        #region LookAround
         _lookX = Mathf.Clamp(_lookX + _inVec.x * (rotationSpeed*0.1f), topBound, bottomBound);
         _lookY += _inVec.y * (rotationSpeed*0.1f);
 
         var lookVec = new Vector3(_lookX*-1, _lookY, 0f);
         
         camAnchor.localRotation = Quaternion.Euler(lookVec);
+        #endregion
     }
 
     private void OnLook(InputValue input)
     {
         var temp = input.Get<Vector2>();
-        _inVec = new Vector3(temp.y, temp.x*-1, 0f);
+        _inVec = new Vector3(temp.y, temp.x, 0f);
     }
 }
