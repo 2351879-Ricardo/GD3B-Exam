@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemHighlight : MonoBehaviour
+public class LineOfSight : MonoBehaviour
 {
     public Transform lookPnt;
     // Start is called before the first frame update
