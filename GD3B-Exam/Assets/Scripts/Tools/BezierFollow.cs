@@ -48,8 +48,7 @@ public class BezierFollow : MonoBehaviour
                 objectPosition = Mathf.Pow(1 - tParam, 3) * p0 + 3 * Mathf.Pow(1 - tParam, 2) * tParam * p1 + 3 * (1 - tParam) * Mathf.Pow(tParam, 2) * p2 + Mathf.Pow(tParam, 3) * p3;
                 
                 Vector3 dir = objectPosition - transform.position;
-                dir.y = 0;
-                dir.z = 90;// if you want in sepecific directions only or its optional 
+                dir.y = 0; // if you want in sepecific directions only or its optional 
                 
                 transform.rotation = Quaternion.LookRotation(dir);
                 transform.position = objectPosition;

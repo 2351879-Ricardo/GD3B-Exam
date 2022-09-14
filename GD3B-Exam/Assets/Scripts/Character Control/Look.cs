@@ -35,6 +35,6 @@ public class Look : MonoBehaviour
     private void OnLook(InputValue input)
     {
         var temp = input.Get<Vector2>();
-        _inVec = new Vector3(temp.y, temp.x*-1, 0f);
+        _inVec = new Vector3(temp.y, temp.x, 0f);
     }
 }
