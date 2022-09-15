@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458954eeb0f7f7040ba69f35c67531bc, type: 3}
   m_Name: TestResource
   m_EditorClassIdentifier: 
-  test: 
+  itemName: Test Resource
+  itemDescription: This is a test resource
+  itemSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
