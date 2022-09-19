@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-5922
+  m_Name: pb_Mesh24604
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2032,7 +2032,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24574
+  m_Name: pb_Mesh24566
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2197,6 +2197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 171464697684141793, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.48
+      objectReference: {fileID: 0}
     - target: {fileID: 7350030772535666031, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
       propertyPath: m_Icon
       value: 
@@ -2257,5 +2261,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8118447701869652028, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
