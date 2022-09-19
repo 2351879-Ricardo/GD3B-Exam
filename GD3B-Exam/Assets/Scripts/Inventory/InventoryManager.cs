@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +20,19 @@ public struct InventoryItem
 }
 public class InventoryManager : MonoBehaviour
 {
+    [SerializeField] private GameObject inventoryCanvas;
     [SerializeField] private List<InventoryItem> inventory;
+    
+    private bool _inventoryOpen = false;
+
+    // // Test Functionality
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.I))
+    //     {
+    //         ToggleInventory();
+    //     }
+    // }
 
     public void AddToInventory(ResourceSO resource, int value)
     {
@@ -40,6 +53,12 @@ public class InventoryManager : MonoBehaviour
             if (inventory[i].resourceCount >= value) inventory[i].RemoveResource(value);
             break;
         }
+    }
+
+    public void ToggleInventory()
+    {
+        _inventoryOpen = !_inventoryOpen;
+        inventoryCanvas.SetActive(_inventoryOpen);
     }
     
     public List<InventoryItem> InventoryList => inventory;
