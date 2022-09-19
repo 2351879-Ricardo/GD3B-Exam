@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum EnemyType
@@ -6,6 +7,18 @@ public enum EnemyType
     MELEE,
     MAGIC
 }
+
+[System.Serializable]
+public struct EnemyLootDrop
+{
+    [SerializeField] private float lootDropChance;
+    [SerializeField] private float lootDropAmount;
+    [SerializeField] private ResourceSO resourceDrop;
+
+    public float LootDropChance => lootDropChance;
+    public float LootDropAmount => lootDropAmount;
+    public ResourceSO ResourceDrop => resourceDrop;
+};
 
 [CreateAssetMenu(menuName = "SO's/Enemies", fileName = "NewEnemySO")]
 public class EnemySO : ScriptableObject
@@ -16,6 +29,8 @@ public class EnemySO : ScriptableObject
     [SerializeField] private float enemyAttackRange = 10f;
     [SerializeField] private float enemyNoticeRange = 20f;
     [SerializeField] private EnemyType enemyType;
+
+    [SerializeField] private List<EnemyLootDrop> enemyDropTable;
     
     public float EnemyHealth
     {
@@ -48,4 +63,5 @@ public class EnemySO : ScriptableObject
     }
 
     public EnemyType EnemyType => enemyType;
+    public List<EnemyLootDrop> EnemyDropTable => enemyDropTable;
 }

@@ -18,3 +18,7 @@ MonoBehaviour:
   enemyAttackRange: 15
   enemyNoticeRange: 25
   enemyType: 0
+  enemyDropTable:
+  - lootDropChance: 1
+    lootDropAmount: 1
+    resourceDrop: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
