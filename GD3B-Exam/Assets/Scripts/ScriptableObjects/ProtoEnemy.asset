@@ -18,4 +18,8 @@ MonoBehaviour:
   enemyAttackRange: 10
   enemyNoticeRange: 20
   enemyType: 0
-  enemyDropTable: []
+  enemyDropTable:
+  - lootDropChance: 0.5
+    lootDropAmount: 2
+    resourceDrop: {fileID: 11400000, guid: 4dea4b2567f3c6141901be8cc4ee3b8e, type: 2}
+    resourcePrefab: {fileID: 8644505621612757785, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}

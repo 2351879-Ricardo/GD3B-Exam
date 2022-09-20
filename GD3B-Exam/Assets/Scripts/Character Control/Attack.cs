@@ -22,8 +22,13 @@ public class Attack : MonoBehaviour
 
     private void OnAttack()
     {
-        _ltAttackVal++;
-        Debug.Log(_ltAttackVal);
+        if (_ltAttackVal < 4)
+        {
+            _ltAttackVal++;
+            Debug.Log(_ltAttackVal);
+        }
+        else
+            return;
 
         _anim.SetBool($"ltAttack{_ltAttackVal}", true);
         
