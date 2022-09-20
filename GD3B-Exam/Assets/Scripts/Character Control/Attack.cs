@@ -27,12 +27,15 @@ public class Attack : MonoBehaviour
 
         _anim.SetBool($"ltAttack{_ltAttackVal}", true);
         
-
     }
 
-    public void EndCombo()
+    public void EndCombo(int animInd)
     {
-        _anim.SetBool($"ltAttack{_ltAttackVal}", false);
-        _ltAttackVal = 0;
+        for (int i = 1; i <= animInd; i++)
+        {
+            _anim.SetBool($"ltAttack{i}", false);
+        }
+
+        _ltAttackVal = 2;
     }
 }
