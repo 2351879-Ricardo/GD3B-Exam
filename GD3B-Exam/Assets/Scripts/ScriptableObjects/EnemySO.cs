@@ -12,12 +12,14 @@ public enum EnemyType
 public struct EnemyLootDrop
 {
     [SerializeField] private float lootDropChance;
-    [SerializeField] private float lootDropAmount;
+    [SerializeField] private int lootDropAmount;
     [SerializeField] private ResourceSO resourceDrop;
+    [SerializeField] private GameObject resourcePrefab;
 
     public float LootDropChance => lootDropChance;
-    public float LootDropAmount => lootDropAmount;
+    public int LootDropAmount => lootDropAmount;
     public ResourceSO ResourceDrop => resourceDrop;
+    public GameObject ResourcePrefab => resourcePrefab;
 };
 
 [CreateAssetMenu(menuName = "SO's/Enemies", fileName = "NewEnemySO")]

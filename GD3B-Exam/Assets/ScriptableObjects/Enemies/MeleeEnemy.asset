@@ -22,3 +22,4 @@ MonoBehaviour:
   - lootDropChance: 1
     lootDropAmount: 1
     resourceDrop: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
+    resourcePrefab: {fileID: 8644505621612757785, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
