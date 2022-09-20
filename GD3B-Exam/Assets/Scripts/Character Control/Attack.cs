@@ -36,6 +36,6 @@ public class Attack : MonoBehaviour
             _anim.SetBool($"ltAttack{i}", false);
         }
 
-        _ltAttackVal = 2;
+        _ltAttackVal = 0;
     }
 }
