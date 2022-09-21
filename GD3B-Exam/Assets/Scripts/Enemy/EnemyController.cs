@@ -33,6 +33,7 @@ public class EnemyController : MonoBehaviour
    
    private void Death()
    {
+      Debug.Log("Dead");
       GenerateLoot();
       // Send AI Information >> AI 
       Destroy(gameObject);
