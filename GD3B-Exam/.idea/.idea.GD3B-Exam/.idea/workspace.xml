@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab275a5f-2b4a-4fc4-a139-a6e280dbed6b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/SampleMat.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/SampleMat.mat.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Enemy_Playground.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Enemy_Playground.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +107,8 @@
       <workItem from="1663672298662" duration="1051000" />
       <workItem from="1663763021421" duration="310000" />
       <workItem from="1663763563182" duration="144000" />
+      <workItem from="1663765514561" duration="7000" />
+      <workItem from="1663765547809" duration="137000" />
     </task>
     <servers />
   </component>

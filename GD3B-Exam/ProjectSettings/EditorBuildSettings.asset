@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/KappPlayGround.unity
+    guid: adbd2cf4c51e4fb448e6f64df75e0e39
   m_configObjects: {}
