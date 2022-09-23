@@ -243,10 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715ad956f9e1c11498e35bb4d28ac48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camAnchor: {fileID: 7521585298183910434}
-  rotationSpeed: 10
-  topBound: -45
-  bottomBound: 45
+  playerCam: {fileID: 7521585298183910434}
+  sensitivityX: 200
+  sensitivityY: 100
+  topAngle: 45
+  bottomAngle: -45
 --- !u!114 &7521585297557970926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +272,23 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6bf406c2-ecfd-4a86-a811-89281f05d56f
+    m_ActionName: Main/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 96a9b27e-2237-419f-a7cd-69c1185db479
+    m_ActionName: Main/LookX[/Mouse/delta/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 13772fde-eb15-477d-a13b-f43efc93865c
+    m_ActionName: Main/LookY[/Mouse/delta/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cb6029b8-7125-4494-9d28-43e2a7913af1
+    m_ActionName: Main/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Main

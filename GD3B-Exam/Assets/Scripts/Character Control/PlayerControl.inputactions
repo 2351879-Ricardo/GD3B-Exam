@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "6bf406c2-ecfd-4a86-a811-89281f05d56f",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -15,10 +15,19 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Look",
-                    "type": "Value",
+                    "name": "LookX",
+                    "type": "PassThrough",
                     "id": "96a9b27e-2237-419f-a7cd-69c1185db479",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LookY",
+                    "type": "PassThrough",
+                    "id": "13772fde-eb15-477d-a13b-f43efc93865c",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -92,11 +101,11 @@
                 {
                     "name": "",
                     "id": "1b5db56d-3efd-49c7-b5dc-84940bf12d4d",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/delta/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse",
-                    "action": "Look",
+                    "groups": "Keyboard;Mouse",
+                    "action": "LookX",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -110,6 +119,17 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f27fba6-8465-40a3-a311-03347cd72089",
+                    "path": "<Mouse>/delta/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Mouse",
+                    "action": "LookY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -121,6 +141,11 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }
