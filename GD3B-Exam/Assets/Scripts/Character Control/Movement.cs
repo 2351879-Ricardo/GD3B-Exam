@@ -28,6 +28,8 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         #region MoveAround
+        
+        
         var camFwd = camAnchor.forward;
         var camRt = camAnchor.right;
 
@@ -35,6 +37,12 @@ public class Movement : MonoBehaviour
         camRt.y = 0;
 
         var dir = (camFwd * moveVec.z + camRt * moveVec.x);
+
+        if (_inVec == Vector2.zero)
+        {
+            _rb.velocity = Vector3.zero;
+            return;
+        }
         
         _rb.velocity = dir * moveSpeed;
         #endregion

@@ -6,35 +6,34 @@ using UnityEngine.InputSystem;
 
 public class Look : MonoBehaviour
 {
-    [SerializeField] private Transform camAnchor;
-    [SerializeField] private float rotationSpeed,topBound, bottomBound;
+    [SerializeField] private Transform playerCam;
+    [SerializeField] private float sensitivityX, sensitivityY;
+    [SerializeField] private float topAngle, bottomAngle;
 
-    private Vector3 _inVec;
-
-    private float _lookX, _lookY;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    private float _angleX, _angleY, _camTilt;
 
     private void Update()
     {
-        #region LookAround
-        _lookX = Mathf.Clamp(_lookX + _inVec.x * (rotationSpeed*0.1f), topBound, bottomBound);
-        _lookY += _inVec.y * (rotationSpeed*0.1f);
+        transform.Rotate(Vector3.up, _angleX * Time.deltaTime);
 
-        var lookVec = new Vector3(_lookX*-1, _lookY, 0f);
-        
-        camAnchor.localRotation = Quaternion.Euler(lookVec);
-        #endregion
+        _camTilt -= _angleY*Time.deltaTime;
+        _camTilt = Mathf.Clamp(_camTilt, bottomAngle, topAngle);
+        var targetRot = transform.eulerAngles;
+        targetRot.x = _camTilt;
+        playerCam.eulerAngles = targetRot;
+
     }
 
-    private void OnLook(InputValue input)
+    private void OnLookY(InputValue input)
     {
-        var temp = input.Get<Vector2>();
-        _inVec = new Vector3(temp.y, temp.x, 0f);
+        var temp = input.Get<float>();
+        _angleY = temp * sensitivityY;
+
+    }
+
+    private void OnLookX(InputValue input)
+    {
+        var temp = input.Get<float>();
+        _angleX = temp*sensitivityX;
     }
 }
