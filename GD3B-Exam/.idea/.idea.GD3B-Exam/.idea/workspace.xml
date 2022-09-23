@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab275a5f-2b4a-4fc4-a139-a6e280dbed6b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/Look.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/Look.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/Movement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" afterDir="false" />
     </list>
@@ -105,7 +104,7 @@
       <workItem from="1663672298662" duration="1051000" />
       <workItem from="1663763021421" duration="310000" />
       <workItem from="1663763563182" duration="144000" />
-      <workItem from="1663916694048" duration="2231000" />
+      <workItem from="1663916694048" duration="3437000" />
     </task>
     <servers />
   </component>

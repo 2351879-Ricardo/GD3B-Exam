@@ -243,10 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715ad956f9e1c11498e35bb4d28ac48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camAnchor: {fileID: 7521585298183910434}
-  rotationSpeed: 10
-  topBound: -45
-  bottomBound: 45
+  playerCam: {fileID: 7521585298183910434}
+  sensitivityX: 200
+  sensitivityY: 100
+  topAngle: 45
+  bottomAngle: -45
 --- !u!114 &7521585297557970926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: e836e97f834a63b4a968532f67471ce2, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
