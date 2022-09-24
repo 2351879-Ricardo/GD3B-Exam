@@ -12,11 +12,12 @@ public class TakeDamage : MonoBehaviour
         _ec = GetComponent<EnemyController>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Weapon"))
+        if (other.collider.tag == "Weapon")
         {
-            _ec.TakeDamage(other.GetComponent<Weapon>().damage);
+            Debug.Log("Hit");
+            _ec.TakeDamage(other.collider.GetComponent<Weapon>().damage);
         }
     }
 }

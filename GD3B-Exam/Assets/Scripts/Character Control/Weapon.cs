@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,4 +15,12 @@ public class Weapon : MonoBehaviour
     public DamageType damageType;
     
     public float damage;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyController>().TakeDamage(damage);
+        }
+    }
 }
