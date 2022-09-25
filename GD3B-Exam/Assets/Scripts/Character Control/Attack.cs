@@ -5,9 +5,15 @@ using UnityEngine.InputSystem;
 
 public class Attack : MonoBehaviour
 {
+    [SerializeField] private float attackWindowTime;
+    
     private int _ltAttackVal = 0;
 
     private Animator _anim;
+
+    public float _windowTime;
+
+    public bool _windowOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,21 +23,41 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_windowOpen)
+        {
+            _windowTime -= Time.deltaTime;
+        }
+        else if (!_windowOpen)
+        {
+            EndCombo(_ltAttackVal);
+        }
+
+        if (_windowTime <= 0 && _windowOpen)
+        {
+            _windowOpen = false;
+        }
     }
 
     private void OnAttack()
     {
-        if (_ltAttackVal < 4)
+        if (_ltAttackVal == 0 || _windowOpen)
         {
             _ltAttackVal++;
+            AttackWindowInit();
             Debug.Log(_ltAttackVal);
+            _anim.SetBool($"ltAttack{_ltAttackVal}", true);
         }
         else
             return;
 
-        _anim.SetBool($"ltAttack{_ltAttackVal}", true);
         
+        
+    }
+
+    public void AttackWindowInit()
+    {
+        _windowTime = attackWindowTime*1.1f;
+        _windowOpen = true;
     }
 
     public void EndCombo(int animInd)
