@@ -23,6 +23,7 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region Attack Window Control
         if (_windowOpen)
         {
             _windowTime -= Time.deltaTime;
@@ -36,6 +37,7 @@ public class Attack : MonoBehaviour
         {
             _windowOpen = false;
         }
+        #endregion
     }
 
     private void OnAttack()
@@ -49,9 +51,6 @@ public class Attack : MonoBehaviour
         }
         else
             return;
-
-        
-        
     }
 
     public void AttackWindowInit()

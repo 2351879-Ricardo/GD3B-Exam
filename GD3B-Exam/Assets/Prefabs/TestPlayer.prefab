@@ -233,6 +233,8 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 2
   gravity: -10
+  dodgeDistance: 4
+  dodgeTime: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64

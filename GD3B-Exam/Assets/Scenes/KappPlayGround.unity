@@ -2534,5 +2534,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7521585297557970927, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: friction
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521585297557970927, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: dodgeTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521585297557970927, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: dodgeDistance
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
