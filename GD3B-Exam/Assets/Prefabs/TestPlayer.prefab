@@ -110,7 +110,7 @@ GameObject:
   m_Layer: 0
   m_Name: OffHand
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 6090991465674501034}
   - component: {fileID: 7521585297557970926}
   - component: {fileID: 120064781400874004}
+  - component: {fileID: 6427167329836963763}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -337,6 +338,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6427167329836963763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521585297557970923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda0d37d2364a564e8b963c5e0b29c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7521585297941563134
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +576,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d3f5f8a5e40f6594cab12103b3dc9359, type: 3}
   m_PrefabInstance: {fileID: 1606306566}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &919132148478473815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d3f5f8a5e40f6594cab12103b3dc9359, type: 3}
+  m_PrefabInstance: {fileID: 1606306566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5576576083079492051
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148478473815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.008402359, y: 0.0008698255, z: 0.0093436735}
+  m_Center: {x: 0, y: 0, z: 0.0025}
 --- !u!1001 &4495606004472235791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,7 +685,7 @@ BoxCollider:
   m_GameObject: {fileID: 3648742557869111902}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.3757528, y: 0.3903255, z: 0.3945731}
   m_Center: {x: 0, y: 0, z: 0.7573632}

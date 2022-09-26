@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab275a5f-2b4a-4fc4-a139-a6e280dbed6b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TestPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TestPlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/LtAttack1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/LtAttack1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/TestPlayer.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/TestPlayer.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/WeaponIdle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/WeaponIdle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Weapons/OffHands/ShieldMaterials/Shield.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Weapons/OffHands/ShieldMaterials/Shield.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/WeaponIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/WeaponIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack3.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack3.anim.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +25,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerIdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character Control/OffHandControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemySO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerGroundAttackState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerJumpState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -117,6 +126,7 @@
       <workItem from="1663765547809" duration="137000" />
       <workItem from="1664017913718" duration="6100000" />
       <workItem from="1664173304149" duration="3454000" />
+      <workItem from="1664183638107" duration="1122000" />
     </task>
     <servers />
   </component>
