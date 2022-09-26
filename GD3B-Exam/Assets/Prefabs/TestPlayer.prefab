@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b21963cb38a9df48a277548f5bb3296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackWindowTime: 0.75
+  attackWindowTime: 0.65
   _windowTime: 0
   _windowOpen: 0
 --- !u!114 &7521585297557970926

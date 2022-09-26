@@ -62,12 +62,12 @@ public class Movement : MonoBehaviour
         }
         else if (_dodging && moveVec == Vector3.zero)
         {
-            _dogdeV = Vector3.back * (dodgeDistance/dodgeTime);
+            _dogdeV = camAnchor.forward * (dodgeDistance/dodgeTime)*-1;
             _dodgeTimeR -= Time.deltaTime;
         }
         else if (_dodging)
         {
-            _dogdeV = moveVec.normalized * (dodgeDistance/dodgeTime);
+            _dogdeV = _rb.velocity.normalized * (dodgeDistance/dodgeTime);
             _dodgeTimeR -= Time.deltaTime;
         }
 
