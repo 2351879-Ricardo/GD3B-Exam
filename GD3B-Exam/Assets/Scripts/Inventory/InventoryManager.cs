@@ -25,14 +25,14 @@ public class InventoryManager : MonoBehaviour
     
     private bool _inventoryOpen = false;
 
-    // // Test Functionality
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.I))
-    //     {
-    //         ToggleInventory();
-    //     }
-    // }
+    // Test Functionality
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInventory();
+        }
+    }
 
     public void AddToInventory(ResourceSO resource, int value)
     {

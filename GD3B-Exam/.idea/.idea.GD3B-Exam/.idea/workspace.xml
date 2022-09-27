@@ -3,17 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ab275a5f-2b4a-4fc4-a139-a6e280dbed6b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TestPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TestPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/LtAttack1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/LtAttack1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/PlayerControl.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/TestPlayer.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/TestPlayer.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/WeaponIdle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/WeaponIdle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack2.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack2.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack3.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/ltAttack3.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/UI_Playground.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/UI_Playground.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,16 +16,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerIdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AI Playground/Scripts/NeuralNetwork.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character Control/OffHandControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character Control/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemySO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerAirAttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerDodgeState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerGroundAttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerIdleState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerJumpState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tools/BezierCurve.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/AI Playground/Scripts/NeuralNetwork.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerDodgeState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerAirAttackState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character Control/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,11 +36,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "rider.run.widget.enabled.cache": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../Builds/Character Controller Prototype\Forbidden Labyrinth.exe" />
@@ -127,6 +122,7 @@
       <workItem from="1664017913718" duration="6100000" />
       <workItem from="1664173304149" duration="3454000" />
       <workItem from="1664183638107" duration="1122000" />
+      <workItem from="1664258632689" duration="357000" />
     </task>
     <servers />
   </component>
@@ -146,7 +142,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
