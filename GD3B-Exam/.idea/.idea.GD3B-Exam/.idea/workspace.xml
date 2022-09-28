@@ -3,6 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ab275a5f-2b4a-4fc4-a139-a6e280dbed6b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GD3B-Exam/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+=======
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/TestMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/TestMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Resources/Resource.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Resources/Resource.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/TestPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/TestPlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/KappPlayGround.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character Control/LineOfSight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character Control/LineOfSight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +34,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerIdleState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerJumpState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tools/BezierCurve.cs" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< Updated upstream
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/RecipePrefabManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ResourceRequirementManager.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+    <setting file="file://$PROJECT_DIR$/Assets/AI Playground/Scripts/NeuralNetwork.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerDodgeState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tools/HighLightonContact.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/State Machine/PlayerStates/Concrete States/PlayerAirAttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character Control/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> Stashed changes
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -126,8 +143,12 @@
       <workItem from="1664183638107" duration="1122000" />
       <workItem from="1664258632689" duration="357000" />
       <workItem from="1664274885952" duration="2733000" />
+<<<<<<< Updated upstream
       <workItem from="1664365899883" duration="1721000" />
       <workItem from="1664369520247" duration="3923000" />
+=======
+      <workItem from="1664366721775" duration="5357000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
