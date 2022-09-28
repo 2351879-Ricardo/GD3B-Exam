@@ -267,8 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 7521585298183910434}
-  sensitivityX: 200
-  sensitivityY: 100
+  sensitivityX: 100
+  sensitivityY: 75
   topAngle: 45
   bottomAngle: -45
 --- !u!114 &6090991465674501034
