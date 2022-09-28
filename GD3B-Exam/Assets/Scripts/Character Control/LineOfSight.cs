@@ -18,8 +18,10 @@ public class LineOfSight : MonoBehaviour
     {
         
         var temp = new Vector3();
+        var layerMask = 1 << 7;
+        layerMask = ~layerMask;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 100, layerMask))
         {
             temp = hit.point;
         }
