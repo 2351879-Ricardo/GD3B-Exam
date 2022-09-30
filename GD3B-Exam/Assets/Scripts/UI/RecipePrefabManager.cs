@@ -7,11 +7,11 @@ public class RecipePrefabManager : MonoBehaviour
     public void CreateRecipeUI(CraftingSO craftingRecipe)
     {
         _craftingSo = craftingRecipe;
-        // Creates the Prefab and Populates the Recipe List
+        // Updating Info on Clickable Button for Recipe (Recipe Menu)
     }
 
     public void SelectRecipe()
     {
-        GameObject.FindObjectOfType<CraftingManager>().CreateCraftEvent(_craftingSo);
+        FindObjectOfType<CraftingManager>().CreateCraftEvent(_craftingSo);
     }
 }

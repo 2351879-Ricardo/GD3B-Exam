@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ad8968f766d7c4d815e62c896664f5, type: 3}
   m_Name: CreaftedSwordRecipe
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
+  itemName: Crafted Sword Recipe
+  itemDescription: This is the recipe for a crafted sword.
   craftedWeapon: {fileID: 11400000, guid: e4b77314e5a3fc24c89066f84aa3d2e6, type: 2}
   craftingIngredients:
   - resourceSo: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}

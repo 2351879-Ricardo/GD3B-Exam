@@ -10,11 +10,11 @@ public class ResourceRequirementManager : MonoBehaviour
 
     private InventoryItem _resourceItem;
     
-    public void UpdateResourceUINode(InventoryItem item)
+    public void UpdateResourceUINode(InventoryItem item, out bool hasEnough)
     {
         _resourceItem = item;
         InitItemDetails();
-        UpdateResourceValues();
+        UpdateResourceValues(out hasEnough);
     }
 
     private void InitItemDetails()
@@ -23,14 +23,16 @@ public class ResourceRequirementManager : MonoBehaviour
         resourceNameText.text = _resourceItem.resourceSo.ItemName;
     }
 
-    public void UpdateResourceValues()
+    private void UpdateResourceValues(out bool hasEnough)
     {
+        hasEnough = false;
         var playerInventory = GameObject.FindObjectOfType<InventoryManager>();
         foreach (var resource in playerInventory.InventoryList)
         {
             if (resource.resourceSo == _resourceItem.resourceSo)
             {
                 valueText.text = resource.resourceCount.ToString() + "/" + _resourceItem.resourceCount.ToString();
+                hasEnough = (resource.resourceCount >= _resourceItem.resourceCount);
             }
         }
     }
