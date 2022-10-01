@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveVec: {x: 0, y: 0, z: 0}
   camAnchor: {fileID: 7521585298183910434}
-  moveSpeed: 5
+  moveSpeed: 100
   jumpHeight: 2
   gravity: -10
   dodgeDistance: 4

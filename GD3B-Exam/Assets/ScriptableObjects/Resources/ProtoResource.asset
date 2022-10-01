@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458954eeb0f7f7040ba69f35c67531bc, type: 3}
   m_Name: ProtoResource
   m_EditorClassIdentifier: 
-  itemName: 
-  itemDescription: 
-  itemSprite: {fileID: 0}
+  itemName: Proto Resource
+  itemDescription: Proto Resource
+  itemSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
