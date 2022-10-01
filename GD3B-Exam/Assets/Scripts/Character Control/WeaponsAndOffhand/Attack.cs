@@ -53,13 +53,13 @@ public class Attack : MonoBehaviour
             return;
     }
 
-    public void AttackWindowInit()
+    private void AttackWindowInit()
     {
         _windowTime = attackWindowTime*1.1f;
         _windowOpen = true;
     }
 
-    public void EndCombo(int animInd)
+    private void EndCombo(int animInd)
     {
         for (int i = 1; i <= animInd; i++)
         {
@@ -67,5 +67,10 @@ public class Attack : MonoBehaviour
         }
 
         _ltAttackVal = 0;
+    }
+
+    public void LandHit()
+    {
+        Debug.Log("Hit Landed");
     }
 }

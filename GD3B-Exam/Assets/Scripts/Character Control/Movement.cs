@@ -29,22 +29,21 @@ public class Movement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Runs per set amount of time.
     private void FixedUpdate()
     {
+        //Sets vertical velocity when _jumping is true
         #region Jump
+        //physics check to see if player is on ground
         _isGrounded = Physics.CheckSphere(transform.position, 0.1f, groundLayer);
 
         if (_isGrounded)
         {
             _verticalV = Vector3.zero;
         }
-
+        
+        //if the player is jumping the vertical velocity
+        //  is set so the player is able to jump to a specified height.
         if (_jumping)
         {
             if (_isGrounded)
@@ -54,7 +53,7 @@ public class Movement : MonoBehaviour
             _jumping = false;
         }
         #endregion
-
+        //Sets horizontal velocity when _dodging is true.
         #region Dodge
         if (!_dodging)
         {
@@ -76,7 +75,7 @@ public class Movement : MonoBehaviour
             _dodging = false;
         }
         #endregion
-        
+        //Uses _moveVec to set movement direction in tandem with horizontal and vertical velocity.
         #region MoveAround
         moveVec = new Vector3(_inVec.x, 0f, _inVec.y);
         
@@ -95,17 +94,23 @@ public class Movement : MonoBehaviour
         #endregion
     }
 
+    //Listens for Message from New Input System
+    //On Activation, manipulates the _moveVec variable to give the player a movement direction.
     private void OnMove(InputValue value)
     {
         var temp = value.Get<Vector2>();
         _inVec = temp.normalized;
     }
-
+    
+    //Listens for message from New Input System.
+    //Sets _jumping boolean to true on activation.
     private void OnJump(InputValue value)
     {
         _jumping = true;
     }
 
+    //Listens for message from New Input System.
+    //Sets _jumping boolean to true on activation.
     private void OnDodge()
     {
         _dodging = true;
