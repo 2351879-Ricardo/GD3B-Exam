@@ -1,23 +1,13 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct InventoryItem
+public class InventoryItem
 {
     public ResourceSO resourceSo;
     public int resourceCount;
-
-    public void AddResource(int value)
-    {
-        resourceCount += value;
-    }
-
-    public void RemoveResource(int value)
-    {
-        resourceCount -= value;
-    }
 }
+
 public class InventoryManager : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryCanvas;
@@ -25,32 +15,23 @@ public class InventoryManager : MonoBehaviour
     
     private bool _inventoryOpen = false;
 
-    // Test Functionality
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            ToggleInventory();
-        }
-    }
-
     public void AddToInventory(ResourceSO resource, int value)
     {
-        for (var i = 0; i < inventory.Count; i++)
+        foreach (var item in inventory)
         {
-            if (inventory[i].resourceSo == resource)
+            if (item.resourceSo == resource)
             {
-                inventory[i].AddResource(value);
+                item.resourceCount += value;
             }
         }
     }
 
     public void RemoveFromInventory(ResourceSO resource, int value)
     {
-        for (var i = 0; i < inventory.Count; i++)
+        foreach (var item in inventory)
         {
-            if (inventory[i].resourceSo != resource) continue;
-            if (inventory[i].resourceCount >= value) inventory[i].RemoveResource(value);
+            if (item.resourceSo != resource) continue;
+            if (item.resourceCount >= value) item.resourceCount -= value;
             break;
         }
     }

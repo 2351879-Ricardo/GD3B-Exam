@@ -19,16 +19,16 @@ public class LineOfSight : MonoBehaviour
     void Update()
     {
         
-        var temp = new Vector3();
+        Vector3 temp;
         var layerMask = 1 << 7;
         layerMask = ~layerMask;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, interactDistance, layerMask))
         {
-            Debug.Log(hit.collider.name);
             temp = hit.point;
             
         }
+        
         else
         {
             temp = (transform.forward * interactDistance) + transform.position;

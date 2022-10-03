@@ -13,11 +13,12 @@ public class InventoryUI : MonoBehaviour
         PopulateInventoryUI();
     }
 
-    private void UpdateInventoryUI()
+    public void UpdateInventoryUI()
     {
-        foreach (InventoryItemController childUI in inventoryBody)
+        foreach (Transform childUI in inventoryBody)
         {
-            childUI.UpdateInternalUI(_inventoryManager);
+            InventoryItemController temp = childUI.GetComponent<InventoryItemController>();
+            temp.UpdateInternalUI(_inventoryManager);
         }
     }
 

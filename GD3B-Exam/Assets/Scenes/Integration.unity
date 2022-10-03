@@ -463,9 +463,17 @@ PrefabInstance:
       propertyPath: inventoryCanvas
       value: 
       objectReference: {fileID: 1145950285}
+    - target: {fileID: 76111508, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: inventory.Array.data[0].resourceSo
+      value: 
+      objectReference: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
+    - target: {fileID: 76111508, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: inventory.Array.data[1].resourceSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 4dea4b2567f3c6141901be8cc4ee3b8e, type: 2}
     - target: {fileID: 7521585297557970921, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7521585297557970921, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1647,7 +1655,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3569368516034026069, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3569368516034026069, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1691,7 +1699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8644505621612757785, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
       propertyPath: m_Name
-      value: ResourceTest (1)
+      value: Resource
       objectReference: {fileID: 0}
     - target: {fileID: 8644505621612757785, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
       propertyPath: m_TagString
@@ -2988,7 +2996,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3569368516034026069, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3569368516034026069, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3030,9 +3038,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4944208143552033545, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
+      propertyPath: resourceAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8644505621612757785, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
       propertyPath: m_Name
-      value: ResourceTest
+      value: Resource
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}

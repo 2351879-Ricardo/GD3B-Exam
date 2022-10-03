@@ -12,11 +12,11 @@ public class InventoryItemController : MonoBehaviour
     public void UpdateInternalUI(InventoryManager inventoryManager)
     {
         var inventory = inventoryManager.InventoryList;
-        for (var i = 0; i < inventory.Count; i++)
+        foreach (var item in inventory)
         {
-            if (inventory[i].resourceSo == _resourceSo)
+            if (item.resourceSo == _resourceSo)
             {
-                itemCountText.text = inventory[i].resourceCount.ToString();
+                itemCountText.text = item.resourceCount.ToString();
             }
         }
     }
