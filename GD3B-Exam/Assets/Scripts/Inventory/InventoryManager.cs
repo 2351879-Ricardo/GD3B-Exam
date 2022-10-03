@@ -41,6 +41,11 @@ public class InventoryManager : MonoBehaviour
         _inventoryOpen = !_inventoryOpen;
         inventoryCanvas.SetActive(_inventoryOpen);
     }
+
+    public void OnOpenInventory()
+    {
+        ToggleInventory();
+    }
     
     public List<InventoryItem> InventoryList => inventory;
 }
