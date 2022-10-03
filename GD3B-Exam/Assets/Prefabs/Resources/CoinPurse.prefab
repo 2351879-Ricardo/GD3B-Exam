@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 908490138695164694}
   - component: {fileID: 8942216959108237378}
   - component: {fileID: 1766167057579977153}
-  - component: {fileID: 7257145770574612396}
   - component: {fileID: 6280249330542347641}
   - component: {fileID: 4595884581513909662}
+  - component: {fileID: 2598223880411374484}
   m_Layer: 0
   m_Name: CoinPurse
   m_TagString: Untagged
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7257145770574612396
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700869635811114725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -462981019419857548, guid: dc2cfb2f1bc61aa43bba34b2646c51d7, type: 3}
 --- !u!114 &6280249330542347641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +114,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceSo: {fileID: 11400000, guid: da4278fb5f8fe2e4c9bad42ab8064737, type: 2}
   resourceAmount: 500
+--- !u!135 &2598223880411374484
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700869635811114725}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.09563697
+  m_Center: {x: 0, y: 0.08004312, z: 0}

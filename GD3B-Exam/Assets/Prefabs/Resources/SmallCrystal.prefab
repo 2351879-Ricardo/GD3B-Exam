@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3786110366760652762}
   - component: {fileID: 3786110366760652763}
   - component: {fileID: 3786110366760652764}
-  - component: {fileID: 3786110366760652765}
   - component: {fileID: 4581869997520287222}
   - component: {fileID: 961683660657414318}
+  - component: {fileID: 2567121542336583156}
   m_Layer: 0
   m_Name: SmallCrystal
   m_TagString: Untagged
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3786110366760652765
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3786110366760652766}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6255687079079774844, guid: 0a6a36f0d87988f47baaa67b14e2f800, type: 3}
 --- !u!114 &4581869997520287222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +114,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceSo: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
   resourceAmount: 3
+--- !u!135 &2567121542336583156
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3786110366760652766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.017068187
+  m_Center: {x: -0.0065217316, y: 0.005895819, z: 0.00038131478}
