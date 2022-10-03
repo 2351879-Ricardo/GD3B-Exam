@@ -507,10 +507,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 7521585297557970927, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
 --- !u!1 &76111496 stripped
@@ -518,7 +514,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7521585297557970923, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
   m_PrefabInstance: {fileID: 76111495}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &76111497
+--- !u!114 &76111508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -532,9 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryCanvas: {fileID: 1145950285}
   inventory:
-  - resourceSo: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
-    resourceCount: 0
   - resourceSo: {fileID: 11400000, guid: 4dea4b2567f3c6141901be8cc4ee3b8e, type: 2}
+    resourceCount: 0
+  - resourceSo: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
     resourceCount: 0
 --- !u!1 &78963925
 GameObject:
