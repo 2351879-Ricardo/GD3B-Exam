@@ -65,11 +65,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810357936471038866, guid: a50851a3d16db8b4fb379949b5206bdf, type: 3}
       propertyPath: m_Name
-      value: ResourceTest
+      value: 2TestResource
       objectReference: {fileID: 0}
     - target: {fileID: 7919983904717925250, guid: a50851a3d16db8b4fb379949b5206bdf, type: 3}
       propertyPath: resourceSo
       value: 
       objectReference: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3959268119867928159, guid: a50851a3d16db8b4fb379949b5206bdf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a50851a3d16db8b4fb379949b5206bdf, type: 3}

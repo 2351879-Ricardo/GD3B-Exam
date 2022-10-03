@@ -12,6 +12,10 @@ PrefabInstance:
       value: EnemyMelee
       objectReference: {fileID: 0}
     - target: {fileID: 6999538354918178291, guid: 4e43b54c8e5a09544ae6c322aa0e702c, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999538354918178291, guid: 4e43b54c8e5a09544ae6c322aa0e702c, type: 3}
       propertyPath: enemySo
       value: 
       objectReference: {fileID: 11400000, guid: 2f4a46761035bf24b8fe1e32f565ee8d, type: 2}

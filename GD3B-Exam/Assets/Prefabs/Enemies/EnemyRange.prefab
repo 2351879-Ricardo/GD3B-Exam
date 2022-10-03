@@ -12,6 +12,10 @@ PrefabInstance:
       value: EnemyRange
       objectReference: {fileID: 0}
     - target: {fileID: 6999538354918178291, guid: 4e43b54c8e5a09544ae6c322aa0e702c, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999538354918178291, guid: 4e43b54c8e5a09544ae6c322aa0e702c, type: 3}
       propertyPath: enemySo
       value: 
       objectReference: {fileID: 11400000, guid: 48ac3624649315648a91ec659794beb4, type: 2}

@@ -19,7 +19,15 @@ MonoBehaviour:
   enemyNoticeRange: 20
   enemyType: 2
   enemyDropTable:
-  - lootDropChance: 1
+  - lootDropChance: 0.2
     lootDropAmount: 1
-    resourceDrop: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
-    resourcePrefab: {fileID: 8644505621612757785, guid: e6e09632d9c185d45b45ba6a04b0463f, type: 3}
+    resourceDrop: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
+    resourcePrefab: {fileID: 917192319285132232, guid: 29579ca5aa40c7245aeb75bb25500a6c, type: 3}
+  - lootDropChance: 0.5
+    lootDropAmount: 1
+    resourceDrop: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
+    resourcePrefab: {fileID: 3786110366760652766, guid: 9da61c9a8a503b444b37b41e7a000ebc, type: 3}
+  - lootDropChance: 0.8
+    lootDropAmount: 1
+    resourceDrop: {fileID: 11400000, guid: da4278fb5f8fe2e4c9bad42ab8064737, type: 2}
+    resourcePrefab: {fileID: 1700869635811114725, guid: e60d6c1a868628b4f8428a956668cdb4, type: 3}
