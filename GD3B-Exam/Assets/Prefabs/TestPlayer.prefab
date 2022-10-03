@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 6427167329836963763}
   - component: {fileID: 357373029}
   - component: {fileID: 8529631193680810982}
+  - component: {fileID: 76111508}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Untagged
@@ -393,6 +394,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 5
+--- !u!114 &76111508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521585297557970923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d08ea8aaebccba4bb0a5452e35c0032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryCanvas: {fileID: 0}
+  inventory:
+  - resourceSo: {fileID: 11400000, guid: 4dea4b2567f3c6141901be8cc4ee3b8e, type: 2}
+    resourceCount: 0
+  - resourceSo: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
+    resourceCount: 0
 --- !u!1 &7521585297941563134
 GameObject:
   m_ObjectHideFlags: 0

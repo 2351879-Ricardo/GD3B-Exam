@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private LineOfSight _lineOfSight;
+    private InventoryManager _inventoryManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        _lineOfSight = FindObjectOfType<LineOfSight>();
+        _inventoryManager = FindObjectOfType<InventoryManager>();
     }
 
     public void OnInteraction()
     {
-        Debug.Log("Interacting");
+        if (_lineOfSight.hit.transform.CompareTag("Pickup"))
+        {
+            
+        }
+
+        if (_lineOfSight.hit.transform.CompareTag("Crafting"))
+        {
+            // Disable Player Movement and Look Controls.
+            
+        }
     }
 }

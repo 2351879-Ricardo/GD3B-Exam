@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Weapon
   - Enemy
+  - Pickup
+  - Crafting
   layers:
   - Default
   - TransparentFX
