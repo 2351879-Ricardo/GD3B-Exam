@@ -7,6 +7,8 @@ public class LineOfSight : MonoBehaviour
     public Transform lookPnt;
 
     public RaycastHit hit;
+
+    [SerializeField] private float interactDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +23,15 @@ public class LineOfSight : MonoBehaviour
         var layerMask = 1 << 7;
         layerMask = ~layerMask;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 100, layerMask))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, interactDistance, layerMask))
         {
+            Debug.Log(hit.collider.name);
             temp = hit.point;
+            
+        }
+        else
+        {
+            temp = (transform.forward * interactDistance) + transform.position;
         }
 
         lookPnt.position = temp;
