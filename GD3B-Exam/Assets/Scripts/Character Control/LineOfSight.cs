@@ -26,7 +26,6 @@ public class LineOfSight : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hit, interactDistance, layerMask))
         {
             temp = hit.point;
-            
         }
         
         else
