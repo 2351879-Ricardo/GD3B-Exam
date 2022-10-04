@@ -15,6 +15,8 @@ public class CharacterState : MonoBehaviour
     };
 
     public PlayerStates currentState;
+
+    public bool _isBlocking;
     
     // Start is called before the first frame update
     void Start()
@@ -26,5 +28,24 @@ public class CharacterState : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Blocking()
+    {
+        _isBlocking = !_isBlocking;
+        if (_isBlocking)
+            currentState = PlayerStates.IsBlocking;
+        else
+            currentState = PlayerStates.IsIdle;
+    }
+
+    public void StartAttack()
+    {
+        currentState = PlayerStates.IsAttacking;
+    }
+
+    public void EndAttack()
+    {
+        currentState = PlayerStates.IsIdle;
     }
 }

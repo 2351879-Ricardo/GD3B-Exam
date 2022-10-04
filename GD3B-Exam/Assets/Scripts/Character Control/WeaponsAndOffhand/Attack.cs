@@ -10,14 +10,16 @@ public class Attack : MonoBehaviour
     private int _ltAttackVal = 0;
 
     private Animator _anim;
+    private CharacterState _cs;
 
     public float _windowTime;
 
-    public bool _windowOpen;
+    public bool _windowOpen, attacking;
     // Start is called before the first frame update
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _cs = GetComponent<CharacterState>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,10 @@ public class Attack : MonoBehaviour
 
     private void OnAttack()
     {
+        attacking = true;
+        
+        SendMessageUpwards("StartAttack");
+        
         if (_ltAttackVal == 0 || _windowOpen)
         {
             _ltAttackVal++;
@@ -65,7 +71,10 @@ public class Attack : MonoBehaviour
         {
             _anim.SetBool($"ltAttack{i}", false);
         }
+        if (attacking)
+            SendMessageUpwards("EndAttack");
 
+        attacking = false;
         _ltAttackVal = 0;
     }
 

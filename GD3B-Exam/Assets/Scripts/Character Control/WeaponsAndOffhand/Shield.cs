@@ -21,6 +21,7 @@ public class Shield : Offhand
 
     public override string ActivateAbility()
     {
+        gameObject.SendMessageUpwards("Blocking");
         return animationParamName;
     }
 }

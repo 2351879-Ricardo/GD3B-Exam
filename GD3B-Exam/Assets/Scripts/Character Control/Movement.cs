@@ -21,17 +21,29 @@ public class Movement : MonoBehaviour
     private Vector3 _dogdeV = Vector3.zero;
     private bool _jumping, _dodging, _isGrounded;
     private float _dodgeTimeR;
+    private CharacterState _cs;
     
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        
+        _cs = GetComponent<CharacterState>();
     }
 
     //Runs per set amount of time.
     private void FixedUpdate()
     {
+        #region StateControl
+
+        if (_inVec.magnitude != 0)
+        {
+            Debug.Log("Moving");
+            _cs.currentState = CharacterState.PlayerStates.IsMoving;
+        }
+        
+        
+
+        #endregion
         //Sets vertical velocity when _jumping is true
         #region Jump
         //physics check to see if player is on ground
