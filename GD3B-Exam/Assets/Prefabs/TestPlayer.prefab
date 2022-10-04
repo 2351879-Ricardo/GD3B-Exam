@@ -195,9 +195,10 @@ GameObject:
   - component: {fileID: 357373029}
   - component: {fileID: 8529631193680810982}
   - component: {fileID: 76111508}
+  - component: {fileID: 3766127236521128474}
   m_Layer: 0
   m_Name: TestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,8 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd959fc4681890e40aa27ea45b9623e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineOfSight: {fileID: 0}
-  inventoryManager: {fileID: 0}
+  lineOfSight: {fileID: 1026182898938369645}
+  inventoryManager: {fileID: 76111508}
   inventoryUI: {fileID: 0}
 --- !u!114 &8529631193680810982
 MonoBehaviour:
@@ -416,6 +417,23 @@ MonoBehaviour:
     resourceCount: 0
   - resourceSo: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
     resourceCount: 0
+--- !u!114 &3766127236521128474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521585297557970923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655bbe0d40f2ea84fa65aaa46c7dc6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  damageTick: 2
+  damage: 10
+  _currentHealth: 0
+  _time: 0
 --- !u!1 &7521585297941563134
 GameObject:
   m_ObjectHideFlags: 0
