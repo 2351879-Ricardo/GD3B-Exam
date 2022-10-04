@@ -21,14 +21,13 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         _parent = transform.root.gameObject;
-        Debug.Log(_parent.name);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyController>().TakeDamage(damage);
+            other.GetComponentInParent<EnemyController>().TakeDamage(damage);
             gameObject.SendMessageUpwards("LandHit");
         }
     }

@@ -11,8 +11,10 @@ public class EnemyChaseState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.Player.gameObject.transform.position;
-        // Move Enemy to Player => NavMesh
+        var playerPos = enemy.PlayerGameObject.transform.position;
+        enemy.EnemyNavMeshAgent.SetDestination(playerPos);
+        
+        _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - playerPos;
         if (_enemyToPlayerVector3.magnitude <= enemy.EnemyController.EnemySo.EnemyAttackRange)
         {
             enemy.SwitchState(enemy.AttackState);

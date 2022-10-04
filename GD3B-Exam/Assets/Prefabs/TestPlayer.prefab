@@ -290,6 +290,7 @@ MonoBehaviour:
   attackWindowTime: 0.65
   _windowTime: 0
   _windowOpen: 0
+  attacking: 0
 --- !u!114 &7521585297557970926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd959fc4681890e40aa27ea45b9623e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineOfSight: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!114 &8529631193680810982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,9 +412,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryCanvas: {fileID: 0}
   inventory:
-  - resourceSo: {fileID: 11400000, guid: 4dea4b2567f3c6141901be8cc4ee3b8e, type: 2}
+  - resourceSo: {fileID: 11400000, guid: da4278fb5f8fe2e4c9bad42ab8064737, type: 2}
     resourceCount: 0
-  - resourceSo: {fileID: 11400000, guid: bcd6f63bbe048dd48879f589e84b8c77, type: 2}
+  - resourceSo: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
     resourceCount: 0
 --- !u!1 &7521585297941563134
 GameObject:

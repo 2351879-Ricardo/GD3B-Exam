@@ -12,7 +12,7 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.Player.gameObject.transform.position;
+        _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
         if (_enemyToPlayerVector3.magnitude > enemy.EnemyController.EnemySo.EnemyAttackRange)
         {
             enemy.SwitchState(enemy.ChaseState);
@@ -25,7 +25,8 @@ public class EnemyAttackState : EnemyBaseState
                 var randomNum = Random.Range(0f, 1f);
                 if (randomNum <= enemy.EnemyController.EnemySo.EnemyDamagePerAttack)
                 {
-                    // HIT PLAYER
+                    Debug.Log("Enemy Hit Player");
+                    _timeSinceAttack = 0f;
                 }
             }
             

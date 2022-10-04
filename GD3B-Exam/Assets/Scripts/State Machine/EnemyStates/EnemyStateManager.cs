@@ -1,34 +1,46 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStateManager : MonoBehaviour
 {
-    public EnemyBaseState CurrentState;
+    private EnemyBaseState _currentState;
+    
     public EnemyAttackState AttackState = new EnemyAttackState();
     public EnemyChaseState ChaseState = new EnemyChaseState();
     public EnemyDodgeState DodgeState = new EnemyDodgeState();
     public EnemyPatrolState PatrolState = new EnemyPatrolState();
 
     private EnemyController _enemyController;
-    private CharacterController _characterController;
-    
-    private void Start()
+    private GameObject _playerGameObject;
+
+    private NavMeshAgent _navMeshAgent;
+
+    private void Awake()
     {
         _enemyController = gameObject.GetComponent<EnemyController>();
-        CurrentState = ChaseState;
-        CurrentState.EnterState(this);
+        _playerGameObject = FindObjectOfType<CharacterState>().gameObject;
+        _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+    }
+
+    private void Start()
+    {
+        _currentState = ChaseState;
+        _currentState.EnterState(this);
     }
 
     private void Update()
     {
-        CurrentState.UpdateState(this);
+        _currentState.UpdateState(this);
     }
 
     public void SwitchState(EnemyBaseState state)
     {
-        CurrentState = state;
-        CurrentState.EnterState(this);
+        _currentState = state;
+        _currentState.EnterState(this);
     }
 
     public EnemyController EnemyController => _enemyController;
-    public CharacterController Player => _characterController;
+    public GameObject PlayerGameObject => _playerGameObject;
+    public NavMeshAgent EnemyNavMeshAgent => _navMeshAgent;
 }
