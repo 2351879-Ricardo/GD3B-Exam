@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour
     public float maxHealth;
     [SerializeField] private float damageTick;
     [SerializeField] private int damage;
+    [SerializeField] private float damageRadius;
 
     public float _currentHealth;
     public float _time;
@@ -21,7 +22,7 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         var layerMask = 1 << 8;
-        var hit = Physics.CheckSphere(transform.position, 1.5f, layerMask);
+        var hit = Physics.CheckSphere(transform.position, damageRadius, layerMask);
 
         _time -= Time.deltaTime;
 
