@@ -29,7 +29,7 @@ public class EnemySO : ScriptableObject
     [SerializeField] private float enemyAttackSpeed = 1f;
     [SerializeField] private float enemyDamagePerAttack = 5f;
     [SerializeField] private float enemyAttackRange = 10f;
-    [SerializeField] private float enemyNoticeRange = 20f;
+    [SerializeField] private float enemyHitChance01 = 0.8f;
     [SerializeField] private EnemyType enemyType;
 
     [SerializeField] private List<EnemyLootDrop> enemyDropTable;
@@ -58,10 +58,10 @@ public class EnemySO : ScriptableObject
         set => enemyAttackRange = value;
     }
 
-    public float EnemyNoticeRange
+    public float EnemyHitChance01
     {
-        get => enemyNoticeRange;
-        set => enemyNoticeRange = value;
+        get => enemyHitChance01;
+        set => enemyHitChance01 = value;
     }
 
     public EnemyType EnemyType => enemyType;

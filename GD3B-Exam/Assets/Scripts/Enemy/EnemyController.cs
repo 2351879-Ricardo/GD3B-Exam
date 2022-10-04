@@ -12,15 +12,6 @@ public class EnemyController : MonoBehaviour
       InitEnemy();
    }
 
-   // Test
-   private void Update()
-   {
-      if (Input.GetKeyDown(KeyCode.F))
-      {
-         TakeDamage(10);
-      }
-   }
-
    public void TakeDamage(float damage)
    {
       health -= damage;
@@ -56,4 +47,6 @@ public class EnemyController : MonoBehaviour
    {
       health = enemySo.EnemyHealth;
    }
+
+   public EnemySO EnemySo => enemySo;
 }

@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class EnemyChaseState : EnemyBaseState
 {
+    private Vector3 _enemyToPlayerVector3;
+    
     public override void EnterState(EnemyStateManager enemy)
     {
-        Debug.Log("Enter Chase State");
+        
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        Debug.Log("Update Chase State");
+        _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.Player.gameObject.transform.position;
+        // Move Enemy to Player => NavMesh
+        if (_enemyToPlayerVector3.magnitude <= enemy.EnemyController.EnemySo.EnemyAttackRange)
+        {
+            enemy.SwitchState(enemy.AttackState);
+        }
     }
 }
