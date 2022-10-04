@@ -24,4 +24,9 @@ public class Shield : Offhand
         gameObject.SendMessageUpwards("Blocking");
         return animationParamName;
     }
+
+    public float GetMitigation()
+    {
+        return mitigation;
+    }
 }
