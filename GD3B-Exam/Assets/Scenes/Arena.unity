@@ -11037,26 +11037,6 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 690311012}
-    - target: {fileID: 3766127236521128474, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3766127236521128474, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: damageRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3955958790910023728, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: damage
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321922034428968733, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: mitigation
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7521585297557970920, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: sensitivityX
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 7521585297557970921, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
       propertyPath: m_RootOrder
       value: 4
