@@ -5,16 +5,14 @@ using UnityEngine.InputSystem;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] private float attackWindowTime;
+    [SerializeField] private float heavyTime, chargeTime, attackTime, windowTime;
     
     private int _ltAttackVal = 0;
 
     private Animator _anim;
     private CharacterState _cs;
 
-    public float _windowTime;
-
-    public bool _windowOpen, attacking;
+    public bool attacking, inCombo;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,56 +23,74 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region Attack Window Control
-        if (_windowOpen)
+        if (attacking)
         {
-            _windowTime -= Time.deltaTime;
-        }
-        else if (!_windowOpen)
-        {
-            EndCombo(_ltAttackVal);
+            chargeTime += Time.deltaTime;
         }
 
-        if (_windowTime <= 0 && _windowOpen)
+        if (inCombo && !attacking)
         {
-            _windowOpen = false;
+            windowTime += Time.deltaTime;
         }
-        #endregion
+
+        if (windowTime >= attackTime)
+        {
+            inCombo = false;
+            windowTime = 0;
+            if (_ltAttackVal > 0)
+            {
+                EndCombo();
+            }
+        }
+
+        if (!attacking && chargeTime >= heavyTime)
+        {
+            HeavyAttack();
+            chargeTime = 0;
+        }
+        else if (!attacking && chargeTime < heavyTime && chargeTime > 0)
+        {
+            LightAttack();
+            chargeTime = 0;
+        }
     }
 
     private void OnAttack()
     {
-        attacking = true;
-        
-        SendMessageUpwards("StartAttack");
-        
-        if (_ltAttackVal == 0 || _windowOpen)
+        _anim.SetBool("break", false);
+        attacking = !attacking;
+        inCombo = true;
+        windowTime = 0;
+        if (attacking)
         {
             _ltAttackVal++;
-            AttackWindowInit();
-            Debug.Log(_ltAttackVal);
-            _anim.SetBool($"ltAttack{_ltAttackVal}", true);
         }
-        else
-            return;
+    }
+
+    private void HeavyAttack()
+    {
+        _anim.SetBool($"right{_ltAttackVal}", true);
+    }
+
+    private void LightAttack()
+    {
+        _anim.SetBool($"left{_ltAttackVal}", true);
     }
 
     private void AttackWindowInit()
     {
-        _windowTime = attackWindowTime*1.1f;
-        _windowOpen = true;
+        
     }
 
-    private void EndCombo(int animInd)
+    private void EndCombo()
     {
-        for (int i = 1; i <= animInd; i++)
+        _anim.SetBool("break", true);
+        for (var i = 1; i <= _ltAttackVal; i++)
         {
-            _anim.SetBool($"ltAttack{i}", false);
+            _anim.SetBool($"left{i}", false);
+            _anim.SetBool($"right{i}", false);
         }
-        if (attacking)
-            SendMessageUpwards("EndAttack");
 
-        attacking = false;
         _ltAttackVal = 0;
     }
 

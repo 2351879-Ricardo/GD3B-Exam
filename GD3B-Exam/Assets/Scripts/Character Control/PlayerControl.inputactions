@@ -38,16 +38,7 @@
                     "id": "cb6029b8-7125-4494-9d28-43e2a7913af1",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "66429b49-69d4-4e9d-93c5-f6c4b0e6dfa4",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
@@ -187,19 +178,8 @@
                 },
                 {
                     "name": "",
-                    "id": "c65d872c-2137-42ff-bc47-057df4f895eb",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "48625a00-17dc-49bb-b485-0f28a182cf6e",
-                    "path": "<Keyboard>/v",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
