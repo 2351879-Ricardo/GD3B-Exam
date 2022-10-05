@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
          if (roll <= lootDrop.LootDropChance)
          {
             var resourceDrop = Instantiate(lootDrop.ResourcePrefab, transform.position, Quaternion.identity);
-            resourceDrop.GetComponent<ResourceManager>().resourceAmount = lootDrop.LootDropAmount;
+            resourceDrop.GetComponent<ResourceManager>().ResourceAmount = lootDrop.LootDropAmount;
          }
       }
    }

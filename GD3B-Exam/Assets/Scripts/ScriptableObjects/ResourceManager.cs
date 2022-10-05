@@ -3,5 +3,11 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
     public ResourceSO resourceSo;
-    public int resourceAmount = 1;
+    private int _resourceAmount = 1;
+
+    public int ResourceAmount
+    {
+        get => _resourceAmount;
+        set => _resourceAmount = value;
+    }
 }

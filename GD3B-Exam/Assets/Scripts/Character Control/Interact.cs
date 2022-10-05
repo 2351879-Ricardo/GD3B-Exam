@@ -12,7 +12,7 @@ public class Interact : MonoBehaviour
         if (lineOfSight.hit.transform.CompareTag("Pickup"))
         {
             var resourceManager = lineOfSight.hit.transform.gameObject.GetComponent<ResourceManager>();
-            inventoryManager.AddToInventory(resourceManager.resourceSo, resourceManager.resourceAmount);
+            inventoryManager.AddToInventory(resourceManager.resourceSo, resourceManager.ResourceAmount);
             inventoryUI.UpdateInventoryUI();
             Destroy(lineOfSight.hit.transform.gameObject);
         }

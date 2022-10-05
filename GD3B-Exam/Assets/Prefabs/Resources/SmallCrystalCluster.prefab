@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceSo: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
-  resourceAmount: 8
+  resourceAmount: 1
 --- !u!135 &3445034297820246376
 SphereCollider:
   m_ObjectHideFlags: 0
