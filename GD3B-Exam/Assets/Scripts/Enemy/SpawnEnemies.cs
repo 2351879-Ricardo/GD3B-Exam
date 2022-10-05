@@ -17,4 +17,9 @@ public class SpawnEnemies : MonoBehaviour
         var randomValue = Random.Range(0, enemies.Count);
         Instantiate(enemies[randomValue], transform.position, Quaternion.identity);
     }
+
+    public void StopSpawn()
+    {
+        CancelInvoke(nameof(SpawnEnemy));
+    }
 }

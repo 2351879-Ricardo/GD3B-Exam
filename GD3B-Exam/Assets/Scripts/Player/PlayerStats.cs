@@ -29,23 +29,13 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var layerMask = 1 << 8;
-        var hit = Physics.CheckSphere(transform.position, damageRadius, layerMask);
-
-        _time -= Time.deltaTime;
-
-        if (hit && _time <0f)
-        {
-            TakeDamage(damage);
-        }
-
         if (_currentHealth <= 0)
         {
             EndGame();
         }
     }
 
-    private void TakeDamage(float dmg)
+    public void TakeDamage(float dmg)
     {
         if (_cs.currentState == CharacterState.PlayerStates.IsBlocking)
         {
@@ -57,7 +47,17 @@ public class PlayerStats : MonoBehaviour
 
     private void EndGame()
     {
+        Cursor.visible = true;
         _cnvs.GetComponent<UIManager>().GameOver();
         GetComponent<PlayerInput>().enabled = false;
+        
+        // Test Spawn Options
+        var spawnEnemies = FindObjectsOfType<SpawnEnemies>();
+        foreach (var spawner in spawnEnemies)
+        {
+            spawner.StopSpawn();
+        }
+        
+        Time.timeScale = 0f;
     }
 }

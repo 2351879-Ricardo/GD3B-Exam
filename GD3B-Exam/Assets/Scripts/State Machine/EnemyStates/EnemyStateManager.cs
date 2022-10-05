@@ -13,6 +13,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private EnemyController _enemyController;
     private GameObject _playerGameObject;
+    private PlayerStats _playerStats;
 
     private NavMeshAgent _navMeshAgent;
 
@@ -20,6 +21,7 @@ public class EnemyStateManager : MonoBehaviour
     {
         _enemyController = gameObject.GetComponent<EnemyController>();
         _playerGameObject = FindObjectOfType<CharacterState>().gameObject;
+        _playerStats = _playerGameObject.GetComponent<PlayerStats>();
         _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
     }
 
@@ -43,4 +45,5 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyController EnemyController => _enemyController;
     public GameObject PlayerGameObject => _playerGameObject;
     public NavMeshAgent EnemyNavMeshAgent => _navMeshAgent;
+    public PlayerStats PlayerStats => _playerStats;
 }

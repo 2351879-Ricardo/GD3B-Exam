@@ -23,9 +23,9 @@ public class EnemyAttackState : EnemyBaseState
             if (_timeSinceAttack >= enemy.EnemyController.EnemySo.EnemyAttackSpeed)
             {
                 var randomNum = Random.Range(0f, 1f);
-                if (randomNum <= enemy.EnemyController.EnemySo.EnemyDamagePerAttack)
+                if (randomNum <= enemy.EnemyController.EnemySo.EnemyHitChance01)
                 {
-                    Debug.Log("Enemy Hit Player");
+                    enemy.PlayerStats.TakeDamage(enemy.EnemyController.EnemySo.EnemyDamagePerAttack);
                     _timeSinceAttack = 0f;
                 }
             }

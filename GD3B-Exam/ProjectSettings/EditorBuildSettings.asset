@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/KappPlayGround.unity
-    guid: adbd2cf4c51e4fb448e6f64df75e0e39
+    path: Assets/Scenes/Arena.unity
+    guid: 8c7fb96311a4ad64fa39585a01e2989f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 35431299d1ad7bc40961d4bd81f0ae1e, type: 2}
