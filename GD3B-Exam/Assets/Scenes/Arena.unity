@@ -11180,6 +11180,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+--- !u!1 &2071391325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7521585297557970923, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+  m_PrefabInstance: {fileID: 2071391324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2071391326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071391325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f5cf46a2da1574abb5347e6028d588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootNode:
+    comboName: Root Node
+    attackType: 2
+    attackAnimation: {fileID: 0}
+    childNodes:
+    - comboName: Light Left
+      attackType: 0
+      attackAnimation: {fileID: 0}
+      childNodes:
+      - comboName: Light Right
+        attackType: 0
+        attackAnimation: {fileID: 0}
+        childNodes:
+        - comboName: Light Horizontal
+          attackType: 0
+          attackAnimation: {fileID: 0}
+          childNodes: []
+        - comboName: Heavy Slam
+          attackType: 0
+          attackAnimation: {fileID: 0}
+          childNodes: []
+      - comboName: BREAK
+        attackType: 2
+        attackAnimation: {fileID: 0}
+        childNodes: []
+    - comboName: Heavy Top
+      attackType: 1
+      attackAnimation: {fileID: 0}
+      childNodes:
+      - comboName: BREAK
+        attackType: 2
+        attackAnimation: {fileID: 0}
+        childNodes: []
+      - comboName: Heavy Slam
+        attackType: 1
+        attackAnimation: {fileID: 0}
+        childNodes: []
 --- !u!1001 &2099225089
 PrefabInstance:
   m_ObjectHideFlags: 0
