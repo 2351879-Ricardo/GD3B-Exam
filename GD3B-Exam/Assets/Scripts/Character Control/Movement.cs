@@ -22,12 +22,14 @@ public class Movement : MonoBehaviour
     private bool _jumping, _dodging, _isGrounded;
     private float _dodgeTimeR;
     private CharacterState _cs;
+    private Animator _anim;
     
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _cs = GetComponent<CharacterState>();
+        _anim = GetComponent<Animator>();
     }
 
     //Runs per set amount of time.
@@ -86,6 +88,7 @@ public class Movement : MonoBehaviour
         {
             _dodging = false;
         }
+        _anim.SetBool("dodging", _dodging);
         #endregion
         //Uses _moveVec to set movement direction in tandem with horizontal and vertical velocity.
         #region MoveAround
