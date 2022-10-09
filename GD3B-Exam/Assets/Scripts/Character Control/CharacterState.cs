@@ -17,6 +17,7 @@ public class CharacterState : MonoBehaviour
     public PlayerStates currentState;
 
     private bool _isBlocking, _paused;
+    public bool _isDodging;
     
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,20 @@ public class CharacterState : MonoBehaviour
     {
         Debug.Log("Pausing");
         _paused = !_paused;
+        
+    }
+
+    public void Dodging()
+    {
+        _isDodging = !_isDodging;
+        if (_isDodging)
+            currentState = PlayerStates.IsDodging;
+        else
+            currentState = PlayerStates.IsIdle;
+    }
+
+    public void EndDodge()
+    {
         
     }
 }

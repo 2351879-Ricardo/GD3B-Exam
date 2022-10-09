@@ -36,15 +36,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         #region StateControl
-
-        if (_inVec.magnitude != 0)
-        {
-            Debug.Log("Moving");
-            _cs.currentState = CharacterState.PlayerStates.IsMoving;
-        }
         
-        
-
         #endregion
         //Sets vertical velocity when _jumping is true
         #region Jump
@@ -86,7 +78,12 @@ public class Movement : MonoBehaviour
 
         if (_dodgeTimeR <= 0)
         {
+            if (_dodging)
+            {
+                SendMessage("Dodging");
+            }
             _dodging = false;
+            
         }
         _anim.SetBool("dodging", _dodging);
         #endregion
@@ -130,5 +127,6 @@ public class Movement : MonoBehaviour
     {
         _dodging = true;
         _dodgeTimeR = dodgeTime;
+        SendMessage("Dodging");
     }
 }

@@ -48,11 +48,17 @@ public class Attack : MonoBehaviour
             HeavyAttack();
             chargeTime = 0;
         }
+        else if (!attacking && _cs.currentState == CharacterState.PlayerStates.IsDodging && _ltAttackVal >0)
+        {
+            DodgeAttack();
+            chargeTime = 0;
+        }
         else if (!attacking && chargeTime < heavyTime && chargeTime > 0)
         {
             LightAttack();
             chargeTime = 0;
         }
+        
     }
 
     private void OnAttack()
@@ -61,6 +67,7 @@ public class Attack : MonoBehaviour
         attacking = !attacking;
         inCombo = true;
         windowTime = 0;
+
         if (attacking)
         {
             _ltAttackVal++;
@@ -77,6 +84,12 @@ public class Attack : MonoBehaviour
         _anim.SetBool($"left{_ltAttackVal}", true);
     }
 
+    private void DodgeAttack()
+    {
+        _anim.SetBool("DodgeAttack", true);
+        Debug.Log("DodgeAttack");
+    }
+
     private void AttackWindowInit()
     {
         
@@ -89,6 +102,7 @@ public class Attack : MonoBehaviour
         {
             _anim.SetBool($"left{i}", false);
             _anim.SetBool($"right{i}", false);
+            _anim.SetBool("DodgeAttack", false);
         }
 
         _ltAttackVal = 0;
