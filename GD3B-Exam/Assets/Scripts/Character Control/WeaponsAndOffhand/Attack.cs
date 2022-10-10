@@ -90,9 +90,19 @@ public class Attack : MonoBehaviour
         Debug.Log("DodgeAttack");
     }
 
-    private void AttackWindowInit()
+    private void LightEffect()
     {
-        
+        BroadcastMessage("StartLightAttack");
+    }
+
+    private void HeavyEffect()
+    {
+        BroadcastMessage("StartHeavyAttack");
+    }
+
+    private void EndAttackWindow()
+    {
+        BroadcastMessage("EndAttack");
     }
 
     private void EndCombo()
