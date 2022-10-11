@@ -6,7 +6,7 @@ public class EnemyChaseState : EnemyBaseState
     
     public override void EnterState(EnemyStateManager enemy)
     {
-        
+        enemy.enemyAnimator.SetBool("isWalking", true);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -18,6 +18,7 @@ public class EnemyChaseState : EnemyBaseState
         if (_enemyToPlayerVector3.magnitude <= enemy.EnemyController.EnemySo.EnemyAttackRange)
         {
             enemy.SwitchState(enemy.AttackState);
+            enemy.enemyAnimator.SetBool("isWalking", false);
         }
     }
 }

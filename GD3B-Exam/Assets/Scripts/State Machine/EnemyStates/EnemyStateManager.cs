@@ -5,6 +5,8 @@ using UnityEngine.AI;
 public class EnemyStateManager : MonoBehaviour
 {
     private EnemyBaseState _currentState;
+
+    public Animator enemyAnimator;
     
     public EnemyAttackState AttackState = new EnemyAttackState();
     public EnemyChaseState ChaseState = new EnemyChaseState();
