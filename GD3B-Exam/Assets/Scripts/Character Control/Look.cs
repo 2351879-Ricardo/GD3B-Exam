@@ -12,7 +12,7 @@ public class Look : MonoBehaviour
 
     private float _angleX, _angleY, _camTilt;
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.Rotate(Vector3.up, _angleX * Time.deltaTime);
 
@@ -24,7 +24,15 @@ public class Look : MonoBehaviour
 
     }
 
-    private void OnLookY(InputValue input)
+    private void OnLook(InputValue input)
+    {
+        var temp = input.Get<Vector2>();
+        //temp = temp.normalized;
+        _angleX = temp.x * sensitivityX;
+        _angleY = temp.y * sensitivityY;
+    }
+
+    /*private void OnLookY(InputValue input)
     {
         var temp = input.Get<float>();
         _angleY = temp * sensitivityY;
@@ -35,5 +43,5 @@ public class Look : MonoBehaviour
     {
         var temp = input.Get<float>();
         _angleX = temp*sensitivityX;
-    }
+    }*/
 }
