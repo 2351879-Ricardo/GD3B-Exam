@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Attack : MonoBehaviour
 {
     [SerializeField] private float heavyTime, chargeTime, attackTime, windowTime;
+    [SerializeField]private float lightAttackMultiplier, heavyAttackMultiplier;
     
     private int _ltAttackVal = 0;
 
@@ -93,11 +94,13 @@ public class Attack : MonoBehaviour
     private void LightEffect()
     {
         BroadcastMessage("StartLightAttack");
+        BroadcastMessage("SetDamageMultiplier", lightAttackMultiplier*_ltAttackVal);
     }
 
     private void HeavyEffect()
     {
         BroadcastMessage("StartHeavyAttack");
+        BroadcastMessage("SetDamageMultiplier", heavyAttackMultiplier*_ltAttackVal);
     }
 
     private void EndAttackWindow()

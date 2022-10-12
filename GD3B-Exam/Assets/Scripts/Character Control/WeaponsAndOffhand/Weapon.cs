@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     public float damage;
 
     private GameObject _parent;
+    private float _dmg;
 
     private void Start()
     {
@@ -25,10 +26,17 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponentInParent<EnemyController>().TakeDamage(damage);
+            other.GetComponentInParent<EnemyController>().TakeDamage(_dmg);
             gameObject.SendMessageUpwards("LandHit");
         }
+    }
+
+    public void SetDamageMultiplier(float mult)
+    {
+        _dmg = damage * mult;
+        Debug.Log(_dmg);
     }
 }
