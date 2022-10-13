@@ -12,15 +12,15 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform camAnchor;
     [SerializeField] private float moveSpeed; 
     [SerializeField] private float jumpHeight, gravity;
-    [SerializeField] private float dodgeDistance, dodgeTime;
+    [SerializeField] private float dodgeDistance, dodgeTime, dodgeCoolDownTime;
     [SerializeField] private LayerMask groundLayer;
     
     private Rigidbody _rb;
     private Vector2 _inVec;
     private Vector3 _verticalV = Vector3.zero;
     private Vector3 _dogdeV = Vector3.zero;
-    private bool _jumping, _dodging, _isGrounded;
-    private float _dodgeTimeR;
+    private bool _jumping, _dodging, _canDodge, _isGrounded;
+    private float _dodgeTimeR, _dodgeCoolDown;
     private CharacterState _cs;
     private Animator _anim;
     
@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _cs = GetComponent<CharacterState>();
         _anim = GetComponent<Animator>();
+        _canDodge = true;
     }
 
     //Runs per set amount of time.
@@ -81,9 +82,9 @@ public class Movement : MonoBehaviour
             if (_dodging)
             {
                 SendMessage("Dodging");
+                _canDodge = false;
             }
             _dodging = false;
-            
         }
         _anim.SetBool("dodging", _dodging);
         #endregion
