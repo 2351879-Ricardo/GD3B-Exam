@@ -10603,6 +10603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageType: 0
   damage: 50
+  longestCombo: 3
 --- !u!4 &4172902447944245476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e813180a4ebd5448920b6e59437e96c, type: 3}

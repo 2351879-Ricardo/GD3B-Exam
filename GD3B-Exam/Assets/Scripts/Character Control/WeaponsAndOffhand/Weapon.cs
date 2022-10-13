@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     public DamageType damageType;
     
     public float damage;
+    [SerializeField] private int longestCombo;
 
     private GameObject _parent;
     private float _dmg;
@@ -38,5 +39,10 @@ public class Weapon : MonoBehaviour
     {
         _dmg = damage * mult;
         Debug.Log(_dmg);
+    }
+
+    private void GetLongestCombo()
+    {
+        SendMessageUpwards("SetMaxCombo", longestCombo);
     }
 }

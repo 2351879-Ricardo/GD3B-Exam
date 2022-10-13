@@ -111,7 +111,6 @@ public class Movement : MonoBehaviour
     private void OnMove(InputValue value)
     {
         var temp = value.Get<Vector2>();
-        Debug.Log($"{temp.normalized}");
         _inVec = temp.normalized;
     }
     

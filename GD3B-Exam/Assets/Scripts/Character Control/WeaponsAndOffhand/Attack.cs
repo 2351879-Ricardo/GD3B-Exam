@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     [SerializeField]private float lightAttackMultiplier, heavyAttackMultiplier;
     
     private int _ltAttackVal = 0;
+    private int _maxAttackVal;
 
     private Animator _anim;
     private CharacterState _cs;
@@ -19,6 +20,7 @@ public class Attack : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _cs = GetComponent<CharacterState>();
+        BroadcastMessage("GetLongestCombo");
     }
 
     // Update is called once per frame
@@ -64,14 +66,18 @@ public class Attack : MonoBehaviour
 
     private void OnAttack()
     {
-        _anim.SetBool("break", false);
         attacking = !attacking;
-        inCombo = true;
-        windowTime = 0;
-
-        if (attacking)
+        if (_ltAttackVal < _maxAttackVal)
         {
-            _ltAttackVal++;
+            _anim.SetBool("break", false);
+            
+            inCombo = true;
+            windowTime = 0;
+
+            if (attacking)
+            {
+                _ltAttackVal++;
+            }
         }
     }
 
@@ -124,5 +130,10 @@ public class Attack : MonoBehaviour
     public void LandHit()
     {
         Debug.Log("Hit Landed");
+    }
+
+    private void SetMaxCombo(int length)
+    {
+        _maxAttackVal = length;
     }
 }
