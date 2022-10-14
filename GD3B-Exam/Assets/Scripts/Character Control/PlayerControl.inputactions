@@ -7,8 +7,17 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "6bf406c2-ecfd-4a86-a811-89281f05d56f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "a62a64e2-0197-410b-9dce-c9a827eaf13c",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -144,8 +153,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Controller",
-                    "id": "482d483a-aa56-4d8b-9336-d2389b77d4a2",
+                    "name": "Joystick",
+                    "id": "1fadedca-b563-4e58-96a3-b1dcce8ea7f6",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -156,44 +165,44 @@
                 },
                 {
                     "name": "up",
-                    "id": "60b2458c-9b99-4111-99bc-ff2ab9152217",
+                    "id": "d8bb29c3-dfab-4693-8691-b871e33b8576",
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "df230b25-7bf5-49c6-9ea3-18e155a18678",
+                    "id": "2e47817c-5d86-4170-988c-8496de34fcb5",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "189535f9-f6db-4b19-8870-a8268ac56f3e",
+                    "id": "ca24b210-1e86-46cf-9a61-431bb013fc6d",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "b50914df-f119-46d1-9cc0-f856e9f3a7e8",
+                    "id": "7e1f4900-9c94-47ab-b29f-f1c7b2c7d507",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Controller",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -215,7 +224,7 @@
                     "path": "<Gamepad>/rightStick/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Controller",
                     "action": "LookX",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -237,7 +246,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Controller",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -259,7 +268,7 @@
                     "path": "<Gamepad>/rightStick/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Controller",
                     "action": "LookY",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -281,7 +290,7 @@
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Controller",
                     "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -325,7 +334,7 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Controller",
                     "action": "Interaction",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -347,7 +356,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Controller",
                     "action": "OpenInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -369,8 +378,19 @@
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Gamepad;Controller",
                     "action": "PauseGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f012b47f-91dc-4ab9-aa2d-8a9b0cefe9d5",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -406,12 +426,17 @@
             ]
         },
         {
-            "name": "Gamepad",
-            "bindingGroup": "Gamepad",
+            "name": "Controller",
+            "bindingGroup": "Controller",
             "devices": [
                 {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": true,
+                    "devicePath": "<DualShockGamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<XInputController>",
+                    "isOptional": false,
                     "isOR": false
                 }
             ]

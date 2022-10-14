@@ -7,6 +7,7 @@ public class EnemyAttackState : EnemyBaseState
     
     public override void EnterState(EnemyStateManager enemy)
     {
+        enemy.enemyAnimator.SetBool("isAttacking", true);
         _timeSinceAttack = 0f;
     }
 
@@ -15,6 +16,7 @@ public class EnemyAttackState : EnemyBaseState
         _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
         if (_enemyToPlayerVector3.magnitude > enemy.EnemyController.EnemySo.EnemyAttackRange)
         {
+            enemy.enemyAnimator.SetBool("isAttacking", false);
             enemy.SwitchState(enemy.ChaseState);
         }
 
