@@ -9,6 +9,7 @@ public class EnemyAttackState : EnemyBaseState
     {
         enemy.enemyAnimator.SetBool("isAttacking", true);
         _timeSinceAttack = 0f;
+        // ENEMY ATTACK SPEED >> enemy.EnemyController.EnemySo.EnemyDamagePerAttack
     }
 
     public override void UpdateState(EnemyStateManager enemy)
