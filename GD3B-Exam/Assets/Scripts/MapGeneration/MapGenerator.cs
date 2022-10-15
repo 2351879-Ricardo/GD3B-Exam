@@ -10,18 +10,34 @@ public class MapGenerator : MonoBehaviour
     public Transform Path3;
     public Transform Path4;
     //public Transform Path5;
+    public Transform Shop;
+    public Transform Arena;
 
     GameObject PreviousGround;
     GameObject CurrentGround;
     RaycastHit hit;
+
+    public float ShopSpawnRate;
+    public float ArenaSpawnRate;
+    public float Path1Rate;
+    public float Path2Rate;
+    public float Path3Rate;
+    public float Path4Rate;
+    int ShopPercent;
+    int ArenaPercent;
+    int Path1Percent;
+    int Path2Percent;
+    int Path3Percent;
+    int Path4Percent;
+    int TotalPercent;
 
     //class or struct?
     public struct Block
     {
         public int GroundType;
         public int Rotation;
-        public int xPosition; //potentially remove
-        public int zPosition; //potentially remove
+        public int xPosition;
+        public int zPosition;
         //change to internal calculation for bools?
         public bool UpOpen;
         public bool DownOpen;
@@ -45,12 +61,44 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //float TotalRate = ShopSpawnRate + ArenaSpawnRate + Path1Rate + Path2Rate + Path3Rate + Path4Rate;
+        ShopPercent = Mathf.RoundToInt(ShopSpawnRate);
+        ArenaPercent = Mathf.RoundToInt(ArenaSpawnRate);
+        Path1Percent = Mathf.RoundToInt(Path1Rate);
+        Path2Percent = Mathf.RoundToInt(Path2Rate);
+        Path3Percent = Mathf.RoundToInt(Path3Rate);
+        Path4Percent = Mathf.RoundToInt(Path4Rate);
+        if (ShopPercent == 0)
+        {
+            ShopPercent++;
+        }
+        if (ArenaPercent == 0)
+        {
+            ArenaPercent++;
+        }
+        if (Path1Percent == 0)
+        {
+            Path1Percent++;
+        }
+        if (Path2Percent == 0)
+        {
+            Path2Percent++;
+        }
+        if (Path3Percent == 0)
+        {
+            Path3Percent++;
+        }
+        if (Path4Percent == 0)
+        {
+            Path4Percent++;
+        }
         InitialGeneration();
         if (Physics.Raycast(Player.transform.position, Vector3.down, out hit))
         {
             PreviousGround = hit.collider.gameObject;
             CurrentGround = PreviousGround;
         }
+        TotalPercent = ShopPercent + ArenaPercent + Path1Percent + Path2Percent + Path3Percent + Path4Percent;
     }
 
     // Update is called once per frame
@@ -644,7 +692,29 @@ public class MapGenerator : MonoBehaviour
             bool NewRightOpen = true;
             if (PrevBlockOpen && AdjBlockOpen) //both open
             {
-                BlockTypeChosen = Random.Range(0, 3);
+                //BlockTypeChosen = Random.Range(0, 3);
+                int RandomNum = Random.Range(0, (TotalPercent - Path4Percent));
+                if (RandomNum < Path1Percent)
+                {
+                    BlockTypeChosen = 0;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent))
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
+                //path 1 (0 walls), shop and arena have 0 rotation and both new sides are open
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -672,7 +742,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (PrevBlockOpen && !AdjBlockOpen) //left closed, bottom open         //all 0 rotation
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -698,7 +789,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && AdjBlockOpen) //left open, bottom closed
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -724,10 +836,26 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
             {
-                BlockTypeChosen = 2;
-                BlockRotation = -90;
-                NewTopOpen = true;
-                NewRightOpen = true;
+                //BlockTypeChosen = 2;
+                int RandomNum = Random.Range(0, (Path2Percent + ShopPercent + ArenaPercent));
+                if (RandomNum < Path3Percent)
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent + ArenaPercent))
+                {
+                    BlockTypeChosen = 5;
+                }
+                if (BlockTypeChosen == 2)
+                {
+                    BlockRotation = -90;
+                    NewTopOpen = true;
+                    NewRightOpen = true;
+                }
             }
             //add new block to array and spawn on map
             GridBlocks[0, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, NewTopOpen, PrevBlockOpen, AdjBlockOpen, NewRightOpen);
@@ -780,7 +908,28 @@ public class MapGenerator : MonoBehaviour
             bool NewRightOpen = true;
             if (PrevBlockOpen && AdjBlockOpen) //both open
             {
-                BlockTypeChosen = Random.Range(0, 3);
+                //BlockTypeChosen = Random.Range(0, 3);
+                int RandomNum = Random.Range(0, (TotalPercent - Path4Percent));
+                if (RandomNum < Path1Percent)
+                {
+                    BlockTypeChosen = 0;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent))
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -808,7 +957,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (PrevBlockOpen && !AdjBlockOpen) //top open, left closed
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -834,7 +1004,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && AdjBlockOpen) //top closed, left open
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -860,10 +1051,25 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
             {
-                BlockTypeChosen = 2;
-                BlockRotation = 0;
-                NewBottomOpen = true;
-                NewRightOpen = true;
+                int RandomNum = Random.Range(0, (Path2Percent + ShopPercent + ArenaPercent));
+                if (RandomNum < Path3Percent)
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent + ArenaPercent))
+                {
+                    BlockTypeChosen = 5;
+                }
+                if (BlockTypeChosen == 2)
+                {
+                    BlockRotation = 0;
+                    NewBottomOpen = true;
+                    NewRightOpen = true;
+                }
             }
             //add new block to array and spawn on map
             GridBlocks[10, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, PrevBlockOpen, NewBottomOpen, AdjBlockOpen, NewRightOpen);
@@ -916,7 +1122,28 @@ public class MapGenerator : MonoBehaviour
             bool NewLeftOpen = true;
             if (PrevBlockOpen && AdjBlockOpen) //both open
             {
-                BlockTypeChosen = Random.Range(0, 3);
+                //BlockTypeChosen = Random.Range(0, 3);
+                int RandomNum = Random.Range(0, (TotalPercent - Path4Percent));
+                if (RandomNum < Path1Percent)
+                {
+                    BlockTypeChosen = 0;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent))
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -944,7 +1171,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (PrevBlockOpen && !AdjBlockOpen) //top closed, right open
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -970,7 +1218,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && AdjBlockOpen) //top open, right closed
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -996,10 +1265,25 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
             {
-                BlockTypeChosen = 2;
-                BlockRotation = 90;
-                NewBottomOpen = true;
-                NewLeftOpen = true;
+                int RandomNum = Random.Range(0, (Path2Percent + ShopPercent + ArenaPercent));
+                if (RandomNum < Path3Percent)
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent + ArenaPercent))
+                {
+                    BlockTypeChosen = 5;
+                }
+                if (BlockTypeChosen == 2)
+                {
+                    BlockRotation = 90;
+                    NewBottomOpen = true;
+                    NewLeftOpen = true;
+                }
             }
             //add new block to array and spawn on map
             GridBlocks[row, 0] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, AdjBlockOpen, NewBottomOpen, NewLeftOpen, PrevBlockOpen);
@@ -1052,7 +1336,28 @@ public class MapGenerator : MonoBehaviour
             bool NewRightOpen = true;
             if (PrevBlockOpen && AdjBlockOpen) //both open
             {
-                BlockTypeChosen = Random.Range(0, 3);
+                //BlockTypeChosen = Random.Range(0, 3);
+                int RandomNum = Random.Range(0, (TotalPercent - Path4Percent));
+                if (RandomNum < Path1Percent)
+                {
+                    BlockTypeChosen = 0;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent))
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path1Percent + Path2Percent + Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -1080,7 +1385,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (PrevBlockOpen && !AdjBlockOpen) //top closed, left open
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -1106,7 +1432,28 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && AdjBlockOpen) //top open, left closed
             {
-                BlockTypeChosen = Random.Range(1, 4);
+                //BlockTypeChosen = Random.Range(1, 4);
+                int RandomNum = Random.Range(0, (TotalPercent - Path1Percent));
+                if (RandomNum < Path2Percent)
+                {
+                    BlockTypeChosen = 1;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent))
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent))
+                {
+                    BlockTypeChosen = 3;
+                }
+                else if (RandomNum < (Path2Percent + Path3Percent + Path4Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (TotalPercent - Path4Percent))
+                {
+                    BlockTypeChosen = 5;
+                }
                 //choose / fix rotation
                 if (BlockTypeChosen == 1)
                 {
@@ -1132,10 +1479,25 @@ public class MapGenerator : MonoBehaviour
             }
             else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
             {
-                BlockTypeChosen = 2;
-                BlockRotation = 0;
-                NewBottomOpen = true;
-                NewRightOpen = true;
+                int RandomNum = Random.Range(0, (Path2Percent + ShopPercent + ArenaPercent));
+                if (RandomNum < Path3Percent)
+                {
+                    BlockTypeChosen = 2;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent))
+                {
+                    BlockTypeChosen = 4;
+                }
+                else if (RandomNum < (Path3Percent + ShopPercent + ArenaPercent))
+                {
+                    BlockTypeChosen = 5;
+                }
+                if (BlockTypeChosen == 2)
+                {
+                    BlockRotation = 0;
+                    NewBottomOpen = true;
+                    NewRightOpen = true;
+                }
             }
             //add new block to array and spawn on map
             GridBlocks[row, 10] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, AdjBlockOpen, NewBottomOpen, PrevBlockOpen, NewRightOpen);
@@ -1157,8 +1519,14 @@ public class MapGenerator : MonoBehaviour
             case 2:
                 Block = Path3;
                 break;
-            default:
+            case 3:
                 Block = Path4;
+                break;
+            case 4:
+                Block = Shop;
+                break;
+            default:
+                Block = Arena;
                 break;
         }
         Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
