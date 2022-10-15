@@ -62,6 +62,17 @@ public class Movement : MonoBehaviour
         #endregion
         //Sets horizontal velocity when _dodging is true.
         #region Dodge
+
+        if (!_canDodge)
+        {
+            _dodgeCoolDown -= Time.deltaTime;
+        }
+
+        if (_dodgeCoolDown <= 0f)
+        {
+            _canDodge = true;
+        }
+        
         if (!_dodging)
         {
             _dogdeV = Vector3.zero;
@@ -127,8 +138,13 @@ public class Movement : MonoBehaviour
     //Sets _jumping boolean to true on activation.
     private void OnDodge()
     {
-        _dodging = true;
-        _dodgeTimeR = dodgeTime;
-        SendMessage("Dodging");
+        if (_canDodge)
+        {
+            _dodging = true;
+            _canDodge = false;
+            _dodgeCoolDown = dodgeCoolDownTime + dodgeTime;
+            _dodgeTimeR = dodgeTime;
+            SendMessage("Dodging");
+        }
     }
 }
