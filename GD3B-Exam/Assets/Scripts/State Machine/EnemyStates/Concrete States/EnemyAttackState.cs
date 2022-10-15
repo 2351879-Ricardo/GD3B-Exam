@@ -5,6 +5,8 @@ public class EnemyAttackState : EnemyBaseState
     private float _timeSinceAttack;
     private Vector3 _enemyToPlayerVector3;
     
+    
+    //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
     {
         enemy.enemyAnimator.SetBool("isAttacking", true);
@@ -12,6 +14,7 @@ public class EnemyAttackState : EnemyBaseState
         // ENEMY ATTACK SPEED >> enemy.EnemyController.EnemySo.EnemyDamagePerAttack
     }
 
+    //Updated every frame - frame by frame logic
     public override void UpdateState(EnemyStateManager enemy)
     {
         _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;

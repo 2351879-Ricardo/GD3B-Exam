@@ -111,6 +111,7 @@ public class Movement : MonoBehaviour
     //On Activation, manipulates the _moveVec variable to give the player a movement direction.
     private void OnMove(InputValue value)
     {
+        Debug.Log("Moving");
         var temp = value.Get<Vector2>();
         _inVec = temp.normalized;
     }
