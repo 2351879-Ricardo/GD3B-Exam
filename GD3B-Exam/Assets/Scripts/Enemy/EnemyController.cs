@@ -4,6 +4,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {
+   [SerializeField] private GameObject damageTextUI;
    [SerializeField] private EnemySO enemySo;
    [SerializeField] private float health;
 
@@ -14,6 +15,9 @@ public class EnemyController : MonoBehaviour
 
    public void TakeDamage(float damage)
    {
+      var height = GetComponentInChildren<CapsuleCollider>().height;
+      var damagePopup = Instantiate(damageTextUI, (transform.position + new Vector3(0f, height/2f, 0f)), Quaternion.identity).GetComponent<DamagePopup>();
+      damagePopup.SetDamageText((int) damage);
       health -= damage;
 
       if (health <= 0)

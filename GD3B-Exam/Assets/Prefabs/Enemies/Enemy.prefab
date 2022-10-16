@@ -1543,6 +1543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0e697ba1502444b88e46d6311dd57d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTextUI: {fileID: 4658559742746286454, guid: 6334e102c6e29a2488c0f748a3e7cdad, type: 3}
   enemySo: {fileID: 0}
   health: 100
 --- !u!195 &8900176272323038652
