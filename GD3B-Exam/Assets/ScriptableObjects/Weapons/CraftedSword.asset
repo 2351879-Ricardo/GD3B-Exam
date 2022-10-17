@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b39b1d5031d6e5479c7145c25aecb71, type: 3}
   m_Name: CraftedSword
   m_EditorClassIdentifier: 
-  itemName: Crafted Sword
+  itemName: Player Sword
   itemDescription: This is a crafted sword.
   itemSprite: {fileID: 0}
-  attackDamage: 10
-  attackSpeed: 1.5
-  attackRange: 3
+  attackDamage: 5
+  attackSpeed: 1
+  attackRange: 2
   weaponType: 0
   damageType: 0

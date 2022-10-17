@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -1529,7 +1530,7 @@ public class MapGenerator : MonoBehaviour
                 Block = Arena;
                 break;
         }
-        Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
+        Transform newBlock = Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
     }
 }
 

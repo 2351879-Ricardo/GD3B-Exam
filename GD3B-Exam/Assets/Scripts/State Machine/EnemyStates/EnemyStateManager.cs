@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class EnemyStateManager : MonoBehaviour
 {
     private EnemyBaseState _currentState;
+    public float despawnDistance = 100f;
 
     public Animator enemyAnimator;
     
@@ -12,6 +13,7 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyChaseState ChaseState = new EnemyChaseState();
     public EnemyDodgeState DodgeState = new EnemyDodgeState();
     public EnemyPatrolState PatrolState = new EnemyPatrolState();
+    public EnemyDespawnState DespawnState = new EnemyDespawnState();
 
     private EnemyController _enemyController;
     private GameObject _playerGameObject;

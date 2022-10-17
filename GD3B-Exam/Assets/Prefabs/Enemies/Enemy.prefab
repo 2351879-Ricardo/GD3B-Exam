@@ -1580,6 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a0e9ace38309343abb6150df7dc178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  despawnDistance: 50
   enemyAnimator: {fileID: 261659195776745940}
 --- !u!1 &6924965417252265170
 GameObject:

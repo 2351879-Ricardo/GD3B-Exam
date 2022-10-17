@@ -20,5 +20,10 @@ public class EnemyChaseState : EnemyBaseState
             enemy.SwitchState(enemy.AttackState);
             enemy.enemyAnimator.SetBool("isWalking", false);
         }
+
+        if (_enemyToPlayerVector3.magnitude >= enemy.despawnDistance)
+        {
+            enemy.SwitchState(enemy.DespawnState);
+        }
     }
 }
