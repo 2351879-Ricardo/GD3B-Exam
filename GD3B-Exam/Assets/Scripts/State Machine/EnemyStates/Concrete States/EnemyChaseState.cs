@@ -21,4 +21,9 @@ public class EnemyChaseState : EnemyBaseState
             enemy.enemyAnimator.SetBool("isWalking", false);
         }
     }
+
+    public override void EndAction(int i)
+    {
+        //Doing a thing
+    }
 }

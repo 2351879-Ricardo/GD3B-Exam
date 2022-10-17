@@ -11,4 +11,9 @@ public class EnemyPatrolState : EnemyBaseState
     {
         Debug.Log("Update Patrol State");
     }
+    
+    public override void EndAction(int i)
+    {
+//Doing a thing
+    }
 }
