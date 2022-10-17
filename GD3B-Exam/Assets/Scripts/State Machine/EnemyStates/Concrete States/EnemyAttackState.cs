@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyBaseState
 {
-    private float _timeSinceAttack;
+    private float _timeSinceAttack, _attackRange;
     private Vector3 _enemyToPlayerVector3;
     private int _randNum;
     private EnemyStateManager _enemy;
+
+    private int _layerMask;
     
     //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
@@ -26,13 +28,21 @@ public class EnemyAttackState : EnemyBaseState
         enemy.enemyAnimator.SetBool($"break{_randNum}", true);
         
         _timeSinceAttack = 0f;
+        _attackRange = enemy.EnemyController.EnemySo.EnemyAttackRange;
         // ENEMY ATTACK SPEED >> enemy.EnemyController.EnemySo.EnemyDamagePerAttack
     }
 
     //Updated every frame - frame by frame logic
     public override void UpdateState(EnemyStateManager enemy)
     {
-        _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
+        //var inRange = Physics.CheckSphere(Transform.position, _attackRange, )
+        
+        
+        
+        
+        
+        
+        /*_enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
         if (_enemyToPlayerVector3.magnitude > enemy.EnemyController.EnemySo.EnemyAttackRange)
         {
             enemy.enemyAnimator.SetBool("isAttacking", false);
@@ -52,7 +62,7 @@ public class EnemyAttackState : EnemyBaseState
             }
             
             _timeSinceAttack += Time.deltaTime;
-        }
+        }*/
     }
 
 
