@@ -94,7 +94,6 @@ public class Attack : MonoBehaviour
     private void DodgeAttack()
     {
         _anim.SetBool("DodgeAttack", true);
-        Debug.Log("DodgeAttack");
     }
 
     private void LightEffect()
@@ -129,7 +128,6 @@ public class Attack : MonoBehaviour
 
     public void LandHit()
     {
-        Debug.Log("Hit Landed");
     }
 
     private void SetMaxCombo(int length)

@@ -11,4 +11,9 @@ public class EnemyDodgeState : EnemyBaseState
     {
         Debug.Log("Update Dodge State");
     }
+    
+    public override void EndAction(int i)
+    {
+    //Doing a thing
+    }
 }

@@ -11,4 +11,9 @@ public class EnemyPatrolState : EnemyBaseState
     {
         
     }
+    
+    public override void EndAction(int i)
+    {
+//Doing a thing
+    }
 }

@@ -46,6 +46,11 @@ public class EnemyStateManager : MonoBehaviour
         _currentState.EnterState(this);
     }
 
+    public void ExitAction(int i)
+    {
+        _currentState.EndAction(i);
+    }
+
     public EnemyController EnemyController => _enemyController;
     public GameObject PlayerGameObject => _playerGameObject;
     public NavMeshAgent EnemyNavMeshAgent => _navMeshAgent;

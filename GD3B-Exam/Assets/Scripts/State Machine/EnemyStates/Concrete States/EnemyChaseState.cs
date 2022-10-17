@@ -26,4 +26,9 @@ public class EnemyChaseState : EnemyBaseState
             enemy.SwitchState(enemy.DespawnState);
         }
     }
+
+    public override void EndAction(int i)
+    {
+        //Doing a thing
+    }
 }
