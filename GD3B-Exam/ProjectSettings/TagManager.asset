@@ -9,6 +9,7 @@ TagManager:
   - Pickup
   - Crafting
   - Canvas
+  - Shop
   layers:
   - Default
   - TransparentFX
