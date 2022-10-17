@@ -59,6 +59,8 @@ public class MapGenerator : MonoBehaviour
 
     public Block[,] GridBlocks = new Block[11, 11];
 
+    public Initialisation initialisation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,37 +71,39 @@ public class MapGenerator : MonoBehaviour
         Path2Percent = Mathf.RoundToInt(Path2Rate);
         Path3Percent = Mathf.RoundToInt(Path3Rate);
         Path4Percent = Mathf.RoundToInt(Path4Rate);
-        if (ShopPercent == 0)
+        if (ShopPercent <= 0)
         {
             ShopPercent++;
         }
-        if (ArenaPercent == 0)
+        if (ArenaPercent <= 0)
         {
             ArenaPercent++;
         }
-        if (Path1Percent == 0)
+        if (Path1Percent <= 0)
         {
             Path1Percent++;
         }
-        if (Path2Percent == 0)
+        if (Path2Percent <= 0)
         {
             Path2Percent++;
         }
-        if (Path3Percent == 0)
+        if (Path3Percent <= 0)
         {
             Path3Percent++;
         }
-        if (Path4Percent == 0)
+        if (Path4Percent <= 0)
         {
             Path4Percent++;
         }
-        InitialGeneration();
+        //InitialGeneration();
+        //initialisation.Initialise();
         if (Physics.Raycast(Player.transform.position, Vector3.down, out hit))
         {
             PreviousGround = hit.collider.gameObject;
             CurrentGround = PreviousGround;
         }
         TotalPercent = ShopPercent + ArenaPercent + Path1Percent + Path2Percent + Path3Percent + Path4Percent;
+        initialisation.Initialise();
     }
 
     // Update is called once per frame
@@ -1530,7 +1534,7 @@ public class MapGenerator : MonoBehaviour
                 Block = Arena;
                 break;
         }
-        Transform newBlock = Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
+        Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
     }
 }
 

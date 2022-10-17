@@ -867,6 +867,8 @@ GameObject:
   - component: {fileID: 1880402712}
   - component: {fileID: 1880402711}
   - component: {fileID: 1880402713}
+  - component: {fileID: 1880402715}
+  - component: {fileID: 1880402714}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -976,6 +978,44 @@ MonoBehaviour:
   Path2Rate: 100
   Path3Rate: 101
   Path4Rate: 102
+  initialisation: {fileID: 1880402715}
+--- !u!114 &1880402714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880402710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e55b07c7e23f3840bf9f8f6dacb1c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path1: {fileID: 489889705927852844, guid: d3e16e47bfbee2b4bbac6272bd3b6e5b, type: 3}
+  Path2: {fileID: 1484741900214686205, guid: 26143e0892ee76b4c91a3222d6e96aa5, type: 3}
+  Path3: {fileID: 2999396693357443368, guid: 4cd3dca6da5f3a5429848d2314e1d19f, type: 3}
+  Path4: {fileID: 7496493975210852, guid: 1b9b0592f1f599744a6d55f504c9e200, type: 3}
+  Shop: {fileID: 489889705927852844, guid: 7b372530a26d4cc4e87ac88801c7335e, type: 3}
+  Arena: {fileID: 489889705927852844, guid: b2c08c5abb1f0a140bb41a5a0b227cdf, type: 3}
+--- !u!114 &1880402715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880402710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e69c1b62286bae4fa79db4972724532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 674210921}
+  Path1: {fileID: 0}
+  Path2: {fileID: 0}
+  Path3: {fileID: 0}
+  Path4: {fileID: 0}
+  mapGenerator: {fileID: 0}
+  spawnBlock: {fileID: 0}
 --- !u!1001 &2091244674
 PrefabInstance:
   m_ObjectHideFlags: 0
