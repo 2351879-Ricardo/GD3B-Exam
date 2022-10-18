@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAttackState : EnemyBaseState
 {
@@ -37,6 +38,9 @@ public class EnemyAttackState : EnemyBaseState
         
         // ENEMY ATTACK SPEED >> enemy.EnemyController.EnemySo.EnemyDamagePerAttack
         enemy.enemyAnimator.SetFloat("attackSpeed", enemy.EnemyController.EnemySo.EnemyAttackSpeed);
+        
+        //Lock Enemy in Place when attacking ----- Segway into more extravagent animations???
+        enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().speed = 0;
     }
 
     //Updated every frame - frame by frame logic
@@ -52,7 +56,7 @@ public class EnemyAttackState : EnemyBaseState
             EnterState(enemy);
         }
 
-        else if (!inRange)
+        else if (!inRange && !_attacking)
         {
             Debug.Log("Cant Fuckin Reach Him with My Tiny Arms");
             enemy.SwitchState(enemy.ChaseState);

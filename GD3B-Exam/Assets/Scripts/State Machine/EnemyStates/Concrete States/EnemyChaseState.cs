@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyChaseState : EnemyBaseState
 {
@@ -8,6 +9,8 @@ public class EnemyChaseState : EnemyBaseState
     {
         enemy.enemyAnimator.SetBool("isWalking", true);
         enemy.enemyAnimator.SetFloat("walkSpeed", enemy.EnemyController.EnemySo.EnemySpeed);
+        enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().speed = enemy.EnemyController.EnemySo.EnemySpeed;
+
     }
 
     public override void UpdateState(EnemyStateManager enemy)
