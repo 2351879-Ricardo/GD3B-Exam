@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public struct EnemyLootDrop
 public class EnemySO : ScriptableObject
 {
     [SerializeField] private float enemyHealth = 100f;
+    [SerializeField] private float enemySpeed = 5f;
     [SerializeField] private float enemyAttackSpeed = 1f;
     [SerializeField] private float enemyDamagePerAttack = 5f;
     [SerializeField] private float enemyAttackRange = 10f;
@@ -38,6 +40,12 @@ public class EnemySO : ScriptableObject
     {
         get => enemyHealth;
         set => enemyHealth = value;
+    }
+
+    public float EnemySpeed
+    {
+        get => enemySpeed;
+        set => enemySpeed = value;
     }
     
     public float EnemyAttackSpeed

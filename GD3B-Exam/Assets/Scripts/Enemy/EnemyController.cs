@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
@@ -11,6 +12,7 @@ public class EnemyController : MonoBehaviour
    private void Start()
    {
       InitEnemy();
+      GetComponent<NavMeshAgent>().speed = EnemySo.EnemySpeed;
    }
 
    public void TakeDamage(float damage)

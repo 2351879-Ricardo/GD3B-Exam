@@ -9,7 +9,7 @@ public class EnemyAttackState : EnemyBaseState
 
     private int _layerMask;
     private bool _attacking = false;
-    
+
     //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
     {
@@ -33,21 +33,28 @@ public class EnemyAttackState : EnemyBaseState
         
         _timeSinceAttack = 0f;
         _attackRange = enemy.EnemyController.EnemySo.EnemyAttackRange;
+        
+        
         // ENEMY ATTACK SPEED >> enemy.EnemyController.EnemySo.EnemyDamagePerAttack
+        enemy.enemyAnimator.SetFloat("attackSpeed", enemy.EnemyController.EnemySo.EnemyAttackSpeed);
     }
 
     //Updated every frame - frame by frame logic
     public override void UpdateState(EnemyStateManager enemy)
     {
-        var inRange = Physics.CheckSphere(enemy.EnemyController.transform.position, _attackRange, ~_layerMask);
-
+        _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
+        var dist = _enemyToPlayerVector3.magnitude;
+        var inRange = dist < enemy.EnemyController.EnemySo.EnemyAttackRange;
+        
         if (inRange &&!_attacking)
         {
+            Debug.Log("New Combo");
             EnterState(enemy);
         }
 
-        if (!inRange)
+        else if (!inRange)
         {
+            Debug.Log("Cant Fuckin Reach Him with My Tiny Arms");
             enemy.SwitchState(enemy.ChaseState);
         }
         
@@ -78,5 +85,9 @@ public class EnemyAttackState : EnemyBaseState
     public override void EndAction(int i)
     {
         _enemy.enemyAnimator.SetBool($"attack{i}", false);
+        if (i == _randNum)
+        {
+            _attacking = false;
+        }
     }
 }

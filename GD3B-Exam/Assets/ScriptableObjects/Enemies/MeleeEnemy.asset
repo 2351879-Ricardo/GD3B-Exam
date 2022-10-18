@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   enemyHealth: 150
+  enemySpeed: 3.5
   enemyAttackSpeed: 1
   enemyDamagePerAttack: 5
-  enemyAttackRange: 3
+  enemyAttackRange: 4
   enemyHitChance01: 0.8
   enemyType: 1
   enemyDropTable:

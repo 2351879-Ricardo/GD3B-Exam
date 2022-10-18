@@ -7,6 +7,7 @@ public class EnemyChaseState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
         enemy.enemyAnimator.SetBool("isWalking", true);
+        enemy.enemyAnimator.SetFloat("walkSpeed", enemy.EnemyController.EnemySo.EnemySpeed);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
