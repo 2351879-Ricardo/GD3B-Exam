@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 435660686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1208820532}
   - component: {fileID: 1208820534}
   - component: {fileID: 1208820533}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightTrails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4853,7 +4853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1585682909}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HeavyParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4885,7 +4885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1675434507}
   - component: {fileID: 2652025764716928315}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MaceTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4936,7 +4936,7 @@ GameObject:
   - component: {fileID: 1759663704}
   - component: {fileID: 1759663706}
   - component: {fileID: 1759663705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HeavyTrails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9808,7 +9808,7 @@ GameObject:
   - component: {fileID: 1016303094172954375}
   - component: {fileID: 9144296401636128250}
   - component: {fileID: 1026182898938369645}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9904,7 +9904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4333015703938806031}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OffHand
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -9992,7 +9992,7 @@ GameObject:
   - component: {fileID: 8529631193680810982}
   - component: {fileID: 76111508}
   - component: {fileID: 3766127236521128474}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -10249,9 +10249,9 @@ GameObject:
   - component: {fileID: 7521585297941563074}
   - component: {fileID: 7521585297941563075}
   - component: {fileID: 7521585297941563132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerMesh
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10344,7 +10344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7521585298183910434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CamAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10378,7 +10378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 171464697684141793}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WeaponSlot
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
@@ -10455,6 +10455,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d3f5f8a5e40f6594cab12103b3dc9359, type: 3}
       propertyPath: m_Name
       value: shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3f5f8a5e40f6594cab12103b3dc9359, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f5f8a5e40f6594cab12103b3dc9359, type: 3}
@@ -10567,6 +10571,10 @@ PrefabInstance:
       value: Mace_mdl
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0e813180a4ebd5448920b6e59437e96c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e813180a4ebd5448920b6e59437e96c, type: 3}
       propertyPath: m_TagString
       value: Weapon
       objectReference: {fileID: 0}
@@ -10602,9 +10610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb44b2f6199ac444a29f4a7ad32b8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 0
-  damage: 50
+  playerWeapon: {fileID: 0}
   longestCombo: 3
+  weaponDamage: 0
+  weaponAttackSpeed: 0
 --- !u!4 &4172902447944245476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e813180a4ebd5448920b6e59437e96c, type: 3}

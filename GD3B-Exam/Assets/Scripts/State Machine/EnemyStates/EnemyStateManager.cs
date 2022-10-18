@@ -51,6 +51,12 @@ public class EnemyStateManager : MonoBehaviour
         _currentState.EndAction(i);
     }
 
+    public void DealDamage(float dmg)
+    {
+        Debug.Log("Hit Landed");
+        _playerStats.TakeDamage(dmg);
+    }
+
     public EnemyController EnemyController => _enemyController;
     public GameObject PlayerGameObject => _playerGameObject;
     public NavMeshAgent EnemyNavMeshAgent => _navMeshAgent;

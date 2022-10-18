@@ -22,7 +22,7 @@ public class EnemyAttackState : EnemyBaseState
         }
         
         _enemy = enemy;
-        _randNum = Random.Range(1, 3);
+        _randNum = Random.Range(1, 4);
         Debug.Log(_randNum);
 
         for (int i = 1; i <= _randNum; i++)
@@ -62,12 +62,7 @@ public class EnemyAttackState : EnemyBaseState
             enemy.SwitchState(enemy.ChaseState);
         }
         
-        /*_enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
-        if (_enemyToPlayerVector3.magnitude > enemy.EnemyController.EnemySo.EnemyAttackRange)
-        {
-            enemy.enemyAnimator.SetBool("isAttacking", false);
-            enemy.SwitchState(enemy.ChaseState);
-        }
+        /*
 
         else
         {
