@@ -8,6 +8,7 @@ public class EnemyAttackState : EnemyBaseState
     private EnemyStateManager _enemy;
 
     private int _layerMask;
+    private bool _attacking = false;
     
     //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
@@ -28,6 +29,7 @@ public class EnemyAttackState : EnemyBaseState
             enemy.enemyAnimator.SetBool($"attack{i}", true);
         }
         enemy.enemyAnimator.SetBool($"break{_randNum}", true);
+        _attacking = true;
         
         _timeSinceAttack = 0f;
         _attackRange = enemy.EnemyController.EnemySo.EnemyAttackRange;
@@ -39,7 +41,7 @@ public class EnemyAttackState : EnemyBaseState
     {
         var inRange = Physics.CheckSphere(enemy.EnemyController.transform.position, _attackRange, ~_layerMask);
 
-        if (inRange)
+        if (inRange &&!_attacking)
         {
             EnterState(enemy);
         }
@@ -48,6 +50,7 @@ public class EnemyAttackState : EnemyBaseState
         {
             enemy.SwitchState(enemy.ChaseState);
         }
+        
         /*_enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
         if (_enemyToPlayerVector3.magnitude > enemy.EnemyController.EnemySo.EnemyAttackRange)
         {
