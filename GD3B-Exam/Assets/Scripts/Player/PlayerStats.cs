@@ -60,4 +60,10 @@ public class PlayerStats : MonoBehaviour
         
         Time.timeScale = 0f;
     }
+
+    public void AddHealthToPlayer(int heals)
+    {
+        _currentHealth += heals;
+        if (_currentHealth > maxHealth) _currentHealth = maxHealth;
+    }
 }

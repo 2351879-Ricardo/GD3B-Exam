@@ -24,9 +24,4 @@ public class ShopItemManager : MonoBehaviour
         get => _shopItemSo;
         set => _shopItemSo = value;
     }
-
-    private void UpdateItemUI()
-    {
-        
-    }
 }

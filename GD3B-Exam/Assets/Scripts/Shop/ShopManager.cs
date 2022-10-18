@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,6 +13,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopContainer;
     [SerializeField] private GameObject shopItemPrefab;
 
+    [Header("Debugging")] public PurchaseItem testPurchase;
+    
     private void CreateShop()
     {
         ClearShop();
@@ -36,5 +39,10 @@ public class ShopManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void CloseShop()
+    {
+        
     }
 }

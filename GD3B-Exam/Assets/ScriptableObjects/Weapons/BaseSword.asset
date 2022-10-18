@@ -15,8 +15,8 @@ MonoBehaviour:
   itemName: Base Sword
   itemDescription: This is the base sword with no crafting recipe.
   itemSprite: {fileID: 0}
-  attackDamage: 5
+  attackDamage: 50
   attackSpeed: 1
-  attackRange: 2
+  attackRange: 3
   weaponType: 0
   damageType: 0

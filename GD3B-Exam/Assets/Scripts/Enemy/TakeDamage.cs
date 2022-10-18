@@ -17,7 +17,7 @@ public class TakeDamage : MonoBehaviour
         if (other.collider.tag == "Weapon")
         {
             Debug.Log("Hit");
-            _ec.TakeDamage(other.collider.GetComponent<Weapon>().damage);
+            _ec.TakeDamage(other.collider.GetComponent<Weapon>().WeaponDamage);
         }
     }
 }
