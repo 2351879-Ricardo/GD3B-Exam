@@ -12,6 +12,8 @@ public class EnemyAttackState : EnemyBaseState
     //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
     {
+        _layerMask = 1 << 9;
+        
         for (int i = 1; i <= 3; i++)
         {
             enemy.enemyAnimator.SetBool($"break{i}", false);
@@ -35,13 +37,17 @@ public class EnemyAttackState : EnemyBaseState
     //Updated every frame - frame by frame logic
     public override void UpdateState(EnemyStateManager enemy)
     {
-        //var inRange = Physics.CheckSphere(Transform.position, _attackRange, )
-        
-        
-        
-        
-        
-        
+        var inRange = Physics.CheckSphere(enemy.EnemyController.transform.position, _attackRange, ~_layerMask);
+
+        if (inRange)
+        {
+            EnterState(enemy);
+        }
+
+        if (!inRange)
+        {
+            enemy.SwitchState(enemy.ChaseState);
+        }
         /*_enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - enemy.PlayerGameObject.transform.position;
         if (_enemyToPlayerVector3.magnitude > enemy.EnemyController.EnemySo.EnemyAttackRange)
         {
