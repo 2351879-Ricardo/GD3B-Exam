@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fb6487b729ea944b96989eb0cb9042, type: 3}
+  m_Name: Damage
+  m_EditorClassIdentifier: 
+  itemName: Whetstone of Sharpness
+  itemCosts:
+  - resourceSo: {fileID: 11400000, guid: da4278fb5f8fe2e4c9bad42ab8064737, type: 2}
+    resourceCount: 350
+  - resourceSo: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
+    resourceCount: 5
+  upgradeType: 2
+  upgradeValue: 15
+  itemSprite: {fileID: 0}
