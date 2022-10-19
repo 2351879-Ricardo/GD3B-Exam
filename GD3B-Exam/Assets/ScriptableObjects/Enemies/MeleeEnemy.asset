@@ -16,7 +16,7 @@ MonoBehaviour:
   enemySpeed: 3.5
   enemyAttackSpeed: 1
   enemyDamagePerAttack: 5
-  enemyAttackRange: 4
+  enemyAttackRange: 3
   enemyHitChance01: 0.8
   enemyType: 1
   enemyDropTable:

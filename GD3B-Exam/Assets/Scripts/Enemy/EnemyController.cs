@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
    private void Start()
    {
       InitEnemy();
-      GetComponent<NavMeshAgent>().speed = EnemySo.EnemySpeed/2f;
+      GetComponent<NavMeshAgent>().speed = EnemySo.EnemySpeed;
    }
 
    public void TakeDamage(float damage)
