@@ -398,14 +398,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3955958790910023728, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: damageType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3955958790910023728, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: playerWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: e4b77314e5a3fc24c89066f84aa3d2e6, type: 2}
     - target: {fileID: 7521585297557970921, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
       propertyPath: m_RootOrder
       value: 4

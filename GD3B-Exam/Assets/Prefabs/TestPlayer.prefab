@@ -10610,7 +10610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb44b2f6199ac444a29f4a7ad32b8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerWeapon: {fileID: 0}
+  playerWeapon: {fileID: 11400000, guid: e4b77314e5a3fc24c89066f84aa3d2e6, type: 2}
   longestCombo: 3
   weaponDamage: 0
   weaponAttackSpeed: 0
