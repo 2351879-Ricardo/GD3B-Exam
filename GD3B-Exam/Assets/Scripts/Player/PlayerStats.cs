@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI tempVar;
+    
     public float maxHealth;
     [SerializeField] private float damageTick;
     [SerializeField] private float damage;
@@ -43,6 +46,7 @@ public class PlayerStats : MonoBehaviour
         }
         _currentHealth -= dmg;
         _time = damageTick;
+        tempVar.text = ((int)_currentHealth).ToString();
     }
 
     private void EndGame()

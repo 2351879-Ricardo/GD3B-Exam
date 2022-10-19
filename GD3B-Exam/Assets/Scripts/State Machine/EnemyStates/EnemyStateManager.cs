@@ -54,6 +54,7 @@ public class EnemyStateManager : MonoBehaviour
     public void DealDamage(float dmg)
     {
         Debug.Log("Hit Landed");
+        Debug.Log(dmg);
         _playerStats.TakeDamage(dmg);
     }
 

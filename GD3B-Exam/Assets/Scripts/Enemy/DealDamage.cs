@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DealDamage : MonoBehaviour
@@ -16,9 +13,10 @@ public class DealDamage : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("Punch Thrown");
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            SendMessageUpwards("DealDamage", _dmg);
+            other.GetComponentInParent<PlayerStats>().TakeDamage(_dmg);
+            // SendMessageUpwards("DealDamage", _dmg);
         }
     }
 }
