@@ -1110,7 +1110,7 @@ MonoBehaviour:
   Shop: {fileID: 489889705927852844, guid: 7b372530a26d4cc4e87ac88801c7335e, type: 3}
   Arena: {fileID: 489889705927852844, guid: b2c08c5abb1f0a140bb41a5a0b227cdf, type: 3}
   ShopSpawnRate: 3
-  ArenaSpawnRate: 1
+  ArenaSpawnRate: 50
   Path1Rate: 50
   Path2Rate: 100
   Path3Rate: 101

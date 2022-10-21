@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   WallLock: {fileID: 3477735534114937573}
+  InShop: 0
 --- !u!1 &607635967926290253
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5226744708316414235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.71516025, y: 2.7978113, z: 0.004941916}
+  m_LocalPosition: {x: 0.71516025, y: 2.8, z: 0.004941916}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
