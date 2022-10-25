@@ -44,12 +44,13 @@ public class Weapon : MonoBehaviour
 
     public void UpdateWeaponDamage()
     {
-        weaponDamage = playerWeapon.attackDamage;
+        _dmg = playerWeapon.attackDamage;
     }
     
     public void UpdateWeaponSpeed()
     {
         weaponAttackSpeed = playerWeapon.attackSpeed;
+        SendMessageUpwards("SetAttackSpeed", playerWeapon.attackSpeed);
     }
 
     public float WeaponDamage => weaponDamage;
