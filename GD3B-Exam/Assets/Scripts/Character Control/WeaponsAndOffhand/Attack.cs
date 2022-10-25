@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
     
     private int _ltAttackVal = 0;
     private int _maxAttackVal;
+    private float _attackSpd;
 
     private Animator _anim;
     private CharacterState _cs;
@@ -19,6 +20,7 @@ public class Attack : MonoBehaviour
     void Start()
     {
         _anim = GetComponent<Animator>();
+        _anim.SetFloat("AttackSpeed", _attackSpd);
         _cs = GetComponent<CharacterState>();
         BroadcastMessage("GetLongestCombo");
     }
@@ -133,5 +135,11 @@ public class Attack : MonoBehaviour
     private void SetMaxCombo(int length)
     {
         _maxAttackVal = length;
+    }
+
+    public void SetAttackSpeed(float speed)
+    {
+        _attackSpd = speed;
+        Debug.Log($"{speed}");
     }
 }
