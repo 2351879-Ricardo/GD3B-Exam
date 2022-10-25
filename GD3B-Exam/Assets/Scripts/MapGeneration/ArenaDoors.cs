@@ -22,7 +22,7 @@ public class ArenaDoors : MonoBehaviour
     {
         if (collision.gameObject == Player)
         {
-            //Debug.Log("Entered door");
+            Debug.Log("Entered door");
             //Call script to move player to arena
         }
     }
