@@ -17,7 +17,7 @@ MonoBehaviour:
     the game.
   itemSprite: {fileID: 0}
   attackDamage: 50
-  attackSpeed: 1
+  attackSpeed: 3333333
   attackRange: 3
   weaponType: 0
   damageType: 0

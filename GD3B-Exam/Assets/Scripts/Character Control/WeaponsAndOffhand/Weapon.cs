@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int longestCombo;
 
     // Serialized purely to see in inspector.
-    // Weapon Damage taken from WeaponSO and put into this variable
+        // Weapon Damage taken from WeaponSO and put into this variable
     [Header("Don't Change This Value")]
     [SerializeField] private float weaponDamage;
     [SerializeField] private float weaponAttackSpeed;
@@ -23,7 +23,6 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
         if (other.CompareTag("Enemy"))
         {
             other.GetComponentInParent<EnemyController>().TakeDamage(_dmg);
@@ -44,7 +43,8 @@ public class Weapon : MonoBehaviour
 
     public void UpdateWeaponDamage()
     {
-        _dmg = playerWeapon.attackDamage;
+        weaponDamage = playerWeapon.attackDamage;
+        Debug.Log("dmg"+ _dmg);
     }
     
     public void UpdateWeaponSpeed()

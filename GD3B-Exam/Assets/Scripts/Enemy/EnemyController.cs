@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
       var damagePopup = Instantiate(damageTextUI, (transform.position + new Vector3(0f, height/2f, 0f)), Quaternion.identity).GetComponent<DamagePopup>();
       damagePopup.SetDamageText((int) damage);
       health -= damage;
+      
+      GetComponent<EnemyStateManager>().Flinch();
 
       if (health <= 0)
       {

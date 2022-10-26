@@ -58,6 +58,16 @@ public class EnemyStateManager : MonoBehaviour
         _playerStats.TakeDamage(dmg);
     }
 
+    public void Flinch()
+    {
+        enemyAnimator.SetBool("Flinch", true);
+    }
+
+    public void EndFlinch()
+    {
+        enemyAnimator.SetBool("Flinch", false);
+    }
+
     public EnemyController EnemyController => _enemyController;
     public GameObject PlayerGameObject => _playerGameObject;
     public NavMeshAgent EnemyNavMeshAgent => _navMeshAgent;
