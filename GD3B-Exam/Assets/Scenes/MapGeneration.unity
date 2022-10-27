@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: fd9132b0d6be1f548b5679472c647d55, type: 2}
+--- !u!4 &115574082 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5646465382052437724, guid: c47b569aa5dd6d74cb2376d18e150806, type: 3}
+  m_PrefabInstance: {fileID: 742905311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &234191704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1006,6 +1011,8 @@ GameObject:
   - component: {fileID: 1880402713}
   - component: {fileID: 1880402715}
   - component: {fileID: 1880402714}
+  - component: {fileID: 1880402717}
+  - component: {fileID: 1880402716}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -1109,7 +1116,7 @@ MonoBehaviour:
   Path4: {fileID: 7496493975210852, guid: 1b9b0592f1f599744a6d55f504c9e200, type: 3}
   Shop: {fileID: 489889705927852844, guid: 7b372530a26d4cc4e87ac88801c7335e, type: 3}
   Arena: {fileID: 489889705927852844, guid: b2c08c5abb1f0a140bb41a5a0b227cdf, type: 3}
-  ShopSpawnRate: 3
+  ShopSpawnRate: 100
   ArenaSpawnRate: 50
   Path1Rate: 50
   Path2Rate: 100
@@ -1153,6 +1160,33 @@ MonoBehaviour:
   Path4: {fileID: 7496493975210852, guid: 1b9b0592f1f599744a6d55f504c9e200, type: 3}
   mapGenerator: {fileID: 1880402713}
   spawnBlock: {fileID: 1880402714}
+--- !u!114 &1880402716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880402710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1641a00f2283b2f408ac4eb557b9ad88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyRadius: 30
+  Player: {fileID: 674210921}
+--- !u!114 &1880402717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880402710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4076a61bea5e245bc0356674f9a917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 115574082}
 --- !u!1 &2062092355
 GameObject:
   m_ObjectHideFlags: 0

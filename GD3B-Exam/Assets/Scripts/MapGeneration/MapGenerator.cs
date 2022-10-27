@@ -140,6 +140,7 @@ public class MapGenerator : MonoBehaviour
         PreviousGround = CurrentGround;
     }
 
+    /*
     void InitialGeneration()
     {
         //Adding static starting room to center of array
@@ -651,6 +652,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+    */
 
     void NewTopRow()
     {
