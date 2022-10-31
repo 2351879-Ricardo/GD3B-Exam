@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5844498429117249271}
   m_Layer: 0
   m_Name: Shopkeeper
-  m_TagString: Untagged
+  m_TagString: Shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
