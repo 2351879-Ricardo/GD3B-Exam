@@ -21,5 +21,10 @@ public class Interact : MonoBehaviour
         {
             // Disable Player Movement and Look Controls.            
         }
+        
+        if (lineOfSight.hit.transform.CompareTag("Shop"))
+        {
+            lineOfSight.hit.collider.GetComponent<ActivateShop>().OpenShop();
+        }
     }
 }

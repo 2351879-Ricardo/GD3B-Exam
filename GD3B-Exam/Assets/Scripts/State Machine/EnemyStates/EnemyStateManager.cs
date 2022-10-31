@@ -61,6 +61,7 @@ public class EnemyStateManager : MonoBehaviour
     public void Flinch()
     {
         enemyAnimator.SetBool("Flinch", true);
+        SwitchState(ChaseState);
     }
 
     public void EndFlinch()

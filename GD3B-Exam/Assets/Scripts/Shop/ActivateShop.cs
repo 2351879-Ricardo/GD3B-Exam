@@ -15,4 +15,9 @@ public class ActivateShop : MonoBehaviour
     {
         
     }
+
+    public void OpenShop()
+    {
+        Debug.Log("Opening the shop");
+    }
 }
