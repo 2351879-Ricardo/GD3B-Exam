@@ -1,23 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActivateShop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    [SerializeField] private ShopManager shopManagerUI;
     public void OpenShop()
     {
-        Debug.Log("Opening the shop");
+        shopManagerUI.gameObject.SetActive(true);
     }
 }
