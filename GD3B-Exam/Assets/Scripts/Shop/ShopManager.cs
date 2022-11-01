@@ -75,4 +75,14 @@ public class ShopManager : MonoBehaviour
         if (_index >= navItems.Count) _index = 0;
         EventSystem.current.SetSelectedGameObject(navItems[_index]);
     }
+
+    public void OnUp()
+    {
+        Debug.Log("Goinnnn Up");
+    }
+
+    public void OnDOwn()
+    {
+        Debug.Log("Goinnnnn Downn");
+    }
 }
