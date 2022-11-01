@@ -7,15 +7,12 @@ public class EnemyAttackState : EnemyBaseState
     private Vector3 _enemyToPlayerVector3;
     private int _randNum;
     private EnemyStateManager _enemy;
-
-    private int _layerMask;
+    
     private bool _attacking = false;
 
     //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
     {
-        _layerMask = 1 << 9;
-        
         for (int i = 1; i <= 3; i++)
         {
             enemy.enemyAnimator.SetBool($"break{i}", false);

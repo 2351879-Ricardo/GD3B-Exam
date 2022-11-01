@@ -10,15 +10,16 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform camAnchor;
     [SerializeField] private float moveSpeed; 
     [SerializeField] private float jumpHeight, gravity;
-    [SerializeField] private float dodgeDistance, dodgeTime, dodgeCoolDownTime;
+    [SerializeField] private float dodgeDistance, dodgeTime, dodgeCoolDownTime, stepTime;
     [SerializeField] private LayerMask groundLayer;
     
     private Rigidbody _rb;
     private Vector2 _inVec;
     private Vector3 _verticalV = Vector3.zero;
     private Vector3 _dogdeV = Vector3.zero;
-    private bool _jumping, _dodging, _canDodge, _isGrounded;
-    private float _dodgeTimeR, _dodgeCoolDown;
+    private Vector3 _stepV = Vector3.zero;
+    private bool _jumping, _dodging, _canDodge, _isGrounded, _stepping;
+    private float _dodgeTimeR, _dodgeCoolDown, _stepTime, _stepTimeR;
     private CharacterState _cs;
     private Animator _anim;
     
@@ -110,10 +111,27 @@ public class Movement : MonoBehaviour
         var dir = (camFwd * moveVec.z + camRt * moveVec.x);
 
         _verticalV.y += gravity * Time.deltaTime;
-        var totalV = dir * moveSpeed + _verticalV + _dogdeV;
+        #endregion
+        //Step Forward Control - Used in tandem with animation event
+
+        #region Step Forward
+
+        if (_stepping)
+        {
+            _stepTime -= Time.deltaTime;
+            _stepV = 0.5f * moveSpeed * camFwd;
+            _stepV.y = 0;
+        }
+
+        if (_stepTime <= 0)
+        {
+            _stepping = false;
+            _stepV = Vector3.zero;
+        }
+        #endregion
+        var totalV = dir * moveSpeed + _verticalV + _dogdeV + _stepV;
 
         _rb.velocity = totalV;
-        #endregion
     }
 
     //Listens for Message from New Input System
@@ -143,5 +161,11 @@ public class Movement : MonoBehaviour
             _dodgeTimeR = dodgeTime;
             SendMessage("Dodging");
         }
+    }
+
+    public void StepForward()
+    {
+        _stepping = true;
+        _stepTime = stepTime;
     }
 }

@@ -10053,6 +10053,7 @@ MonoBehaviour:
   dodgeDistance: 5
   dodgeTime: 0.5
   dodgeCoolDownTime: 1
+  stepTime: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
