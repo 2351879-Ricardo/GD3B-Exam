@@ -85,4 +85,9 @@ public class ShopManager : MonoBehaviour
     {
         Debug.Log("Goinnnnn Downn");
     }
+
+    public void OnSelect()
+    {
+        Debug.Log("Select");
+    }
 }
