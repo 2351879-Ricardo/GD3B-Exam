@@ -21,6 +21,7 @@ public class EnemyStateManager : MonoBehaviour
     private EnemyController _enemyController;
     private GameObject _playerGameObject;
     private PlayerStats _playerStats;
+    [SerializeField]private RangeCheck rangeCheck;
 
     private NavMeshAgent _navMeshAgent;
 
@@ -30,6 +31,7 @@ public class EnemyStateManager : MonoBehaviour
         _playerGameObject = FindObjectOfType<CharacterState>().gameObject;
         _playerStats = _playerGameObject.GetComponent<PlayerStats>();
         _navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        
     }
 
     private void Start()
@@ -76,4 +78,5 @@ public class EnemyStateManager : MonoBehaviour
     public GameObject PlayerGameObject => _playerGameObject;
     public NavMeshAgent EnemyNavMeshAgent => _navMeshAgent;
     public PlayerStats PlayerStats => _playerStats;
+    public RangeCheck EnemyRangeCheck => rangeCheck;
 }

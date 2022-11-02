@@ -32,6 +32,11 @@ public class EnemySO : ScriptableObject
     [SerializeField] private float enemyDamagePerAttack = 5f;
     [SerializeField] private float enemyAttackRange = 10f;
     [SerializeField] private float enemyHitChance01 = 0.8f;
+    
+    [Header("Attack Probabilities")] 
+    [SerializeField] private float chargeChance;
+    [SerializeField] private float rangeChance;
+    
     [SerializeField] private EnemyType enemyType;
 
     [SerializeField] private List<EnemyLootDrop> enemyDropTable;

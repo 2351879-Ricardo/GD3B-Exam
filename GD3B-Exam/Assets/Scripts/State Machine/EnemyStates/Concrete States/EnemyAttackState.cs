@@ -13,6 +13,7 @@ public class EnemyAttackState : EnemyBaseState
     //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
     {
+        Debug.Log("Entering Attack State");
         for (int i = 1; i <= 3; i++)
         {
             enemy.enemyAnimator.SetBool($"break{i}", false);
@@ -49,7 +50,6 @@ public class EnemyAttackState : EnemyBaseState
         
         if (inRange &&!_attacking)
         {
-            Debug.Log("New Combo");
             EnterState(enemy);
         }
 
@@ -58,23 +58,6 @@ public class EnemyAttackState : EnemyBaseState
             Debug.Log("Cant Fuckin Reach Him with My Tiny Arms");
             enemy.SwitchState(enemy.ChaseState);
         }
-        
-        /*
-
-        else
-        {
-            if (_timeSinceAttack >= enemy.EnemyController.EnemySo.EnemyAttackSpeed)
-            {
-                var randomNum = Random.Range(0f, 1f);
-                if (randomNum <= enemy.EnemyController.EnemySo.EnemyHitChance01)
-                {
-                    //enemy.PlayerStats.TakeDamage(enemy.EnemyController.EnemySo.EnemyDamagePerAttack);
-                    _timeSinceAttack = 0f;
-                }
-            }
-            
-            _timeSinceAttack += Time.deltaTime;
-        }*/
     }
 
 

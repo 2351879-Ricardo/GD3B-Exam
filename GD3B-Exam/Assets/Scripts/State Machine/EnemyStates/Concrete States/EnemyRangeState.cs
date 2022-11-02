@@ -6,7 +6,8 @@ public class EnemyRangeState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager enemy)
     {
-        Object.Destroy(enemy.gameObject);
+        Debug.Log("Entered Range State");
+        enemy.SwitchState(enemy.ChaseState);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
