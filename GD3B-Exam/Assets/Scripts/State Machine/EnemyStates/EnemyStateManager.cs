@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class EnemyStateManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyDodgeState DodgeState = new EnemyDodgeState();
     public EnemyPatrolState PatrolState = new EnemyPatrolState();
     public EnemyDespawnState DespawnState = new EnemyDespawnState();
+    public EnemyChargeState ChargeState = new EnemyChargeState();
+    public EnemyRangeState RangeState = new EnemyRangeState();
 
     private EnemyController _enemyController;
     private GameObject _playerGameObject;

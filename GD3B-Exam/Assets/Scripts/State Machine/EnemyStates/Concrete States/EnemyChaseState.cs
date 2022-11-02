@@ -4,6 +4,8 @@ using UnityEngine.AI;
 public class EnemyChaseState : EnemyBaseState
 {
     private Vector3 _enemyToPlayerVector3;
+
+    private float _decisionTime = 1f;
     
     public override void EnterState(EnemyStateManager enemy)
     {

@@ -909,6 +909,7 @@ GameObject:
   - component: {fileID: 6259269169987719517}
   - component: {fileID: 6910627323630423080}
   - component: {fileID: 4932880707624443346}
+  - component: {fileID: 8753440215496180464}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -923,7 +924,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3297161109298870941}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
   m_ConstrainProportionsScale: 0
@@ -982,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextUI: {fileID: 4658559742746286454, guid: 6334e102c6e29a2488c0f748a3e7cdad, type: 3}
-  enemySo: {fileID: 0}
+  enemySo: {fileID: 11400000, guid: 93977009ba4c7b94fa16afcd51c329c5, type: 2}
   health: 0
 --- !u!95 &4932880707624443346
 Animator:
@@ -994,7 +995,7 @@ Animator:
   m_GameObject: {fileID: 3297161109298870941}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18106a0c4e780d54d97bb51ced4cce61, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1004,6 +1005,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8753440215496180464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297161109298870941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc76634c4e4db246b5c041828279669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeRange: 10
+  meleeRange: 5
+  charge: 0
+  melee: 0
 --- !u!1 &3316258744791996870
 GameObject:
   m_ObjectHideFlags: 0
