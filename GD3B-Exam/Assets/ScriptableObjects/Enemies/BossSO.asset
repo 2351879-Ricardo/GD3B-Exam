@@ -16,7 +16,9 @@ MonoBehaviour:
   enemySpeed: 5
   enemyAttackSpeed: 1
   enemyDamagePerAttack: 5
-  enemyAttackRange: 10
+  enemyAttackRange: 5
   enemyHitChance01: 0.8
+  chargeChance: 0
+  rangeChance: 0
   enemyType: 0
   enemyDropTable: []
