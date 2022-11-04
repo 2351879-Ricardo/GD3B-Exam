@@ -1,36 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopBlockManager : MonoBehaviour
 {
-    ShopAccess shopAccess;
-    public float EnemyRadius;
-    public Transform Player;
-
-    // Start is called before the first frame update
+    public float enemyRadius;
+    
+    private Transform _player;
+    private ShopAccess _shopAccess;
+    
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _player = FindObjectOfType<PlayerStats>().transform;
     }
 
     public void CheckShops()
     {
         Debug.Log("CheckShops");
-        Collider[] CheckRadius = Physics.OverlapSphere(Player.position, EnemyRadius);
-        for (int i = 0; i < CheckRadius.Length; i++)
+        Collider[] checkRadius = Physics.OverlapSphere(_player.position, enemyRadius);
+        foreach (var collider in checkRadius)
         {
-            if (CheckRadius[i].gameObject.tag == "Shop")
-            {
-                shopAccess = CheckRadius[i].gameObject.GetComponent<ShopAccess>();
-                shopAccess.CheckShopRadius(EnemyRadius);
-            }
+            if (!collider.gameObject.CompareTag("Shop")) continue;
+            _shopAccess = collider.gameObject.GetComponent<ShopAccess>();
+            _shopAccess.CheckShopRadius(enemyRadius);
         }
     }
 }

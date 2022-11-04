@@ -13,26 +13,30 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float damageRadius;
 
-    public float _currentHealth;
-    public float _time;
+    public float currentHealth;
+    public float time;
 
     private GameObject _cnvs;
     private CharacterState _cs;
+    private HealthBar _healthBar;
     private float _mit;
     
     // Start is called before the first frame update
     void Start()
     {
-        _currentHealth = maxHealth;
         _cnvs = GameObject.FindGameObjectWithTag("Canvas");
         _cs = GetComponent<CharacterState>();
         _mit = GetComponentInChildren<Shield>().mitigation;
+        _healthBar = FindObjectOfType<HealthBar>();
+        
+        currentHealth = maxHealth;
+        _healthBar.UpdateHealthBar();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             EndGame();
         }
@@ -44,9 +48,13 @@ public class PlayerStats : MonoBehaviour
         {
             dmg -= _mit*dmg;
         }
-        _currentHealth -= dmg;
-        _time = damageTick;
-        tempVar.text = ((int)_currentHealth).ToString();
+        currentHealth -= dmg;
+        time = damageTick;
+        _healthBar.UpdateHealthBar(); 
+        
+        
+        
+        tempVar.text = ((int)currentHealth).ToString();
     }
 
     private void EndGame()
@@ -67,7 +75,11 @@ public class PlayerStats : MonoBehaviour
 
     public void AddHealthToPlayer(int heals)
     {
-        _currentHealth += heals;
-        if (_currentHealth > maxHealth) _currentHealth = maxHealth;
+        currentHealth += heals;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        _healthBar.UpdateHealthBar();
+        
+        
+        tempVar.text = ((int)currentHealth).ToString();
     }
 }

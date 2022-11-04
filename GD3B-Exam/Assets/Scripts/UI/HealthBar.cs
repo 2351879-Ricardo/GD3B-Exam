@@ -1,36 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    private GameObject _player;
-    private PlayerStats _ps;
+    private PlayerStats _playerStats;
+    private Slider _healthSlider;
+    private float _maxHealth;
+    private float _currentHealth;
 
-    public float currentHealth, maxHealth;
-
-    private float _fill;
-
-    private Image _img;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _img = GetComponent<Image>();
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _ps = _player.GetComponent<PlayerStats>();
-        maxHealth = _ps.maxHealth;
+        _healthSlider = GetComponent<Slider>();
+        _playerStats = FindObjectOfType<PlayerStats>();
+        _maxHealth = _playerStats.maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateHealthBar()
     {
-        currentHealth = _ps._currentHealth;
-        
-        
-        _fill = currentHealth / maxHealth;
-        
-        
-        _img.fillAmount = _fill;
+        _currentHealth = _playerStats.currentHealth;
+        _healthSlider.value = _currentHealth / _maxHealth;
     }
 }

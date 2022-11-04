@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
    private void Start()
    {
-      shopBlockManager = GameObject.Find("Directional Light").GetComponent<ShopBlockManager>();
+      shopBlockManager = FindObjectOfType<ShopBlockManager>();
       shopBlockManager.CheckShops();
       InitEnemy();
       GetComponent<NavMeshAgent>().speed = EnemySo.EnemySpeed;
