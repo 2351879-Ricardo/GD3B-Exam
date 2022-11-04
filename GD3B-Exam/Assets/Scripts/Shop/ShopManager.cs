@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
@@ -59,6 +58,9 @@ public class ShopManager : MonoBehaviour
     public void OpenShop()
     {
         gameObject.SetActive(true);
+        _index = 0;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.firstSelectedGameObject = navItems[_index];
         EventSystem.current.SetSelectedGameObject(navItems[_index]);
         Debug.Log("TODO: Freeze Environment");
     }
@@ -68,6 +70,8 @@ public class ShopManager : MonoBehaviour
         _index--;
         if (_index < 0) _index = navItems.Count-1;
         if (_index >= navItems.Count) _index = 0;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.firstSelectedGameObject = navItems[_index];
         EventSystem.current.SetSelectedGameObject(navItems[_index]);
     }
 
@@ -76,11 +80,8 @@ public class ShopManager : MonoBehaviour
         _index++;
         if (_index < 0) _index = navItems.Count-1;
         if (_index >= navItems.Count) _index = 0;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.firstSelectedGameObject = navItems[_index];
         EventSystem.current.SetSelectedGameObject(navItems[_index]);
     }
-
-    // public void OnSelect()
-    // {
-    //     
-    // }
 }
