@@ -5,6 +5,6 @@ public class ActivateShop : MonoBehaviour
     [SerializeField] private ShopManager shopManagerUI;
     public void OpenShop()
     {
-        shopManagerUI.gameObject.SetActive(true);
+        shopManagerUI.OpenShop();
     }
 }

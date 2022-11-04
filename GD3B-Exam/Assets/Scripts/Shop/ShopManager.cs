@@ -52,15 +52,18 @@ public class ShopManager : MonoBehaviour
 
     public void CloseShop()
     {
+        Debug.Log("TODO: Un-Freeze Environment");
         gameObject.SetActive(false);
     }
 
     public void OpenShop()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(navItems[_index]);
+        Debug.Log("TODO: Freeze Environment");
     }
 
-    public void NavigateUp()
+    public void OnUp()
     {
         _index--;
         if (_index < 0) _index = navItems.Count-1;
@@ -68,7 +71,7 @@ public class ShopManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(navItems[_index]);
     }
 
-    public void NavigateDown()
+    public void OnDown()
     {
         _index++;
         if (_index < 0) _index = navItems.Count-1;
@@ -76,18 +79,8 @@ public class ShopManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(navItems[_index]);
     }
 
-    public void OnUp()
-    {
-        Debug.Log("Goinnnn Up");
-    }
-
-    public void OnDown()
-    {
-        Debug.Log("Goinnnnn Downn");
-    }
-
-    public void OnSelect()
-    {
-        Debug.Log("Select");
-    }
+    // public void OnSelect()
+    // {
+    //     
+    // }
 }
