@@ -81,7 +81,7 @@ public class ShopManager : MonoBehaviour
         Debug.Log("Goinnnn Up");
     }
 
-    public void OnDOwn()
+    public void OnDown()
     {
         Debug.Log("Goinnnnn Downn");
     }
