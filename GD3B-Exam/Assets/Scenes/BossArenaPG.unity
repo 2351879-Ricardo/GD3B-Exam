@@ -8654,8 +8654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487833f054de98448890b34d154aae8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 0
 --- !u!114 &665366036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12158,8 +12156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1641a00f2283b2f408ac4eb557b9ad88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyRadius: 0
-  Player: {fileID: 0}
+  enemyRadius: 0
 --- !u!1 &1646597987
 GameObject:
   m_ObjectHideFlags: 0

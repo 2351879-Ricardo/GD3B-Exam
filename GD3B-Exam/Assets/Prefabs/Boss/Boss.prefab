@@ -1021,6 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeRange: 10
   meleeRange: 3.5
+  checkTime: 1
   charge: 0
   melee: 0
 --- !u!1 &3316258744791996870

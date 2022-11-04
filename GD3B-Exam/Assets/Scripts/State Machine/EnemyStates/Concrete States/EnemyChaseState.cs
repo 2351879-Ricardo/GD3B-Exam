@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemyChaseState : EnemyBaseState
 {
     private Vector3 _enemyToPlayerVector3;
 
-    private float _decisionTime = 1f;
+    private float _decisionTime;
 
     private RangeCheck _rc;    
     public override void EnterState(EnemyStateManager enemy)
@@ -15,24 +17,36 @@ public class EnemyChaseState : EnemyBaseState
         enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().speed = (enemy.EnemyController.EnemySo.EnemySpeed);
 
         _rc = enemy.EnemyRangeCheck;
+        _decisionTime = 0;
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
+        _decisionTime += Time.deltaTime;
+        
         var inChargeRange = _rc.charge;
         var inMeleeRange = _rc.melee;
 
         var playerPos = enemy.PlayerGameObject.transform.position;
         enemy.EnemyNavMeshAgent.SetDestination(playerPos);
 
-        if (inChargeRange && !inMeleeRange)
+        if (_decisionTime >= _rc.CheckTime)
         {
-            enemy.SwitchState(enemy.ChargeState);
-        }
-
-        if (!inChargeRange)
-        {
-            enemy.SwitchState(enemy.RangeState);
+            var randNum = Random.Range(0f, 1f);
+            randNum = Mathf.Round(randNum * 10);
+            randNum /= 10;
+            
+            Debug.Log(randNum);
+            if (inChargeRange && !inMeleeRange && randNum <= enemy.EnemyController.EnemySo.ChargeChance)
+            {
+                enemy.SwitchState(enemy.ChargeState);
+            }
+            else if (!inChargeRange && randNum <= enemy.EnemyController.EnemySo.RangeChance)
+            {
+                enemy.SwitchState(enemy.RangeState);
+            }
+            
+            _decisionTime = 0;
         }
         
         _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - playerPos;

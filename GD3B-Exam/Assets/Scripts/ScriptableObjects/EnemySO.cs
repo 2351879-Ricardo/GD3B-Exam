@@ -79,4 +79,6 @@ public class EnemySO : ScriptableObject
 
     public EnemyType EnemyType => enemyType;
     public List<EnemyLootDrop> EnemyDropTable => enemyDropTable;
+    public float ChargeChance => chargeChance;
+    public float RangeChance => rangeChance;
 }

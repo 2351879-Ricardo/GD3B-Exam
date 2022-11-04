@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class RangeCheck : MonoBehaviour
 {
-    public float chargeRange, meleeRange;
+    public float chargeRange, meleeRange, checkTime;
     public bool charge, melee;
 
     private Transform _player;
@@ -46,4 +46,7 @@ public class RangeCheck : MonoBehaviour
             charge = false;
         }
     }
+
+    public float CheckTime => checkTime;
+    
 }
