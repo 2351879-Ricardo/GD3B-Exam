@@ -7,6 +7,7 @@ public class EnemyStateManager : MonoBehaviour
 {
     private EnemyBaseState _currentState;
     public float despawnDistance = 100f;
+    public float actionTime = 1f;
 
     public Animator enemyAnimator;
     

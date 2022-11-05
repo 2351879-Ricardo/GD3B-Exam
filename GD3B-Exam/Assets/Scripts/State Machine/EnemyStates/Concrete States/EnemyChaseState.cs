@@ -9,7 +9,8 @@ public class EnemyChaseState : EnemyBaseState
 
     private float _decisionTime;
 
-    private RangeCheck _rc;    
+    private RangeCheck _rc;
+
     public override void EnterState(EnemyStateManager enemy)
     {
         enemy.enemyAnimator.SetBool("isWalking", true);
@@ -35,8 +36,8 @@ public class EnemyChaseState : EnemyBaseState
             var randNum = Random.Range(0f, 1f);
             randNum = Mathf.Round(randNum * 10);
             randNum /= 10;
-            
-            Debug.Log(randNum);
+
+            Debug.Log("tick");
             if (inChargeRange && !inMeleeRange && randNum <= enemy.EnemyController.EnemySo.ChargeChance)
             {
                 enemy.SwitchState(enemy.ChargeState);

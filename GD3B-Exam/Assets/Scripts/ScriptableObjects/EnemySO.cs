@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum EnemyType
 {
@@ -36,6 +37,7 @@ public class EnemySO : ScriptableObject
     [Header("Attack Probabilities")] 
     [SerializeField] private float chargeChance;
     [SerializeField] private float rangeChance;
+    [SerializeField] private float chargeSpeedMultiplier;
     
     [SerializeField] private EnemyType enemyType;
 
@@ -81,4 +83,5 @@ public class EnemySO : ScriptableObject
     public List<EnemyLootDrop> EnemyDropTable => enemyDropTable;
     public float ChargeChance => chargeChance;
     public float RangeChance => rangeChance;
+    public float ChargeMult => chargeSpeedMultiplier;
 }
