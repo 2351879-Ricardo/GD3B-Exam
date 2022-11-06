@@ -10237,8 +10237,8 @@ MonoBehaviour:
   damageTick: 2
   damage: 10
   damageRadius: 0.5
-  _currentHealth: 0
-  _time: 0
+  currentHealth: 0
+  time: 0
 --- !u!1 &7521585297941563134
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,5 +20,6 @@ MonoBehaviour:
   enemyHitChance01: 0.8
   chargeChance: 0.8
   rangeChance: 0.3
+  chargeSpeedMultiplier: 3
   enemyType: 0
   enemyDropTable: []
