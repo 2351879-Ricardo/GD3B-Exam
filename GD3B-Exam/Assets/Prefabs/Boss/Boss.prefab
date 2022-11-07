@@ -946,9 +946,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1
   m_Speed: 3.5
-  m_Acceleration: 15
+  m_Acceleration: 35
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawnDistance: 100
-  actionTime: 5
+  actionTime: 4
   enemyAnimator: {fileID: 4932880707624443346}
   rangeCheck: {fileID: 8753440215496180464}
 --- !u!114 &6910627323630423080
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc76634c4e4db246b5c041828279669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeRange: 10
+  chargeRange: 15
   meleeRange: 3.5
   checkTime: 1
   charge: 0

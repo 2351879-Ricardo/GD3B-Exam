@@ -11,10 +11,7 @@ public class EnemyChargeState : EnemyBaseState
     private EnemyStateManager _enemy;
     private Vector3 _targetDir;
 
-    public void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(_enemy.transform.position, _targetDir);
-    }
+
     
     public override void EnterState(EnemyStateManager enemy)
     {
@@ -24,15 +21,22 @@ public class EnemyChargeState : EnemyBaseState
         _chargeSpeed = _normalSpeed * enemy.EnemyController.EnemySo.ChargeMult;
 
         enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().speed = 0;
+        enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().destination =
+            enemy.PlayerGameObject.transform.position;
         enemy.enemyAnimator.SetBool("isCharging", true);
         _chargeTime = 0;
-        _targetDir =  - _enemy.PlayerGameObject.transform.position - _enemy.transform.position;
-        _targetDir = _targetDir.normalized;
+        
+        
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
         _chargeTime += Time.deltaTime;
+
+        var v = enemy.transform.forward;
+        var pos = enemy.transform.position;
+
+        enemy.gameObject.GetComponent<NavMeshAgent>().destination = pos + (v * 5);
 
         if (_chargeTime >= enemy.actionTime)
         {
@@ -45,7 +49,5 @@ public class EnemyChargeState : EnemyBaseState
     public override void EndAction(int i)
     {
         _enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().speed = _chargeSpeed;
-        
-        _enemy.gameObject.GetComponent<NavMeshAgent>().velocity = _targetDir * _chargeSpeed;
     }
 }
