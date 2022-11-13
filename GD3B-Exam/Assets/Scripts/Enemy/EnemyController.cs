@@ -58,6 +58,16 @@ public class EnemyController : MonoBehaviour
       }
    }
 
+   public void SpawnProjectile()
+   {
+      Debug.Log("Making Projectile");
+   }
+
+   public void LaunchProjectile()
+   {
+      Debug.Log("Throwing Projectile");
+   }
+
    private void InitEnemy()
    {
       health = enemySo.EnemyHealth;
