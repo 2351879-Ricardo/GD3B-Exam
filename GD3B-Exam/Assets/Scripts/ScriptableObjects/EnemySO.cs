@@ -36,10 +36,11 @@ public class EnemySO : ScriptableObject
     
     [Header("Attack Probabilities")] 
     [SerializeField] private float chargeChance;
-    [SerializeField] private float rangeChance;
     [SerializeField] private float chargeSpeedMultiplier;
+    [SerializeField] private float rangeChance;
     
     [SerializeField] private EnemyType enemyType;
+    [SerializeField] private bool flinch = true;
 
     [SerializeField] private List<EnemyLootDrop> enemyDropTable;
     
@@ -84,4 +85,5 @@ public class EnemySO : ScriptableObject
     public float ChargeChance => chargeChance;
     public float RangeChance => rangeChance;
     public float ChargeMult => chargeSpeedMultiplier;
+    public bool CanFlinch => flinch;
 }

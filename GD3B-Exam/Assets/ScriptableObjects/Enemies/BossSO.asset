@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26683cb3b52a6d43aeea54bf19760ff, type: 3}
   m_Name: BossSO
   m_EditorClassIdentifier: 
-  enemyHealth: 1000
+  enemyHealth: 5000
   enemySpeed: 5
   enemyAttackSpeed: 1
   enemyDamagePerAttack: 5
   enemyAttackRange: 5
   enemyHitChance01: 0.8
   chargeChance: 0.5
-  rangeChance: 0.3
   chargeSpeedMultiplier: 3
+  rangeChance: 0.3
   enemyType: 0
+  flinch: 0
   enemyDropTable: []
