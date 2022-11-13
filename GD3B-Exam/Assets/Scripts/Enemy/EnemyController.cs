@@ -9,6 +9,8 @@ public class EnemyController : MonoBehaviour
    [SerializeField] private EnemySO enemySo;
    [SerializeField] private float health;
 
+   [SerializeField] private GameObject projectile;
+
    ShopBlockManager shopBlockManager;
 
    private void Start()
@@ -62,4 +64,5 @@ public class EnemyController : MonoBehaviour
    }
 
    public EnemySO EnemySo => enemySo;
+   public GameObject Projectile => projectile;
 }

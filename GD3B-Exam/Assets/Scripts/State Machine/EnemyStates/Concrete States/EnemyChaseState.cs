@@ -54,7 +54,7 @@ public class EnemyChaseState : EnemyBaseState
         }
         
         _enemyToPlayerVector3 = enemy.EnemyController.gameObject.transform.position - playerPos;
-        if (_enemyToPlayerVector3.magnitude <= enemy.EnemyController.EnemySo.EnemyAttackRange && enemy.enemyAnimator)
+        if (_enemyToPlayerVector3.magnitude <= enemy.EnemyController.EnemySo.EnemyAttackRange && enemy.enemyAnimator && _rc.InView)
         {
             enemy.SwitchState(enemy.AttackState);
             enemy.enemyAnimator.SetBool("isWalking", false);

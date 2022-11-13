@@ -9,11 +9,13 @@ public class EnemyAttackState : EnemyBaseState
     private EnemyStateManager _enemy;
     
     private bool _attacking = false;
+    private RangeCheck _rc;
 
     //Attack Initialization
     public override void EnterState(EnemyStateManager enemy)
     {
-        Debug.Log("Entering Attack State");
+        _rc = enemy.GetComponent<RangeCheck>();
+
         for (int i = 1; i <= 3; i++)
         {
             enemy.enemyAnimator.SetBool($"break{i}", false);
@@ -37,7 +39,7 @@ public class EnemyAttackState : EnemyBaseState
         // ENEMY ATTACK SPEED >> enemy.EnemyController.EnemySo.EnemyDamagePerAttack
         enemy.enemyAnimator.SetFloat("attackSpeed", enemy.EnemyController.EnemySo.EnemyAttackSpeed);
         
-        //Lock Enemy in Place when attacking ----- Segway into more extravagent animations???
+        //Lock Enemy in Place when attacking ----- Segway into more extravagant animations???
         enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().speed = 0;
     }
 
@@ -53,7 +55,7 @@ public class EnemyAttackState : EnemyBaseState
             EnterState(enemy);
         }
 
-        else if (!inRange && !_attacking)
+        else if (!_rc.InView && !_attacking || !inRange && !_attacking)
         {
             Debug.Log("Cant Fuckin Reach Him with My Tiny Arms");
             enemy.SwitchState(enemy.ChaseState);

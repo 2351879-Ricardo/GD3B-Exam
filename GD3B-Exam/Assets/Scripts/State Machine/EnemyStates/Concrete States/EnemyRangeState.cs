@@ -7,7 +7,7 @@ public class EnemyRangeState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("Entered Range State");
-        enemy.SwitchState(enemy.ChaseState);
+        enemy.enemyAnimator.SetBool("RangeAttack", true);
     }
 
     public override void UpdateState(EnemyStateManager enemy)
