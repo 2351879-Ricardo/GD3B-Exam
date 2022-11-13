@@ -13384,5 +13384,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8753440215496180464, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}
+      propertyPath: checkTime
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8753440215496180464, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}
+      propertyPath: fieldOfView
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}

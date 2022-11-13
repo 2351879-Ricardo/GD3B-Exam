@@ -4,20 +4,22 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class RangeCheck : MonoBehaviour
 {
     public float chargeRange, meleeRange, checkTime;
-    public bool charge, melee;
+    [Range(0, 360)] public float fieldOfView = 90f;
+    public bool charge, melee, view;
 
     private Transform _player;
-    private void OnDrawGizmos()
-    {
-        var pos = transform.position;
-        Handles.DrawWireDisc(pos, Vector3.up, chargeRange);
-        Handles.DrawWireDisc(pos, Vector3.up, meleeRange);
-    }
 
+    private Vector3 DirectionFromAngle(float eulerY, float angleInDegrees)
+    {
+        angleInDegrees += eulerY;
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Rad2Deg));
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +47,17 @@ public class RangeCheck : MonoBehaviour
         {
             charge = false;
         }
+
+        var directionToTarget = _player.position - transform.position;
+        directionToTarget = directionToTarget.normalized;
+        if (Vector3.Angle(transform.forward, directionToTarget) < fieldOfView / 2)
+        {
+            view = true;
+        }
+        else
+            view = false;
     }
 
     public float CheckTime => checkTime;
-    
+    public bool InView => view;
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
   enemyDamagePerAttack: 5
   enemyAttackRange: 5
   enemyHitChance01: 0.8
-  chargeChance: 0.6
+  chargeChance: 0.5
   rangeChance: 0.3
   chargeSpeedMultiplier: 3
   enemyType: 0

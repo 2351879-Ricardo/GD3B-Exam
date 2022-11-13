@@ -1022,9 +1022,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeRange: 15
   meleeRange: 3.5
-  checkTime: 1
+  checkTime: 1.5
+  fieldOfView: 45
   charge: 0
   melee: 0
+  view: 0
 --- !u!1 &3316258744791996870
 GameObject:
   m_ObjectHideFlags: 0

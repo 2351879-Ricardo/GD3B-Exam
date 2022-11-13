@@ -38,13 +38,16 @@ public class EnemyChaseState : EnemyBaseState
             randNum /= 10;
 
             Debug.Log("tick");
-            if (inChargeRange && !inMeleeRange && randNum <= enemy.EnemyController.EnemySo.ChargeChance)
+            if (inChargeRange && !inMeleeRange && randNum <= enemy.EnemyController.EnemySo.ChargeChance && _rc.InView)
             {
                 enemy.SwitchState(enemy.ChargeState);
             }
-            else if (!inChargeRange && randNum <= enemy.EnemyController.EnemySo.RangeChance)
+            else if (!inChargeRange && randNum <= enemy.EnemyController.EnemySo.RangeChance && _rc.InView)
             {
                 enemy.SwitchState(enemy.RangeState);
+            } else if (!_rc.InView)
+            {
+                Debug.Log("Not in View");
             }
             
             _decisionTime = 0;
