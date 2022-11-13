@@ -40,6 +40,10 @@ public class InventoryManager : MonoBehaviour
     {
         _inventoryOpen = !_inventoryOpen;
         inventoryCanvas.SetActive(_inventoryOpen);
+
+        if (!_inventoryOpen) return;
+        var inventoryUI = FindObjectOfType<InventoryUI>();
+        inventoryUI.UpdateInventoryUI();
     }
 
     public void OnOpenInventory()

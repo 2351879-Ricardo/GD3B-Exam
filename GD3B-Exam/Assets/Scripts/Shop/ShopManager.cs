@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class ShopManager : MonoBehaviour
@@ -12,6 +15,8 @@ public class ShopManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject shopContainer;
     [SerializeField] private GameObject shopItemPrefab;
+    [SerializeField] private GameObject shopInventoryContainer;
+    [SerializeField] private GameObject shopInventoryPrefab;
 
     [SerializeField] private List<GameObject> navItems;
     private int _index = 0;
@@ -58,6 +63,7 @@ public class ShopManager : MonoBehaviour
     public void OpenShop()
     {
         gameObject.SetActive(true);
+        UpdateInventoryResourcesUI();
         _index = 0;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.firstSelectedGameObject = navItems[_index];
@@ -83,5 +89,40 @@ public class ShopManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.firstSelectedGameObject = navItems[_index];
         EventSystem.current.SetSelectedGameObject(navItems[_index]);
+    }
+
+    public void UpdateInventoryResourcesUI()
+    {
+        RemoveOldItems();
+        PopulateInventoryItems();
+    }
+
+    private void RemoveOldItems()
+    {
+        foreach (Transform child in shopInventoryContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    private void PopulateInventoryItems()
+    {
+        var inventory = FindObjectOfType<InventoryManager>();
+        foreach (var inventoryItem in inventory.InventoryList)
+        {
+            var item = Instantiate(shopInventoryPrefab, shopInventoryContainer.transform);
+            var inventoryResource = item.GetComponent<DisplayInventoryResource>();
+            inventoryResource.CreateResourceItem(inventoryItem);
+        }
+    }
+
+    public void RemoveUpgrade(GameObject upgrade)
+    {
+        for (var i = 0; i < navItems.Count; i++)
+        {
+            if (navItems[i] != upgrade) continue;
+            navItems.RemoveAt(i);
+            Destroy(upgrade);
+        }
     }
 }

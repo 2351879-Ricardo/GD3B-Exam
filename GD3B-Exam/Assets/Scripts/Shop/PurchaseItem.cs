@@ -1,14 +1,15 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PurchaseItem : MonoBehaviour
 {
     public void MakePurchase()
     {
-        if (CanBuyItem())
-        {
-            DeductResources();
-            UsePurchasedItem();
-        }
+        if (!CanBuyItem()) return;
+        DeductResources();
+        UpdateInventoryInfoUI();
+        UsePurchasedItem();
+        RemoveItem();
     }
 
     private bool CanBuyItem()
@@ -35,13 +36,7 @@ public class PurchaseItem : MonoBehaviour
 
         foreach (var craftingResource in purchaseItem.ShopItem.ItemCosts)
         {
-            foreach (var resource in playerInventory.InventoryList)
-            {
-                if (resource.resourceSo == craftingResource.resourceSo)
-                {
-                    resource.resourceCount -= craftingResource.resourceCount;
-                }
-            }
+            playerInventory.RemoveFromInventory(craftingResource.resourceSo, craftingResource.resourceCount);
         }
     }
 
@@ -67,5 +62,17 @@ public class PurchaseItem : MonoBehaviour
                 playerStats.AddHealthToPlayer((int)purchaseItem.ShopItem.UpgradeValue);
                 break;
         }
+    }
+
+    private void UpdateInventoryInfoUI()
+    {
+        var thisShop = GetComponentInParent<ShopManager>();
+        thisShop.UpdateInventoryResourcesUI();
+    }
+
+    private void RemoveItem()
+    {
+        var shopManager = GetComponentInParent<ShopManager>();
+        shopManager.RemoveUpgrade(gameObject);
     }
 }

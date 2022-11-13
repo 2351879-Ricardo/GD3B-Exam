@@ -20,4 +20,4 @@ MonoBehaviour:
     resourceCount: 5
   upgradeType: 2
   upgradeValue: 15
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 68e1fbea89795594590ab2b107897e54, type: 3}

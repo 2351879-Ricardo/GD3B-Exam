@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI tempVar;
-    
     public float maxHealth;
     [SerializeField] private float damageTick;
     [SerializeField] private float damage;
@@ -51,10 +49,6 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= dmg;
         time = damageTick;
         _healthBar.UpdateHealthBar(); 
-        
-        
-        
-        tempVar.text = ((int)currentHealth).ToString();
     }
 
     private void EndGame()
@@ -78,8 +72,5 @@ public class PlayerStats : MonoBehaviour
         currentHealth += heals;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
         _healthBar.UpdateHealthBar();
-        
-        
-        tempVar.text = ((int)currentHealth).ToString();
     }
 }
