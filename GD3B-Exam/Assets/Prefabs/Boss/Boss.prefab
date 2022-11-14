@@ -990,7 +990,7 @@ MonoBehaviour:
   damageTextUI: {fileID: 4658559742746286454, guid: 6334e102c6e29a2488c0f748a3e7cdad, type: 3}
   enemySo: {fileID: 11400000, guid: 93977009ba4c7b94fa16afcd51c329c5, type: 2}
   health: 1000
-  projectile: {fileID: 0}
+  projectile: {fileID: 4320498222923139885, guid: 9c653d9f3251f4248961722e5f29efcc, type: 3}
 --- !u!95 &4932880707624443346
 Animator:
   serializedVersion: 4
@@ -1234,6 +1234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8753921081069012649}
   - component: {fileID: 4067841188563905066}
+  - component: {fileID: 1967135000}
   m_Layer: 0
   m_Name: ProjectileSpawnPoint
   m_TagString: Untagged
@@ -1248,14 +1249,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4011895961126667971}
-  m_LocalRotation: {x: -0, y: 0.00000009362675, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000027247836, y: -0.0000008174351, z: 0.0000005449567}
+  m_LocalRotation: {x: 0.8263412, y: 0.040218282, z: 0.34169456, w: 0.44585603}
+  m_LocalPosition: {x: -0.43176103, y: 0.87125653, z: 0.31882203}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2777047667275833383}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45.184013, y: 121.56113, z: 148.22432}
 --- !u!1773428102 &4067841188563905066
 ParentConstraint:
   m_ObjectHideFlags: 0
@@ -1265,12 +1266,12 @@ ParentConstraint:
   m_GameObject: {fileID: 4011895961126667971}
   m_Enabled: 1
   m_Weight: 1
-  m_TranslationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationAtRest: {x: -0.43176103, y: 0.87125653, z: 0.31882203}
+  m_RotationAtRest: {x: 45.184013, y: 121.56113, z: 148.22432}
   m_TranslationOffsets:
-  - {x: -0.28427315, y: 0.3071308, z: 1.7411973}
+  - {x: 0, y: 0, z: 0}
   m_RotationOffsets:
-  - {x: -49.84855, y: 124.898796, z: -158.31827}
+  - {x: 0, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -1282,6 +1283,18 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 8880205151148855823}
     weight: 1
+--- !u!114 &1967135000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011895961126667971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f9143ecc00c8a4db199e0ae723fad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4096560899645212067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3185841944582916177}
+  - component: {fileID: 5987003820352726712}
   m_Layer: 0
   m_Name: ChargeCollider
   m_TagString: Untagged
@@ -1949,13 +1963,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6443792420862123421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.829, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2777047667275833383}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5987003820352726712
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443792420862123421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.07
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6554913786607876147
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,12 +60,12 @@ public class EnemyController : MonoBehaviour
 
    public void SpawnProjectile()
    {
-      Debug.Log("Making Projectile");
+      BroadcastMessage("MakeProjectile", projectile);
    }
 
    public void LaunchProjectile()
    {
-      Debug.Log("Throwing Projectile");
+      BroadcastMessage("ThrowProjectile");   
    }
 
    private void InitEnemy()
