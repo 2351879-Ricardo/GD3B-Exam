@@ -59,5 +59,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Range
       objectReference: {fileID: 0}
+    - target: {fileID: 8726732214580386375, guid: 4e43b54c8e5a09544ae6c322aa0e702c, type: 3}
+      propertyPath: rangeCheck
+      value: 
+      objectReference: {fileID: 4163779135192429787}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e43b54c8e5a09544ae6c322aa0e702c, type: 3}
+--- !u!114 &4163779135192429787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633392675671702328, guid: 4e43b54c8e5a09544ae6c322aa0e702c, type: 3}
+  m_PrefabInstance: {fileID: 3531653717829685219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc76634c4e4db246b5c041828279669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
