@@ -15,11 +15,12 @@ MonoBehaviour:
   enemyHealth: 5000
   enemySpeed: 5
   enemyAttackSpeed: 1
-  enemyDamagePerAttack: 5
+  enemyDamagePerAttack: 10
   enemyAttackRange: 5
   enemyHitChance01: 0.8
   chargeChance: 0.5
   chargeSpeedMultiplier: 3
+  chargeDamageMultiplier: 3
   rangeChance: 0.3
   enemyType: 0
   flinch: 0

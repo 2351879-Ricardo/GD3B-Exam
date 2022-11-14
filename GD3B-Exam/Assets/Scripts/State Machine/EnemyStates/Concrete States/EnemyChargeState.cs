@@ -18,7 +18,7 @@ public class EnemyChargeState : EnemyBaseState
         _enemy = enemy;
 
         _normalSpeed = enemy.EnemyController.EnemySo.EnemySpeed;
-        _chargeSpeed = _normalSpeed * enemy.EnemyController.EnemySo.ChargeMult;
+        _chargeSpeed = _normalSpeed * enemy.EnemyController.EnemySo.ChargeSpeedMult;
 
         enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().speed = 0;
         enemy.EnemyController.gameObject.GetComponent<NavMeshAgent>().destination =
@@ -41,6 +41,7 @@ public class EnemyChargeState : EnemyBaseState
         if (_chargeTime >= enemy.actionTime)
         {
             enemy.enemyAnimator.SetBool("isCharging", false);
+            enemy.EnemyController.ChargeEnd();
             _chargeTime = 0;
             enemy.SwitchState(enemy.ChaseState);
         }

@@ -73,6 +73,11 @@ public class EnemyController : MonoBehaviour
       health = enemySo.EnemyHealth;
    }
 
+   public void ChargeEnd()
+   {
+      BroadcastMessage("EndCharge");
+   }
+
    public EnemySO EnemySo => enemySo;
    public GameObject Projectile => projectile;
 }

@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: RangeEnemy
   m_EditorClassIdentifier: 
   enemyHealth: 100
+  enemySpeed: 5
   enemyAttackSpeed: 1.5
   enemyDamagePerAttack: 10
   enemyAttackRange: 15
-  enemyNoticeRange: 25
+  enemyHitChance01: 0.8
+  chargeChance: 0
+  chargeSpeedMultiplier: 0
+  chargeDamageMultiplier: 0
+  rangeChance: 0.9
   enemyType: 0
+  flinch: 1
   enemyDropTable:
   - lootDropChance: 0.1
     lootDropAmount: 2
