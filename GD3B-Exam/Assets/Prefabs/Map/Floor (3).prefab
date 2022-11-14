@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 8428134286883661227}
   - component: {fileID: 2450794274046685379}
   - component: {fileID: 6796160396805047013}
+  - component: {fileID: -1908480894913038883}
   m_Layer: 6
   m_Name: Floor (3)
   m_TagString: Untagged
@@ -148,6 +149,7 @@ Transform:
   m_Children:
   - {fileID: 272477321425890108}
   - {fileID: 3075628252649746075}
+  - {fileID: 6510429445785901932}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -226,7 +228,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e93e1cc61f1f3a4eacb1372f58797b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+--- !u!114 &-1908480894913038883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186008178086319731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190e93e00f12aa540a99e3f233af90b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance01: 0.125
+  enemySpawnTypes:
+  - enemyPrefab: {fileID: 4978613895841629286, guid: c47b569aa5dd6d74cb2376d18e150806, type: 3}
+    endTimer: 120
+  - enemyPrefab: {fileID: 8000804745677393655, guid: 89c7e46d6c517ae408604ebc923da976, type: 3}
+    endTimer: 300
+  spawnLocation: {fileID: 8401402813735740362}
 --- !u!1 &7024349424020458307
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,3 +361,34 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &8401402813735740362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6510429445785901932}
+  m_Layer: 6
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6510429445785901932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401402813735740362}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7496493975210852}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

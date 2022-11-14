@@ -228,6 +228,37 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &5073425819301720520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5401980712382110314}
+  m_Layer: 6
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5401980712382110314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073425819301720520}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2999396693357443368}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8685334760309742909
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,6 +272,7 @@ GameObject:
   - component: {fileID: 2850176351704479210}
   - component: {fileID: 5175035211836742524}
   - component: {fileID: -9098114309489104772}
+  - component: {fileID: -7750938902160597054}
   m_Layer: 6
   m_Name: Floor (2)
   m_TagString: Untagged
@@ -262,6 +294,7 @@ Transform:
   m_Children:
   - {fileID: 3822164996048110134}
   - {fileID: 3571786849852393351}
+  - {fileID: 5401980712382110314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,4 +373,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e93e1cc61f1f3a4eacb1372f58797b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+--- !u!114 &-7750938902160597054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685334760309742909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190e93e00f12aa540a99e3f233af90b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance01: 0.125
+  enemySpawnTypes:
+  - enemyPrefab: {fileID: 4978613895841629286, guid: c47b569aa5dd6d74cb2376d18e150806, type: 3}
+    endTimer: 120
+  - enemyPrefab: {fileID: 8000804745677393655, guid: 89c7e46d6c517ae408604ebc923da976, type: 3}
+    endTimer: 300
+  spawnLocation: {fileID: 5073425819301720520}
