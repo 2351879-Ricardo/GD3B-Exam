@@ -10,7 +10,6 @@ public class MapGenerator : MonoBehaviour
     public Transform Path2;
     public Transform Path3;
     public Transform Path4;
-    //public Transform Path5;
     public Transform Shop;
     public Transform Arena;
 
@@ -31,6 +30,10 @@ public class MapGenerator : MonoBehaviour
     int Path3Percent;
     int Path4Percent;
     int TotalPercent;
+    int DifficultyLevel;
+    int LevelCounter;
+    public int MaxLevel;
+    public int LevelRate;
 
     //class or struct?
     public struct Block
@@ -60,11 +63,15 @@ public class MapGenerator : MonoBehaviour
     public Block[,] GridBlocks = new Block[11, 11];
 
     public Initialisation initialisation;
+    public SpawnBlock spawnBlock;
+    public SpawnEnemies spawnEnemies;
 
     // Start is called before the first frame update
     void Start()
     {
         //float TotalRate = ShopSpawnRate + ArenaSpawnRate + Path1Rate + Path2Rate + Path3Rate + Path4Rate;
+        DifficultyLevel = 0;
+        LevelCounter = 0;
         ShopPercent = Mathf.RoundToInt(ShopSpawnRate);
         ArenaPercent = Mathf.RoundToInt(ArenaSpawnRate);
         Path1Percent = Mathf.RoundToInt(Path1Rate);
@@ -115,6 +122,13 @@ public class MapGenerator : MonoBehaviour
         }
         if (CurrentGround != PreviousGround)
         {
+            LevelCounter++;
+            Debug.Log("Counter " + LevelCounter);
+            if (LevelCounter > LevelRate)
+            {
+                LevelCounter = 0;
+                NextLevel();
+            }
             //entered new square, add row/column
             if (CurrentGround.transform.position.x < PreviousGround.transform.position.x)
             {
@@ -139,520 +153,6 @@ public class MapGenerator : MonoBehaviour
         }
         PreviousGround = CurrentGround;
     }
-
-    /*
-    void InitialGeneration()
-    {
-        //Adding static starting room to center of array
-        GridBlocks[4, 4] = new Block(2, 0, -10, -10, false, true, false, true);
-        GridBlocks[4, 5] = new Block(0, 0, -10, 0, true, true, true, true);
-        GridBlocks[4, 6] = new Block(2, 90, -10, 10, false, true, true, false);
-        GridBlocks[5, 4] = new Block(1, 0, 0, -10, true, true, false, true);
-        GridBlocks[5, 5] = new Block(0, 0, 0, 0, true, true, true, true);
-        GridBlocks[5, 6] = new Block(1, 180, 0, 10, true, true, true, false);
-        GridBlocks[6, 4] = new Block(2, -90, 10, -10, true, false, false, true);
-        GridBlocks[6, 5] = new Block(1, -90, 10, 0, true, false, true, true);
-        GridBlocks[6, 6] = new Block(2, 180, 10, 10, true, false, true, false);
-        //starts from front moving outwards, then left and right moving outwards (not below bottom of center box), then back moving outwards
-        //same formula as for adding rows and columns, different dimensions
-        bool PrevBlockOpen;
-        bool AdjBlockOpen;
-        int xPosition;
-        int zPosition;
-        //front
-        for (int row = 3; row > -1; row--) //row 3 to 0
-        {
-            xPosition = ((row - 5) * 10);
-            for (int col = 4; col < 7; col++) //column 4 to 6
-            {
-                zPosition = ((col - 5) * 10);
-                //check below
-                PrevBlockOpen = GridBlocks[row + 1, col].UpOpen;
-                //check adjacent (left)
-                if (col == 4)
-                {
-                    //decide if side is wall or not randomly
-                    if (Random.Range(0, 2) == 0)
-                    {
-                        AdjBlockOpen = true;
-                    }
-                    else
-                    {
-                        AdjBlockOpen = false;
-                    }
-                }
-                else
-                {
-                    AdjBlockOpen = GridBlocks[row, col - 1].RightOpen;
-                }
-                //pick random possible block, get rotation, get state of unconnected sides
-                int BlockTypeChosen = 0;
-                int BlockRotation = 0;
-                bool NewTopOpen = true;
-                bool NewRightOpen = true;
-                if (PrevBlockOpen && AdjBlockOpen) //both open
-                {
-                    BlockTypeChosen = Random.Range(0, 3);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, two possible directions
-                        if (Random.Range(0, 2) == 0)
-                        {
-                            BlockRotation = 90;
-                            NewTopOpen = false;
-                            NewRightOpen = true;
-                        }
-                        else
-                        {
-                            BlockRotation = 180;
-                            NewTopOpen = true;
-                            NewRightOpen = false;
-                        }
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 90;
-                        NewTopOpen = false;
-                        NewRightOpen = false;
-                    }
-                }
-                else if (PrevBlockOpen && !AdjBlockOpen) //left closed, bottom open         //all 0 rotation
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = 0;
-                        NewTopOpen = true;
-                        NewRightOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 0;
-                        NewTopOpen = false;
-                        NewRightOpen = true;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 0;
-                        NewTopOpen = true;
-                        NewRightOpen = false;
-                    }
-                }
-                else if (!PrevBlockOpen && AdjBlockOpen) //left open, bottom closed
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = -90;
-                        NewTopOpen = true;
-                        NewRightOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 180;
-                        NewTopOpen = true;
-                        NewRightOpen = false;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 90;
-                        NewTopOpen = false;
-                        NewRightOpen = true;
-                    }
-                }
-                else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
-                {
-                    BlockTypeChosen = 2;
-                    BlockRotation = -90;
-                    NewTopOpen = true;
-                    NewRightOpen = true;
-                }
-                //add new block to array and spawn on map
-                GridBlocks[row, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, NewTopOpen, PrevBlockOpen, AdjBlockOpen, NewRightOpen);
-                SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
-            }
-        }
-        //left
-        for (int col = 3; col > -1; col--) //column 3 to 0
-        {
-            zPosition = ((col - 5) * 10);
-            for (int row = 0; row < 7; row++) //row 0 to 6
-            {
-                xPosition = ((row - 5) * 10);
-                //check right
-                PrevBlockOpen = GridBlocks[row, col + 1].LeftOpen;
-                //check adjacent (top)
-                if (row == 0)
-                {
-                    //decide if side is wall or not randomly
-                    if (Random.Range(0, 2) == 0)
-                    {
-                        AdjBlockOpen = true;
-                    }
-                    else
-                    {
-                        AdjBlockOpen = false;
-                    }
-                }
-                else
-                {
-                    AdjBlockOpen = GridBlocks[row - 1, col].DownOpen;
-                }
-                //pick random possible block, get rotation, get state of unconnected sides
-                int BlockTypeChosen = 0;
-                int BlockRotation = 0;
-                bool NewBottomOpen = true;
-                bool NewLeftOpen = true;
-                if (PrevBlockOpen && AdjBlockOpen) //both open
-                {
-                    BlockTypeChosen = Random.Range(0, 3);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, two possible directions
-                        if (Random.Range(0, 2) == 0)
-                        {
-                            BlockRotation = 0;
-                            NewBottomOpen = true;
-                            NewLeftOpen = false;
-                        }
-                        else
-                        {
-                            BlockRotation = -90;
-                            NewBottomOpen = false;
-                            NewLeftOpen = true;
-                        }
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = -90;
-                        NewBottomOpen = false;
-                        NewLeftOpen = false;
-                    }
-                }
-                else if (PrevBlockOpen && !AdjBlockOpen) //top closed, right open
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = true;
-                        NewLeftOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 0;
-                        NewBottomOpen = true;
-                        NewLeftOpen = false;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = false;
-                        NewLeftOpen = true;
-                    }
-                }
-                else if (!PrevBlockOpen && AdjBlockOpen) //top open, right closed
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = 180;
-                        NewBottomOpen = true;
-                        NewLeftOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 180;
-                        NewBottomOpen = false;
-                        NewLeftOpen = true;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 0;
-                        NewBottomOpen = true;
-                        NewLeftOpen = false;
-                    }
-                }
-                else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
-                {
-                    BlockTypeChosen = 2;
-                    BlockRotation = 90;
-                    NewBottomOpen = true;
-                    NewLeftOpen = true;
-                }
-                //add new block to array and spawn on map
-                GridBlocks[row, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, AdjBlockOpen, NewBottomOpen, NewLeftOpen, PrevBlockOpen);
-                SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
-            }
-        }
-        //right
-        for (int col = 7; col < 11; col++) //column 7 to 10
-        {
-            zPosition = ((col - 5) * 10);
-            for (int row = 0; row < 7; row++) //row 0 to 6
-            {
-                xPosition = ((row - 5) * 10);
-                //check left
-                PrevBlockOpen = GridBlocks[row, col - 1].RightOpen;
-                //check adjacent (top)
-                if (row == 0)
-                {
-                    //decide if side is wall or not randomly
-                    if (Random.Range(0, 2) == 0)
-                    {
-                        AdjBlockOpen = true;
-                    }
-                    else
-                    {
-                        AdjBlockOpen = false;
-                    }
-                }
-                else
-                {
-                    AdjBlockOpen = GridBlocks[row - 1, col].DownOpen;
-                }
-                //pick random possible block, get rotation, get state of unconnected sides
-                int BlockTypeChosen = 0;
-                int BlockRotation = 0;
-                bool NewBottomOpen = true;
-                bool NewRightOpen = true;
-                if (PrevBlockOpen && AdjBlockOpen) //both open
-                {
-                    BlockTypeChosen = Random.Range(0, 3);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, two possible directions
-                        if (Random.Range(0, 2) == 0)
-                        {
-                            BlockRotation = 180;
-                            NewBottomOpen = true;
-                            NewRightOpen = false;
-                        }
-                        else
-                        {
-                            BlockRotation = -90;
-                            NewBottomOpen = false;
-                            NewRightOpen = true;
-                        }
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 180;
-                        NewBottomOpen = false;
-                        NewRightOpen = false;
-                    }
-                }
-                else if (PrevBlockOpen && !AdjBlockOpen) //top closed, left open
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = true;
-                        NewRightOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = true;
-                        NewRightOpen = false;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = false;
-                        NewRightOpen = true;
-                    }
-                }
-                else if (!PrevBlockOpen && AdjBlockOpen) //top open, left closed
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = 0;
-                        NewBottomOpen = true;
-                        NewRightOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = -90;
-                        NewBottomOpen = false;
-                        NewRightOpen = true;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 0;
-                        NewBottomOpen = true;
-                        NewRightOpen = false;
-                    }
-                }
-                else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
-                {
-                    BlockTypeChosen = 2;
-                    BlockRotation = 0;
-                    NewBottomOpen = true;
-                    NewRightOpen = true;
-                }
-                //add new block to array and spawn on map
-                GridBlocks[row, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, AdjBlockOpen, NewBottomOpen, PrevBlockOpen, NewRightOpen);
-                SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
-            }
-        }
-        //bottom
-        for (int row = 7; row < 11; row++) //row 7 to 10
-        {
-            xPosition = ((row - 5) * 10);
-            for (int col = 0; col < 11; col++) //column 0 to 10
-            {
-                zPosition = ((col - 5) * 10);
-                //check above
-                PrevBlockOpen = GridBlocks[row - 1, col].DownOpen;
-                //check adjacent (left)
-                if (col == 0)
-                {
-                    //decide if side is wall or not randomly
-                    if (Random.Range(0, 2) == 0)
-                    {
-                        AdjBlockOpen = true;
-                    }
-                    else
-                    {
-                        AdjBlockOpen = false;
-                    }
-                }
-                else
-                {
-                    AdjBlockOpen = GridBlocks[row, col - 1].RightOpen;
-                }
-                //pick random possible block, get rotation, get state of unconnected sides
-                int BlockTypeChosen = 0;
-                int BlockRotation = 0;
-                bool NewBottomOpen = true;
-                bool NewRightOpen = true;
-                if (PrevBlockOpen && AdjBlockOpen) //both open
-                {
-                    BlockTypeChosen = Random.Range(0, 3);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, two possible directions
-                        if (Random.Range(0, 2) == 0)
-                        {
-                            BlockRotation = -90;
-                            NewBottomOpen = false;
-                            NewRightOpen = true;
-                        }
-                        else
-                        {
-                            BlockRotation = 180;
-                            NewBottomOpen = true;
-                            NewRightOpen = false;
-                        }
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 180;
-                        NewBottomOpen = false;
-                        NewRightOpen = false;
-                    }
-                }
-                else if (PrevBlockOpen && !AdjBlockOpen) //top open, left closed
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = 0;
-                        NewBottomOpen = true;
-                        NewRightOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = -90;
-                        NewBottomOpen = false;
-                        NewRightOpen = true;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 0;
-                        NewBottomOpen = true;
-                        NewRightOpen = false;
-                    }
-                }
-                else if (!PrevBlockOpen && AdjBlockOpen) //top closed, left open
-                {
-                    BlockTypeChosen = Random.Range(1, 4);
-                    //choose / fix rotation
-                    if (BlockTypeChosen == 1)
-                    {
-                        //one wall, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = true;
-                        NewRightOpen = true;
-                    }
-                    else if (BlockTypeChosen == 2)
-                    {
-                        //two adjacent walls, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = true;
-                        NewRightOpen = false;
-                    }
-                    else
-                    {
-                        //two opposite walls, one possible direction
-                        BlockRotation = 90;
-                        NewBottomOpen = false;
-                        NewRightOpen = true;
-                    }
-                }
-                else if (!PrevBlockOpen && !AdjBlockOpen) //both closed
-                {
-                    BlockTypeChosen = 2;
-                    BlockRotation = 0;
-                    NewBottomOpen = true;
-                    NewRightOpen = true;
-                }
-                //add new block to array and spawn on map
-                GridBlocks[row, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, PrevBlockOpen, NewBottomOpen, AdjBlockOpen, NewRightOpen);
-                SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
-            }
-        }
-    }
-    */
 
     void NewTopRow()
     {
@@ -866,7 +366,8 @@ public class MapGenerator : MonoBehaviour
             }
             //add new block to array and spawn on map
             GridBlocks[0, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, NewTopOpen, PrevBlockOpen, AdjBlockOpen, NewRightOpen);
-            SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
     }
 
@@ -1080,7 +581,8 @@ public class MapGenerator : MonoBehaviour
             }
             //add new block to array and spawn on map
             GridBlocks[10, col] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, PrevBlockOpen, NewBottomOpen, AdjBlockOpen, NewRightOpen);
-            SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
     }
 
@@ -1294,7 +796,8 @@ public class MapGenerator : MonoBehaviour
             }
             //add new block to array and spawn on map
             GridBlocks[row, 0] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, AdjBlockOpen, NewBottomOpen, NewLeftOpen, PrevBlockOpen);
-            SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
     }
 
@@ -1508,35 +1011,19 @@ public class MapGenerator : MonoBehaviour
             }
             //add new block to array and spawn on map
             GridBlocks[row, 10] = new Block(BlockTypeChosen, BlockRotation, xPosition, zPosition, AdjBlockOpen, NewBottomOpen, PrevBlockOpen, NewRightOpen);
-            SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
+            spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
     }
 
-    void SpawnBlock(int Type, int Rotation, int xPos, int zPos)
+    void NextLevel()
     {
-        Transform Block;
-        switch (Type)
+        if (DifficultyLevel < MaxLevel)
         {
-            case 0:
-                Block = Path1;
-                break;
-            case 1:
-                Block = Path2;
-                break;
-            case 2:
-                Block = Path3;
-                break;
-            case 3:
-                Block = Path4;
-                break;
-            case 4:
-                Block = Shop;
-                break;
-            default:
-                Block = Arena;
-                break;
+            Debug.Log("Level " + DifficultyLevel);
+            DifficultyLevel++;
+            spawnEnemies.LevelUp();
         }
-        Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
     }
 }
 
@@ -1546,7 +1033,6 @@ public class MapGenerator : MonoBehaviour
     1 - 1 wall
     2 - 2 walls connected
     3 - 2 walls opposite
-    4 - 3 walls (scrapped)
 
     Type, rotation and locations(of walls):
     0   0
