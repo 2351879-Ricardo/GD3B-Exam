@@ -20,6 +20,9 @@ public class ProjectileSpawn : MonoBehaviour
     public void MakeProjectile(GameObject prefab)
     {
         var obj = Instantiate(prefab, transform.position, Quaternion.identity, transform);
+        var x = transform.root.GetComponent<EnemyController>().EnemySo.RangeDamageMult *
+                transform.root.GetComponent<EnemyController>().EnemySo.EnemyDamagePerAttack;
+        obj.GetComponent<Projectile>().SetDamage(x);
         _projectile = obj;
     }
 
@@ -27,8 +30,9 @@ public class ProjectileSpawn : MonoBehaviour
     {
         var dir = transform.root.forward;
         var rb = _projectile.GetComponent<Rigidbody>();
+        var spd = transform.root.GetComponent<EnemyController>().EnemySo.ProjectileSpeed;
         rb.isKinematic = false;
-        rb.velocity = dir * 50;
+        rb.velocity = dir * spd;
         _projectile.transform.parent = null;
     }
 }

@@ -39,6 +39,8 @@ public class EnemySO : ScriptableObject
     [SerializeField] private float chargeSpeedMultiplier;
     [SerializeField] private float chargeDamageMultiplier;
     [SerializeField] private float rangeChance;
+    [SerializeField] private float rangeDamageMult;
+    [SerializeField] private float rangeSpeed;
     
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private bool flinch = true;
@@ -87,5 +89,7 @@ public class EnemySO : ScriptableObject
     public float RangeChance => rangeChance;
     public float ChargeSpeedMult => chargeSpeedMultiplier;
     public float ChargeDamageMult => chargeDamageMultiplier;
+    public float ProjectileSpeed => rangeSpeed;
+    public float RangeDamageMult => rangeDamageMult;
     public bool CanFlinch => flinch;
 }

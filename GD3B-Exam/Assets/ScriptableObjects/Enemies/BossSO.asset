@@ -22,6 +22,8 @@ MonoBehaviour:
   chargeSpeedMultiplier: 3
   chargeDamageMultiplier: 3
   rangeChance: 0.3
+  rangeDamageMult: 0.5
+  rangeSpeed: 30
   enemyType: 0
   flinch: 0
   enemyDropTable: []
