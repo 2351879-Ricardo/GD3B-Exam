@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26683cb3b52a6d43aeea54bf19760ff, type: 3}
   m_Name: Brute
   m_EditorClassIdentifier: 
-  enemyHealth: 100
-  enemySpeed: 5
+  enemyHealth: 300
+  enemySpeed: 3
   enemyAttackSpeed: 1
-  enemyDamagePerAttack: 5
+  enemyDamagePerAttack: 7
   enemyAttackRange: 10
   enemyHitChance01: 0.8
-  chargeChance: 0
-  chargeSpeedMultiplier: 0
-  chargeDamageMultiplier: 0
+  chargeChance: 0.8
+  chargeSpeedMultiplier: 6
+  chargeDamageMultiplier: 4
   rangeChance: 0
   rangeDamageMult: 0
   rangeSpeed: 0

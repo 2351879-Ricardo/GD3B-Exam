@@ -7074,14 +7074,6 @@ PrefabInstance:
       propertyPath: inventoryCanvas
       value: 
       objectReference: {fileID: 1820584561}
-    - target: {fileID: 357373029, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: inventoryUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3766127236521128474, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
-      propertyPath: tempVar
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7521585297557970921, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -10281,11 +10273,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 191703604, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 191703604, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2777047667275833383, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}
       propertyPath: m_RootOrder
@@ -10335,5 +10327,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 3297161109298870941, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7deeb68dd6acf614582d02e430c1ea2d, type: 3}
+--- !u!1001 &6516272499011786107
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868983657564662099, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214301035618808809, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+      propertyPath: m_Name
+      value: Brute_Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
