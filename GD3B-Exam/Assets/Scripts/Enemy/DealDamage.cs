@@ -7,7 +7,6 @@ public class DealDamage : MonoBehaviour
     private void Start()
     {
         _dmg = transform.root.gameObject.GetComponent<EnemyController>().EnemySo.EnemyDamagePerAttack;
-        Debug.Log(_dmg);
     }
 
     public void OnTriggerEnter(Collider other)

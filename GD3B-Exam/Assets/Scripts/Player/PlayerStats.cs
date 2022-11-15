@@ -54,6 +54,17 @@ public class PlayerStats : MonoBehaviour
         _healthBar.UpdateHealthBar(); 
     }
 
+    public void KnockBack(Transform origin, float strength)
+    {
+        var dir = origin.position - transform.position - 0.5f*Vector3.up;
+        dir = dir.normalized;
+        dir *= -1;
+
+        dir = Vector3.back + 0.5f*Vector3.up;
+        
+        
+    }
+
     private void EndGame()
     {
         Cursor.visible = true;

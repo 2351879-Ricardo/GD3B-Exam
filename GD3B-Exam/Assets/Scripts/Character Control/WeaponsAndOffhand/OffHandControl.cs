@@ -22,7 +22,6 @@ public class OffHandControl : MonoBehaviour
     private void OnOffHandActivate()
     {
         var temp = offHand.GetComponentInChildren<Offhand>().ActivateAbility();
-        Debug.Log(temp);
         var bTemp = _anim.GetBool(temp);
         _anim.SetBool(temp, !bTemp);
     }

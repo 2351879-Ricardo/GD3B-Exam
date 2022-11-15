@@ -23,7 +23,6 @@ public class EnemyAttackState : EnemyBaseState
         
         _enemy = enemy;
         _randNum = Random.Range(1, 4);
-        Debug.Log(_randNum);
 
         for (int i = 1; i <= _randNum; i++)
         {
@@ -57,7 +56,6 @@ public class EnemyAttackState : EnemyBaseState
 
         else if (!_rc.InView && !_attacking || !inRange && !_attacking)
         {
-            Debug.Log("Cant Fuckin Reach Him with My Tiny Arms");
             enemy.SwitchState(enemy.ChaseState);
         }
     }

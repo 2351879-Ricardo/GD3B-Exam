@@ -37,7 +37,6 @@ public class EnemyChaseState : EnemyBaseState
             randNum = Mathf.Round(randNum * 10);
             randNum /= 10;
 
-            Debug.Log("tick");
             if (inChargeRange && !inMeleeRange && randNum <= enemy.EnemyController.EnemySo.ChargeChance && _rc.InView)
             {
                 enemy.SwitchState(enemy.ChargeState);
@@ -45,9 +44,6 @@ public class EnemyChaseState : EnemyBaseState
             else if (!inChargeRange && randNum <= enemy.EnemyController.EnemySo.RangeChance && _rc.InView)
             {
                 enemy.SwitchState(enemy.RangeState);
-            } else if (!_rc.InView)
-            {
-                Debug.Log("Not in View");
             }
             
             _decisionTime = 0;

@@ -33,7 +33,6 @@ public class Weapon : MonoBehaviour
     public void SetDamageMultiplier(float mult)
     {
         _dmg = weaponDamage * mult;
-        Debug.Log(_dmg);
     }
 
     private void GetLongestCombo()
@@ -44,7 +43,6 @@ public class Weapon : MonoBehaviour
     public void UpdateWeaponDamage()
     {
         weaponDamage = playerWeapon.attackDamage;
-        Debug.Log("dmg"+ _dmg);
     }
     
     public void UpdateWeaponSpeed()
