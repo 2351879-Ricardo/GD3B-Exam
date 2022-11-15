@@ -33,7 +33,7 @@ public class EnemyChaseState : EnemyBaseState
 
         if (_decisionTime >= _rc.CheckTime)
         {
-            var randNum = Random.Range(0f, 1f);
+            var randNum = Random.Range(0.1f, 1f);
             randNum = Mathf.Round(randNum * 10);
             randNum /= 10;
 
