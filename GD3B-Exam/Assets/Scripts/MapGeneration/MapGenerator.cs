@@ -30,10 +30,11 @@ public class MapGenerator : MonoBehaviour
     int Path3Percent;
     int Path4Percent;
     int TotalPercent;
-    int DifficultyLevel;
-    int LevelCounter;
-    public int MaxLevel;
-    public int LevelRate;
+    //int DifficultyLevel;
+    //int LevelCounter;
+    //public int MaxLevel;
+    //public int LevelRate;
+    public float Timer;
 
     //class or struct?
     public struct Block
@@ -64,14 +65,13 @@ public class MapGenerator : MonoBehaviour
 
     public Initialisation initialisation;
     public SpawnBlock spawnBlock;
-    public SpawnEnemies spawnEnemies;
 
     // Start is called before the first frame update
     void Start()
     {
         //float TotalRate = ShopSpawnRate + ArenaSpawnRate + Path1Rate + Path2Rate + Path3Rate + Path4Rate;
-        DifficultyLevel = 0;
-        LevelCounter = 0;
+        //DifficultyLevel = 0;
+        //LevelCounter = 0;
         ShopPercent = Mathf.RoundToInt(ShopSpawnRate);
         ArenaPercent = Mathf.RoundToInt(ArenaSpawnRate);
         Path1Percent = Mathf.RoundToInt(Path1Rate);
@@ -111,6 +111,8 @@ public class MapGenerator : MonoBehaviour
         }
         TotalPercent = ShopPercent + ArenaPercent + Path1Percent + Path2Percent + Path3Percent + Path4Percent;
         initialisation.Initialise();
+        Timer = 0f;
+        StartCoroutine(TimeCounter());
     }
 
     // Update is called once per frame
@@ -122,6 +124,7 @@ public class MapGenerator : MonoBehaviour
         }
         if (CurrentGround != PreviousGround)
         {
+            /*
             LevelCounter++;
             Debug.Log("Counter " + LevelCounter);
             if (LevelCounter > LevelRate)
@@ -129,25 +132,30 @@ public class MapGenerator : MonoBehaviour
                 LevelCounter = 0;
                 NextLevel();
             }
+            */
             //entered new square, add row/column
             if (CurrentGround.transform.position.x < PreviousGround.transform.position.x)
             {
                 //spawn top row
+                //PreviousGround = CurrentGround;
                 NewTopRow();
             }
             if (CurrentGround.transform.position.x > PreviousGround.transform.position.x)
             {
                 //spawn bottom row
+                //PreviousGround = CurrentGround;
                 NewBottomRow();
             }
             if (CurrentGround.transform.position.z < PreviousGround.transform.position.z)
             {
                 //spawn left column
+                //PreviousGround = CurrentGround;
                 NewLeftColumn();
             }
             if (CurrentGround.transform.position.z > PreviousGround.transform.position.z)
             {
                 //spawn right column
+                //PreviousGround = CurrentGround;
                 NewRightColumn();
             }
         }
@@ -369,6 +377,15 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
+        /*
+        LevelCounter++;
+        Debug.Log("Counter " + LevelCounter);
+        if (LevelCounter > LevelRate)
+        {
+            LevelCounter = 0;
+            //NextLevel();
+        }
+        */
     }
 
     void NewBottomRow()
@@ -584,6 +601,15 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
+        /*
+        LevelCounter++;
+        Debug.Log("Counter " + LevelCounter);
+        if (LevelCounter > LevelRate)
+        {
+            LevelCounter = 0;
+            //NextLevel();
+        }
+        */
     }
 
     void NewLeftColumn()
@@ -799,6 +825,15 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
+        /*
+        LevelCounter++;
+        Debug.Log("Counter " + LevelCounter);
+        if (LevelCounter > LevelRate)
+        {
+            LevelCounter = 0;
+            //NextLevel();
+        }
+        */
     }
 
     void NewRightColumn()
@@ -1014,17 +1049,38 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
+        /*
+        LevelCounter++;
+        Debug.Log("Counter " + LevelCounter);
+        if (LevelCounter > LevelRate)
+        {
+            LevelCounter = 0;
+            //NextLevel();
+        }
+        */
     }
 
+    IEnumerator TimeCounter()
+    {
+        while (true)
+        {
+            Timer++;
+            Debug.Log("Time: " + Timer);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    /*
     void NextLevel()
     {
         if (DifficultyLevel < MaxLevel)
         {
             Debug.Log("Level " + DifficultyLevel);
             DifficultyLevel++;
-            spawnEnemies.LevelUp();
+            Debug.Log("AfterFunc");
         }
     }
+    */
 }
 
 /*

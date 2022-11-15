@@ -22,9 +22,4 @@ public class SpawnEnemies : MonoBehaviour
     {
         CancelInvoke(nameof(SpawnEnemy));
     }
-
-    public void LevelUp()
-    {
-        //level up difficulty of enemies
-    }
 }

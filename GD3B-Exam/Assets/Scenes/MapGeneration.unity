@@ -1115,11 +1115,9 @@ MonoBehaviour:
   Path2Rate: 100
   Path3Rate: 101
   Path4Rate: 102
-  MaxLevel: 5
-  LevelRate: 10
+  Timer: 0
   initialisation: {fileID: 1880402715}
   spawnBlock: {fileID: 1880402714}
-  spawnEnemies: {fileID: 0}
 --- !u!114 &1880402714
 MonoBehaviour:
   m_ObjectHideFlags: 0
