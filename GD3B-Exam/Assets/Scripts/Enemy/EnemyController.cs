@@ -15,10 +15,11 @@ public class EnemyController : MonoBehaviour
 
    private void Start()
    {
-      shopBlockManager = FindObjectOfType<ShopBlockManager>();
-      shopBlockManager.CheckShops();
       InitEnemy();
       GetComponent<NavMeshAgent>().speed = EnemySo.EnemySpeed;
+      
+      shopBlockManager = FindObjectOfType<ShopBlockManager>();
+      shopBlockManager.CheckShops();
    }
 
    public void TakeDamage(float damage)
@@ -29,6 +30,12 @@ public class EnemyController : MonoBehaviour
       health -= damage;
       
       GetComponent<EnemyStateManager>().Flinch();
+
+      if (GetComponentInChildren<BossBar>() != null)
+      {
+         var bossBar = GetComponentInChildren<BossBar>();
+         bossBar.UpdateHealthBar();
+      }
 
       if (health <= 0)
       {
@@ -70,7 +77,9 @@ public class EnemyController : MonoBehaviour
 
    private void InitEnemy()
    {
+      Debug.Log("Init Enemy");
       health = enemySo.EnemyHealth;
+      Debug.Log("Health: "+ health);
    }
 
    public void ChargeEnd()
@@ -80,4 +89,6 @@ public class EnemyController : MonoBehaviour
 
    public EnemySO EnemySo => enemySo;
    public GameObject Projectile => projectile;
+
+   public float Health => health;
 }

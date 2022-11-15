@@ -15,7 +15,7 @@ public class ShopBlockManager : MonoBehaviour
     public void CheckShops()
     {
         Debug.Log("CheckShops");
-        Collider[] checkRadius = Physics.OverlapSphere(_player.position, enemyRadius);
+        var checkRadius = Physics.OverlapSphere(_player.position, enemyRadius);
         foreach (var collider in checkRadius)
         {
             if (!collider.gameObject.CompareTag("Shop")) continue;
