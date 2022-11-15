@@ -112,12 +112,13 @@ public class MapGenerator : MonoBehaviour
         TotalPercent = ShopPercent + ArenaPercent + Path1Percent + Path2Percent + Path3Percent + Path4Percent;
         initialisation.Initialise();
         Timer = 0f;
-        StartCoroutine(TimeCounter());
+        //StartCoroutine(TimeCounter());
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        Timer += Time.deltaTime;
         if (Physics.Raycast(Player.transform.position, Vector3.down, out hit))
         {
             CurrentGround = hit.collider.gameObject;
@@ -1060,6 +1061,7 @@ public class MapGenerator : MonoBehaviour
         */
     }
 
+    /*
     IEnumerator TimeCounter()
     {
         while (true)
@@ -1069,6 +1071,7 @@ public class MapGenerator : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+    */
 
     /*
     void NextLevel()
