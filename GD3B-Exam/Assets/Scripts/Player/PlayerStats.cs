@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,6 +26,12 @@ public class PlayerStats : MonoBehaviour
         
         currentHealth = maxHealth;
         _healthBar.UpdateHealthBar();
+
+        if (FindObjectOfType<BossInit>() != null)
+        {
+            currentHealth = SceneVariableTransfer.PlayerHealthTransfer;
+            _healthBar.UpdateHealthBar();
+        }
     }
 
     // Update is called once per frame
