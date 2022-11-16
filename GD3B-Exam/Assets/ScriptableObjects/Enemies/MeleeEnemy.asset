@@ -16,9 +16,16 @@ MonoBehaviour:
   enemySpeed: 3.5
   enemyAttackSpeed: 1
   enemyDamagePerAttack: 5
-  enemyAttackRange: 2.1
+  enemyAttackRange: 3.1
   enemyHitChance01: 0.8
+  chargeChance: 0
+  chargeSpeedMultiplier: 0
+  chargeDamageMultiplier: 0
+  rangeChance: 0
+  rangeDamageMult: 0
+  rangeSpeed: 0
   enemyType: 1
+  flinch: 1
   enemyDropTable:
   - lootDropChance: 0.3
     lootDropAmount: 8
