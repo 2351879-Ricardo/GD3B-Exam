@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPnl: {fileID: 1449848061}
+  winScreenPnl: {fileID: 1449848061}
 --- !u!1 &410132233
 GameObject:
   m_ObjectHideFlags: 0

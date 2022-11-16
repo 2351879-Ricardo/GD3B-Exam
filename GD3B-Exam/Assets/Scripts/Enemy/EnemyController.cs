@@ -48,7 +48,10 @@ public class EnemyController : MonoBehaviour
       Debug.Log("Dead");
       shopBlockManager.CheckShops();
       GenerateLoot();
-      // Send AI Information >> AI 
+      if (FindObjectOfType<BossInit>() != null)
+      {
+         FindObjectOfType<UIManager>().WinScreen();
+      }
       Destroy(gameObject);
    }
 

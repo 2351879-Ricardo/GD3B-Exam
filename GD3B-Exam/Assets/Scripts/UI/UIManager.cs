@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPnl;
+    [SerializeField] private GameObject winScreenPnl;
 
     public void GameOver()
     {
@@ -19,5 +21,12 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void WinScreen()
+    {
+        winScreenPnl.SetActive(true);
+        FindObjectOfType<PlayerInput>().enabled = false;
+        Time.timeScale = 0.01f;
     }
 }
