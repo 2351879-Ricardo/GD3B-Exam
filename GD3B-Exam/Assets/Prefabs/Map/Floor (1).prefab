@@ -241,8 +241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnChance01: 0.125
   enemySpawnTypes:
-  - enemyPrefab: {fileID: 4978613895841629286, guid: c47b569aa5dd6d74cb2376d18e150806, type: 3}
+  - enemyPrefab: {fileID: 4485886050494592815, guid: 1b952f72bf7f1e9458909b6dc192550f, type: 3}
     endTimer: 120
+  - enemyPrefab: {fileID: 3214301035618808809, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+    endTimer: 9999
   spawnLocation: {fileID: 8012226706656635340}
 --- !u!1 &8012226706656635340
 GameObject:

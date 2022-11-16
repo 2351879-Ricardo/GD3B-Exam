@@ -40,7 +40,7 @@ public class DynamicSpawner : MonoBehaviour
 
     private void UpdateTimer()
     {
-        Debug.Log("Update Timer");
+        _timer = FindObjectOfType<MapGenerator>().Timer;
     }
 
     private int GetSpawnState(float currentTime)
