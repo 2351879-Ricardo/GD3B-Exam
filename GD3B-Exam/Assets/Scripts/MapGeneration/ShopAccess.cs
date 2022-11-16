@@ -50,7 +50,11 @@ public class ShopAccess : MonoBehaviour
         {
             CurrentGround = hit.collider.gameObject;
         }
-        if (CurrentGround.tag == "Shop")
+        else
+        {
+            CurrentGround = null;
+        }
+        if (CurrentGround == this.gameObject)
         {
             WallLock.gameObject.SetActive(false);
         }

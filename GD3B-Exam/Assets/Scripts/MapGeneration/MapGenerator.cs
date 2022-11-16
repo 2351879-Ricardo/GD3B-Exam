@@ -30,11 +30,8 @@ public class MapGenerator : MonoBehaviour
     int Path3Percent;
     int Path4Percent;
     int TotalPercent;
-    //int DifficultyLevel;
-    //int LevelCounter;
-    //public int MaxLevel;
-    //public int LevelRate;
     public float Timer;
+    bool ArrayReady;
 
     //class or struct?
     public struct Block
@@ -62,6 +59,8 @@ public class MapGenerator : MonoBehaviour
     }
 
     public Block[,] GridBlocks = new Block[11, 11];
+    private Queue<int> GenerateOrder = new Queue<int>();
+    private int AddDirection;
 
     public Initialisation initialisation;
     public SpawnBlock spawnBlock;
@@ -69,9 +68,7 @@ public class MapGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //float TotalRate = ShopSpawnRate + ArenaSpawnRate + Path1Rate + Path2Rate + Path3Rate + Path4Rate;
-        //DifficultyLevel = 0;
-        //LevelCounter = 0;
+        //Setting path rates, initialising variables, calling initialisation script for start of map
         ShopPercent = Mathf.RoundToInt(ShopSpawnRate);
         ArenaPercent = Mathf.RoundToInt(ArenaSpawnRate);
         Path1Percent = Mathf.RoundToInt(Path1Rate);
@@ -102,65 +99,88 @@ public class MapGenerator : MonoBehaviour
         {
             Path4Percent++;
         }
-        //InitialGeneration();
-        //initialisation.Initialise();
         if (Physics.Raycast(Player.transform.position, Vector3.down, out hit))
         {
             PreviousGround = hit.collider.gameObject;
             CurrentGround = PreviousGround;
         }
         TotalPercent = ShopPercent + ArenaPercent + Path1Percent + Path2Percent + Path3Percent + Path4Percent;
-        initialisation.Initialise();
         Timer = 0f;
-        //StartCoroutine(TimeCounter());
+        ArrayReady = true;
+        initialisation.Initialise();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Debug.Log("Array ready: " + ArrayReady);
         Timer += Time.deltaTime;
-        if (Physics.Raycast(Player.transform.position, Vector3.down, out hit))
+        //if (ArrayReady)
         {
-            CurrentGround = hit.collider.gameObject;
+            if (Physics.Raycast(Player.transform.position, Vector3.down, out hit))
+            {
+                CurrentGround = hit.collider.gameObject;
+            }
+            //if player has moved onto a new block
+            if (CurrentGround != PreviousGround)
+            {
+                ArrayReady = false;
+                Debug.Log("Array ready change: " + ArrayReady);
+                //entered new square, add row/column
+                AddDirection = -1;
+                if (CurrentGround.transform.position.x < PreviousGround.transform.position.x)
+                {
+                    //spawn top row
+                    AddDirection = 0;
+                    //NewTopRow();
+                }
+                if (CurrentGround.transform.position.x > PreviousGround.transform.position.x)
+                {
+                    //spawn bottom row
+                    AddDirection = 1;
+                    //NewBottomRow();
+                }
+                if (CurrentGround.transform.position.z < PreviousGround.transform.position.z)
+                {
+                    //spawn left column
+                    AddDirection = 2;
+                    //NewLeftColumn();
+                }
+                if (CurrentGround.transform.position.z > PreviousGround.transform.position.z)
+                {
+                    //spawn right column
+                    AddDirection = 3;
+                    //NewRightColumn();
+                }
+                //order in which to add rows and columns added to queue
+                GenerateOrder.Enqueue(AddDirection);
+                Debug.Log(GenerateOrder);
+            }
+            //update previous block
+            PreviousGround = CurrentGround;
         }
-        if (CurrentGround != PreviousGround)
+        //if queue isnt empty, get next direction to add and call respective function;
+        if (GenerateOrder.Count != 0)
         {
-            /*
-            LevelCounter++;
-            Debug.Log("Counter " + LevelCounter);
-            if (LevelCounter > LevelRate)
+            int Adding = GenerateOrder.Dequeue();
+            switch (Adding)
             {
-                LevelCounter = 0;
-                NextLevel();
-            }
-            */
-            //entered new square, add row/column
-            if (CurrentGround.transform.position.x < PreviousGround.transform.position.x)
-            {
-                //spawn top row
-                //PreviousGround = CurrentGround;
-                NewTopRow();
-            }
-            if (CurrentGround.transform.position.x > PreviousGround.transform.position.x)
-            {
-                //spawn bottom row
-                //PreviousGround = CurrentGround;
-                NewBottomRow();
-            }
-            if (CurrentGround.transform.position.z < PreviousGround.transform.position.z)
-            {
-                //spawn left column
-                //PreviousGround = CurrentGround;
-                NewLeftColumn();
-            }
-            if (CurrentGround.transform.position.z > PreviousGround.transform.position.z)
-            {
-                //spawn right column
-                //PreviousGround = CurrentGround;
-                NewRightColumn();
+                case 0:
+                    NewTopRow();
+                    break;
+                case 1:
+                    NewBottomRow();
+                    break;
+                case 2:
+                    NewLeftColumn();
+                    break;
+                case 3:
+                    NewRightColumn();
+                    break;
+                default:
+                    break;
             }
         }
-        PreviousGround = CurrentGround;
     }
 
     void NewTopRow()
@@ -173,7 +193,7 @@ public class MapGenerator : MonoBehaviour
                 GridBlocks[row, col] = GridBlocks[row - 1, col];
             }
         }
-        //add row to array using method above
+        //add row to array using method in initialisation script
         //block positions must be calculated
         bool PrevBlockOpen;
         bool AdjBlockOpen;
@@ -378,15 +398,7 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
-        /*
-        LevelCounter++;
-        Debug.Log("Counter " + LevelCounter);
-        if (LevelCounter > LevelRate)
-        {
-            LevelCounter = 0;
-            //NextLevel();
-        }
-        */
+        ArrayReady = true;
     }
 
     void NewBottomRow()
@@ -602,15 +614,7 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
-        /*
-        LevelCounter++;
-        Debug.Log("Counter " + LevelCounter);
-        if (LevelCounter > LevelRate)
-        {
-            LevelCounter = 0;
-            //NextLevel();
-        }
-        */
+        ArrayReady = true;
     }
 
     void NewLeftColumn()
@@ -826,15 +830,7 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
-        /*
-        LevelCounter++;
-        Debug.Log("Counter " + LevelCounter);
-        if (LevelCounter > LevelRate)
-        {
-            LevelCounter = 0;
-            //NextLevel();
-        }
-        */
+        ArrayReady = true;
     }
 
     void NewRightColumn()
@@ -1050,40 +1046,8 @@ public class MapGenerator : MonoBehaviour
             //SpawnBlock(BlockTypeChosen, BlockRotation, xPosition, zPosition);
             spawnBlock.Spawn(BlockTypeChosen, BlockRotation, xPosition, zPosition);
         }
-        /*
-        LevelCounter++;
-        Debug.Log("Counter " + LevelCounter);
-        if (LevelCounter > LevelRate)
-        {
-            LevelCounter = 0;
-            //NextLevel();
-        }
-        */
+        ArrayReady = true;
     }
-
-    /*
-    IEnumerator TimeCounter()
-    {
-        while (true)
-        {
-            Timer++;
-            Debug.Log("Time: " + Timer);
-            yield return new WaitForSeconds(1f);
-        }
-    }
-    */
-
-    /*
-    void NextLevel()
-    {
-        if (DifficultyLevel < MaxLevel)
-        {
-            Debug.Log("Level " + DifficultyLevel);
-            DifficultyLevel++;
-            Debug.Log("AfterFunc");
-        }
-    }
-    */
 }
 
 /*
