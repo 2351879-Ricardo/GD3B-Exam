@@ -80,6 +80,13 @@ public class EnemyController : MonoBehaviour
       Debug.Log("Init Enemy");
       health = enemySo.EnemyHealth;
       Debug.Log("Health: "+ health);
+      
+      if (GetComponentInChildren<BossBar>() != null)
+      {
+         var bossBar = GetComponentInChildren<BossBar>();
+         bossBar.UpdateHealthBar();
+      }
+      
    }
 
    public void ChargeEnd()

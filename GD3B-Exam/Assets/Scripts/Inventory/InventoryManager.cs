@@ -15,6 +15,13 @@ public class InventoryManager : MonoBehaviour
     
     private bool _inventoryOpen = false;
 
+    private void Start()
+    {
+        if (FindObjectOfType<BossInit>() == null) return;
+        inventory[0].resourceCount = SceneVariableTransfer.Inv1Amount;
+        inventory[1].resourceCount = SceneVariableTransfer.Inv2Amount;
+    }
+
     public void AddToInventory(ResourceSO resource, int value)
     {
         foreach (var item in inventory)
@@ -36,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void ToggleInventory()
+    private void ToggleInventory()
     {
         _inventoryOpen = !_inventoryOpen;
         inventoryCanvas.SetActive(_inventoryOpen);

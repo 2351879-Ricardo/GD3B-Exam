@@ -1,29 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ArenaDoors : MonoBehaviour
 {
-    public GameObject Player;
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        Player = GameObject.Find("TestPlayer");
+        if (other.gameObject.CompareTag("Player")) LoadBoss();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LoadBoss()
     {
+        // Save PLayer Details
+        SceneVariableTransfer.PlayerHealthTransfer = FindObjectOfType<PlayerStats>().currentHealth;
+        var inv = FindObjectOfType<InventoryManager>();
+        SceneVariableTransfer.Inv1Amount = inv.InventoryList[0].resourceCount;
+        SceneVariableTransfer.Inv2Amount = inv.InventoryList[1].resourceCount;
         
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject == Player)
-        {
-            Debug.Log("Entered door");
-            //Call script to move player to arena
-        }
+        // Load Boss Level
+        SceneManager.LoadScene(2);
     }
 }

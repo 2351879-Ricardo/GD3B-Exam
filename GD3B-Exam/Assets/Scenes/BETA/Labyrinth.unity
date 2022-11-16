@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 301313354}
   - component: {fileID: 301313353}
   - component: {fileID: 301313352}
+  - component: {fileID: 301313355}
   m_Layer: 5
   m_Name: OverlayUI
   m_TagString: Untagged
@@ -309,6 +310,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &301313355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301313350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216fb4540af8f5f44879c1c3b445af36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPnl: {fileID: 1449848061}
 --- !u!1 &410132233
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,13 +936,15 @@ MonoBehaviour:
   Path4: {fileID: 7496493975210852, guid: 1b9b0592f1f599744a6d55f504c9e200, type: 3}
   Shop: {fileID: 489889705927852844, guid: 7b372530a26d4cc4e87ac88801c7335e, type: 3}
   Arena: {fileID: 489889705927852844, guid: b2c08c5abb1f0a140bb41a5a0b227cdf, type: 3}
-  ShopSpawnRate: 100
-  ArenaSpawnRate: 50
+  ShopSpawnRate: 10
+  ArenaSpawnRate: 5
   Path1Rate: 50
   Path2Rate: 100
   Path3Rate: 101
   Path4Rate: 102
+  Timer: 0
   initialisation: {fileID: 863722026}
+  spawnBlock: {fileID: 863722025}
 --- !u!108 &863722028
 Light:
   m_ObjectHideFlags: 0
@@ -1078,6 +1094,10 @@ PrefabInstance:
       propertyPath: inventoryCanvas
       value: 
       objectReference: {fileID: 2087634426}
+    - target: {fileID: 357373029, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 2140271388}
     - target: {fileID: 7521585297557970921, guid: bfd5c375de52a0c468aa83c6706c9e4d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1487,6 +1507,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2089697615915986108, guid: 50d5ebae2e7466c40b51295897e3b948, type: 3}
   m_PrefabInstance: {fileID: 1449848059}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1449848061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2089697615915986109, guid: 50d5ebae2e7466c40b51295897e3b948, type: 3}
+  m_PrefabInstance: {fileID: 1449848059}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1497163514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1766,3 +1791,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2100544604457656042, guid: c8a03368d030668488f7ee03204edb0c, type: 3}
   m_PrefabInstance: {fileID: 2087634425}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140271388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2100544603843144891, guid: c8a03368d030668488f7ee03204edb0c, type: 3}
+  m_PrefabInstance: {fileID: 2087634425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ab69401523b4a47a200b898017c67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

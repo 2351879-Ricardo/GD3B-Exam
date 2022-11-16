@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6280249330542347641}
   - component: {fileID: 4595884581513909662}
   - component: {fileID: 2598223880411374484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CoinPurse
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceSo: {fileID: 11400000, guid: da4278fb5f8fe2e4c9bad42ab8064737, type: 2}
-  resourceAmount: 1
 --- !u!135 &2598223880411374484
 SphereCollider:
   m_ObjectHideFlags: 0

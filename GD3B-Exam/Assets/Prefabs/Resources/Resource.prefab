@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9088938394273783962}
   - component: {fileID: 3959268119867928159}
   - component: {fileID: 7919983904717925250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Resource
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -141,4 +141,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceSo: {fileID: 0}
-  resourceAmount: 1

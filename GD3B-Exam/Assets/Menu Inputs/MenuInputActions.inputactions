@@ -1,0 +1,66 @@
+{
+    "name": "MenuInputActions",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "b2c9ac0b-7f80-40c4-a7cf-b9a48ea6c578",
+            "actions": [
+                {
+                    "name": "Down",
+                    "type": "Button",
+                    "id": "cb4eb6a0-efd9-4e03-9516-52fb845b3f07",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Up",
+                    "type": "Button",
+                    "id": "bfb5cc95-f260-4867-ad31-ee932ec51f93",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8d670ecb-17cf-43f9-b974-21f667ef1fa0",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e759b95-c8cb-4eac-8c66-67c608d0cfdb",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

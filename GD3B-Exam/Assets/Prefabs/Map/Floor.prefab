@@ -128,8 +128,6 @@ MonoBehaviour:
   enemySpawnTypes:
   - enemyPrefab: {fileID: 4978613895841629286, guid: c47b569aa5dd6d74cb2376d18e150806, type: 3}
     endTimer: 120
-  - enemyPrefab: {fileID: 8000804745677393655, guid: 89c7e46d6c517ae408604ebc923da976, type: 3}
-    endTimer: 300
   spawnLocation: {fileID: 1388757462860044874}
 --- !u!1 &1388757462860044874
 GameObject:

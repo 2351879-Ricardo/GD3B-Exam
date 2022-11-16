@@ -68,17 +68,9 @@ public class PlayerStats : MonoBehaviour
     private void EndGame()
     {
         Cursor.visible = true;
-        _cnvs.GetComponent<UIManager>().GameOver();
+        FindObjectOfType<UIManager>().GameOver();
         GetComponent<PlayerInput>().enabled = false;
-        
-        // Test Spawn Options
-        var spawnEnemies = FindObjectsOfType<SpawnEnemies>();
-        foreach (var spawner in spawnEnemies)
-        {
-            spawner.StopSpawn();
-        }
-        
-        Time.timeScale = 0f;
+        Time.timeScale = 0.01f;
     }
 
     public void AddHealthToPlayer(int heals)

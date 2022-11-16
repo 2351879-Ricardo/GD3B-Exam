@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Arena.unity
-    guid: 8c7fb96311a4ad64fa39585a01e2989f
+    path: Assets/Scenes/BETA/Menu.unity
+    guid: 3857a2379cbd22f4680f9cf111ee638a
+  - enabled: 1
+    path: Assets/Scenes/BETA/Labyrinth.unity
+    guid: cc2ef221799e15243b4ca63d232d64d9
+  - enabled: 1
+    path: Assets/Scenes/BETA/Boss Arena.unity
+    guid: dcad1893e1e177b4880980351d2a76f3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 35431299d1ad7bc40961d4bd81f0ae1e, type: 2}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6278017422593071630}
   - component: {fileID: 6643669859537363124}
   - component: {fileID: 3445034297820246376}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SmallCrystalCluster
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceSo: {fileID: 11400000, guid: 6c030bc4626fb7f4c9eb66b6d12d529f, type: 2}
-  resourceAmount: 1
 --- !u!135 &3445034297820246376
 SphereCollider:
   m_ObjectHideFlags: 0

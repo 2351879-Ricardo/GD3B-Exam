@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +13,7 @@ public class UIManager : MonoBehaviour
 
     public void RestartArena()
     {
-        SceneManager.LoadScene("Arena");
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
