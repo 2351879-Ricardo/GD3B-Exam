@@ -69,15 +69,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PauseGame",
-                    "type": "Button",
-                    "id": "d9c62a2f-9684-48f1-af5f-3560785d5cdd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Up",
                     "type": "Button",
                     "id": "928fa85e-bf21-4754-b7b5-d0b9f7aae844",
@@ -301,28 +292,6 @@
                     "processors": "",
                     "groups": "Main",
                     "action": "OpenInventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a61069a2-ba06-4a51-b4c5-4c3898576522",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Main",
-                    "action": "PauseGame",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9c962a61-93b0-447f-a113-71fab57190b4",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Main",
-                    "action": "PauseGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
