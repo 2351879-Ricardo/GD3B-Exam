@@ -1651,7 +1651,7 @@ GameObject:
   - component: {fileID: 5480547524870331929}
   - component: {fileID: 1395911149672588065}
   - component: {fileID: 5480542789775702319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Melee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1746,7 +1746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a0e9ace38309343abb6150df7dc178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnDistance: 100
+  despawnDistance: 75
   actionTime: 1
   enemyAnimator: {fileID: 7054789187709273570}
   rangeCheck: {fileID: 5480542789775702319}

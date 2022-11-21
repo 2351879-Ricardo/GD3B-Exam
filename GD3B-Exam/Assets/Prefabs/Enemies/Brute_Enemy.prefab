@@ -1191,7 +1191,7 @@ GameObject:
   - component: {fileID: 4705832285260102183}
   - component: {fileID: 5942863218342945640}
   - component: {fileID: 8367732555777678285}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Brute_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a0e9ace38309343abb6150df7dc178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnDistance: 100
+  despawnDistance: 75
   actionTime: 4
   enemyAnimator: {fileID: 5942863218342945640}
   rangeCheck: {fileID: 8367732555777678285}

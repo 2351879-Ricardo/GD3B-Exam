@@ -124,7 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190e93e00f12aa540a99e3f233af90b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawnLimit: 5
   spawnChance01: 0.125
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 256
   enemySpawnTypes:
   - enemyPrefab: {fileID: 4485886050494592815, guid: 1b952f72bf7f1e9458909b6dc192550f, type: 3}
     endTimer: 120

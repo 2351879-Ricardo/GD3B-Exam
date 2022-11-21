@@ -8,5 +8,7 @@ public class MenuInit : MonoBehaviour
     private void Awake()
     {
         MenuInputs = new MenuInputActions();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

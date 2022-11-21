@@ -12,7 +12,9 @@ public class EnemySpawnClass
 
 public class DynamicSpawner : MonoBehaviour
 {
+    [SerializeField] private int enemySpawnLimit;
     [SerializeField] private float spawnChance01;
+    [SerializeField] private LayerMask enemyMask;
     [SerializeField] private List<EnemySpawnClass> enemySpawnTypes;
     [SerializeField] private GameObject spawnLocation;
 
@@ -20,7 +22,7 @@ public class DynamicSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (SpawnSucceeded())
+        if (SpawnSucceeded() && EnemySpawnAvailable())
         {
             SpawnEnemy();
         }
@@ -35,7 +37,8 @@ public class DynamicSpawner : MonoBehaviour
     {
         UpdateTimer();
         var statePos = GetSpawnState(_timer);
-        Instantiate(enemySpawnTypes[statePos].enemyPrefab, spawnLocation.transform.position, Quaternion.identity);
+        var enemy = Instantiate(enemySpawnTypes[statePos].enemyPrefab, spawnLocation.transform.position, Quaternion.identity);
+        enemy.transform.SetParent(GameObject.FindWithTag("Container").transform);
     }
 
     private void UpdateTimer()
@@ -54,5 +57,10 @@ public class DynamicSpawner : MonoBehaviour
         }
         
         return enemySpawnTypes.Count - 1;
+    }
+
+    private bool EnemySpawnAvailable()
+    {
+        return (GameObject.FindWithTag("Container").transform.childCount <= enemySpawnLimit);
     }
 }
