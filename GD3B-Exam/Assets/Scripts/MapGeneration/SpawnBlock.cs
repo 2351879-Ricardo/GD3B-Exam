@@ -12,12 +12,12 @@ public class SpawnBlock : MonoBehaviour
     public Transform Shop;
     public Transform Arena;
 
-    private int BlockNumber;
+    //private int BlockNumber;
 
     // Start is called before the first frame update
     void Start()
     {
-        BlockNumber = 0;
+        //BlockNumber = 0;
     }
 
     // Update is called once per frame
@@ -50,6 +50,7 @@ public class SpawnBlock : MonoBehaviour
                 Block = Arena;
                 break;
         }
+        /*
         BlockNumber++;
         if (BlockNumber > 1000)
         {
@@ -57,5 +58,7 @@ public class SpawnBlock : MonoBehaviour
         }
         var NewBlock = Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
         NewBlock.name = BlockNumber.ToString();
+        */
+        Instantiate(Block, new Vector3(xPos, -0.5f, zPos), Quaternion.Euler(0, Rotation, 0));
     }
 }
