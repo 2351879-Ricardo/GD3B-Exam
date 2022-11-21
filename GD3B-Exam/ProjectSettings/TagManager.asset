@@ -10,6 +10,7 @@ TagManager:
   - Crafting
   - Canvas
   - Shop
+  - Container
   layers:
   - Default
   - TransparentFX

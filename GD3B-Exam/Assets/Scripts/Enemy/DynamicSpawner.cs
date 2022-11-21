@@ -47,9 +47,8 @@ public class DynamicSpawner : MonoBehaviour
     {
         for (var i = 0; i < enemySpawnTypes.Count - 1; i++)
         {
-            if (_timer <= enemySpawnTypes[i].endTimer)
+            if (currentTime <= enemySpawnTypes[i].endTimer)
             {
-                Debug.Log("Test");
                 return i;
             }
         }
