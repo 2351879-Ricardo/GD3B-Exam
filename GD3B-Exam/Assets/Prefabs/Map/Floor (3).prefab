@@ -240,14 +240,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190e93e00f12aa540a99e3f233af90b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnLimit: 5
-  spawnChance01: 0.125
+  enemySpawnLimit: 7
+  spawnChance01: 0.2
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
   enemySpawnTypes:
   - enemyPrefab: {fileID: 4485886050494592815, guid: 1b952f72bf7f1e9458909b6dc192550f, type: 3}
     endTimer: 120
+  - enemyPrefab: {fileID: 3214301035618808809, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+    endTimer: 240
+  - enemyPrefab: {fileID: 4485886050494592815, guid: 1b952f72bf7f1e9458909b6dc192550f, type: 3}
+    endTimer: 360
+  - enemyPrefab: {fileID: 3214301035618808809, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
+    endTimer: 480
+  - enemyPrefab: {fileID: 4485886050494592815, guid: 1b952f72bf7f1e9458909b6dc192550f, type: 3}
+    endTimer: 600
   - enemyPrefab: {fileID: 3214301035618808809, guid: 6ba9729d4ee13694a9b48f2112c418f8, type: 3}
     endTimer: 9999
   spawnLocation: {fileID: 8401402813735740362}
